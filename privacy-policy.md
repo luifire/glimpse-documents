@@ -136,15 +136,17 @@ You have the right to lodge a complaint with a data protection supervisory autho
 
 ## 9. Retention Periods
 
+We keep personal data only for as long as it is needed for the purposes described in this policy, and delete or anonymise it once it is no longer required. The entries below describe the criteria we apply; where a specific timeframe is given, it is a target rather than a guaranteed maximum, and may change as the app evolves. In all cases you can delete your account (in-app or by email) to have your data removed.
+
 | Data | Retention |
 | --- | --- |
-| Email / username | Retained for the duration of the account; deleted upon account deletion. |
-| Profile photos | Deleted after 6 months of inactivity, or immediately upon account deletion. |
-| Gender / preference data | Deleted upon account deletion. |
-| Interaction data | Anonymised upon account deletion. |
-| BLE sighting data | Automatically deleted after 30 days. |
-| FCM tokens | Removed upon account deletion. |
-| Age-verification record (date of birth + hashed device identifier) | Retained on a durable basis to enforce the 18+ requirement, including after account deletion. |
+| Email / username | Kept while your account exists; deleted when you delete your account. |
+| Profile photos | Kept while your account exists; deleted when you delete your account. We also aim to remove the photos of long-inactive accounts. |
+| Gender / preference data | Deleted when you delete your account. |
+| Interaction data | Kept as long as needed to enforce blocks and protect users; deleted or anonymised when you delete your account. |
+| BLE sighting data | Kept only temporarily to power the nearby-users list, and removed once it is no longer needed. |
+| FCM tokens | Kept as long as needed to deliver notifications; removed when you delete your account. |
+| Age-verification record (date of birth + hashed device identifier) | Kept for as long as necessary to enforce the 18+ requirement, including after account deletion. |
 
 ## 10. Data Security
 
