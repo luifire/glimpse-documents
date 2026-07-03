@@ -18,4 +18,4 @@ Glimpse is a proximity-based dating and social app that helps you connect with p
 
 For any questions, email us at [feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com).
 
-<sub>© 2026 Glimpse. All rights reserved.</sub>
+<sub>© 2026 Glimpse - Dates 2 Go. All rights reserved.</sub>
