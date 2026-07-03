@@ -18,9 +18,8 @@ This app is intended for users aged **17 and older**. We do not knowingly collec
 
 ### a) Account and Profile Data
 
-When you create an account, the following data is collected:
+When you create your profile, the following data is collected:
 
-- **Email address** — used for authentication via Supabase Auth.
 - **Username** — used as your display name within the app.
 - **Gender** — used to display you correctly to other users.
 - **Gender preference** — used to filter which users are shown to you.
@@ -65,7 +64,7 @@ Gender preference may constitute data concerning sexual orientation and is there
 
 | Data | Legal Basis |
 | --- | --- |
-| Email, username | Performance of contract (Art. 6(1)(b)) |
+| Username | Performance of contract (Art. 6(1)(b)) |
 | Profile photo | Consent (Art. 6(1)(a)) |
 | Gender preference | Explicit consent (Art. 9(2)(a)) |
 | Interaction data | Contract + legitimate interests (Art. 6(1)(b),(f)) |
@@ -116,7 +115,7 @@ We keep personal data only for as long as it is needed for the purposes describe
 
 | Data | Retention |
 | --- | --- |
-| Email / username | Kept while your account exists; deleted when you delete your account. |
+| Username | Kept while your account exists; deleted when you delete your account. |
 | Profile photos | Kept while your account exists; deleted when you delete your account. We also aim to remove the photos of long-inactive accounts. |
 | Gender / preference data | Deleted when you delete your account. |
 | Interaction data | Kept as long as needed to enforce blocks and protect users; deleted or anonymised when you delete your account. |
@@ -131,7 +130,6 @@ Technical and organisational measures are in place to protect data against unaut
 
 The data practices declared in Apple's App Store Connect for this app reflect the categories described in this policy. The following data is collected and **linked to your identity**:
 
-- Email address
 - Username
 - Profile photo
 - Gender and gender preference
