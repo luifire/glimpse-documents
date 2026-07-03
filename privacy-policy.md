@@ -74,14 +74,15 @@ The app requests the `POST_NOTIFICATIONS` permission to send notifications about
 
 ### f) Age Verification Data
 
-To keep the app restricted to adults (18+), you provide your **date of birth** during onboarding. The app derives your age from it and stores a durable age-verification record consisting of:
+Glimpse is for adults only, so before you can create a profile you confirm your **date of birth** during onboarding. We use it solely to check that you meet the minimum age of 18. For this age check we process:
 
-- your **self-declared date of birth**, and
-- a **hashed device identifier** (a one-way SHA-256 hash of the Android device ID), used only to make the age decision reinstall-proof so the 18+ requirement cannot be circumvented by deleting and reinstalling the app.
+- your **self-declared date of birth**;
+- a **pseudonymous device identifier** — a salted, one-way SHA-256 hash derived from your Android device ID (or, if that is unavailable, a random identifier stored on your device). It cannot be reversed to reveal the original device ID, is not linked to advertising, and is not shared. Its only purpose is to make the age decision reinstall-proof, so the 18+ requirement cannot be bypassed by deleting and reinstalling the app; and
+- the **resulting age status** (allowed / blocked), used to enable or restrict access to the app's features.
 
-The hashed device identifier cannot be reversed to reveal the original device ID. This record is kept even after account deletion to enforce a block against under-age access (see section 9).
+**If you do not meet the minimum age**, we do **not** create a dating profile, do **not** upload a photo, and do **not** collect an advertising ID or track you. We keep only a minimal pseudonymous record — the device hash plus a "blocked" flag, **without your date of birth** — purely to enforce the age restriction (see section 9).
 
-> **Legal basis:** Compliance with a legal obligation and legitimate interests in protecting minors (Art. 6(1)(c),(f) GDPR / Art. 13(1) DSG).
+> **Legal basis:** Compliance with a legal obligation and legitimate interests in protecting minors and age assurance (Art. 6(1)(c),(f) GDPR / Art. 13(1) DSG).
 
 ## 4. Legal Basis Summary
 
@@ -145,7 +146,8 @@ We keep personal data only for as long as it is needed for the purposes describe
 | Interaction data | Kept as long as needed to enforce blocks and protect users; deleted or anonymised when you delete your account. |
 | BLE sighting data | Kept only temporarily to power the nearby-users list, and removed once it is no longer needed. |
 | FCM tokens | Kept as long as needed to deliver notifications; removed when you delete your account. |
-| Age-verification record (date of birth + hashed device identifier) | Kept for as long as necessary to enforce the 18+ requirement, including after account deletion. |
+| Date of birth | Deleted when you delete your account. |
+| Age-block marker (device hash + status) | For a device found not to meet the minimum age, we retain only a pseudonymous marker (device hash + "blocked" flag, **no date of birth**) to enforce the age restriction. Any non-blocked record is deleted on account deletion. |
 
 ## 10. Data Security
 
