@@ -12,7 +12,7 @@ Email: [feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)
 
 ## 2. Minimum Age
 
-This app is intended for users aged **17 and older**. We do not knowingly collect personal data from anyone under the age of 17. If we become aware that a user is under 17, their account and associated data will be deleted.
+This app is intended for users aged **18 and older**. We do not knowingly collect personal data from anyone under the age of 18. If we become aware that a user is under 18, their account and associated data will be deleted.
 
 ## 3. Data Collected and Purposes
 
