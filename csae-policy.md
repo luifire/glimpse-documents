@@ -1,3 +1,8 @@
+---
+title: Child Safety (CSAE) Policy – Glimpse
+description: Glimpse's zero-tolerance policy against child sexual abuse and exploitation
+---
+
 # Child Sexual Abuse and Exploitation (CSAE) Policy
 
 _Last updated: 3 July 2026_

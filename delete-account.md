@@ -1,3 +1,8 @@
+---
+title: Deleting your account – Glimpse
+description: How to delete your Glimpse account and associated data
+---
+
 # Deleting your account and data
 
 You can delete your user account at any time. There are two ways to do this:
