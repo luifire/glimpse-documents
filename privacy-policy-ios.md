@@ -60,6 +60,18 @@ Gender preference may constitute data concerning sexual orientation and is there
 
 > **Legal basis:** Consent (Art. 6(1)(a) GDPR / Art. 13(1) DSG).
 
+### f) Age Verification Data
+
+Glimpse is for adults only, so before you can create a profile you confirm your **date of birth** during onboarding. We use it solely to check that you meet the minimum age of 18. For this age check we process:
+
+- your **self-declared date of birth**;
+- a **pseudonymous device identifier** — a salted, one-way SHA-256 hash derived from a device identifier (such as the iOS identifier for vendor), or, if that is unavailable, a random identifier stored on your device. It cannot be reversed to reveal the original identifier, is not linked to advertising, and is not shared. Its only purpose is to make the age decision reinstall-proof, so the 18+ requirement cannot be bypassed by deleting and reinstalling the app; and
+- the **resulting age status** (allowed / blocked), used to enable or restrict access to the app's features.
+
+**If you do not meet the minimum age**, we do **not** create a dating profile, do **not** upload a photo, and do **not** collect an advertising identifier or track you. We keep only a minimal pseudonymous record — the device hash plus a "blocked" flag, **without your date of birth** — purely to enforce the age restriction (see section 9).
+
+> **Legal basis:** Compliance with a legal obligation and legitimate interests in protecting minors and age assurance (Art. 6(1)(c),(f) GDPR / Art. 13(1) DSG).
+
 ## 4. Legal Basis Summary
 
 | Data | Legal Basis |
@@ -70,6 +82,7 @@ Gender preference may constitute data concerning sexual orientation and is there
 | Interaction data | Contract + legitimate interests (Art. 6(1)(b),(f)) |
 | BLE sighting data | Consent + contract (Art. 6(1)(a),(b)) |
 | FCM token | Consent (Art. 6(1)(a)) |
+| Date of birth + hashed device identifier | Legal obligation + legitimate interests (Art. 6(1)(c),(f)) |
 
 ## 5. International Data Transfers
 
@@ -121,6 +134,8 @@ We keep personal data only for as long as it is needed for the purposes describe
 | Interaction data | Kept as long as needed to enforce blocks and protect users; deleted or anonymised when you delete your account. |
 | BLE sighting data | Kept only temporarily to power the nearby-users list, and removed once it is no longer needed. |
 | FCM tokens | Kept as long as needed to deliver notifications; removed when you delete your account. |
+| Date of birth | Deleted when you delete your account. |
+| Age-block marker (device hash + status) | For a device found not to meet the minimum age, we retain only a pseudonymous marker (device hash + "blocked" flag, **no date of birth**) to enforce the age restriction. Any non-blocked record is deleted on account deletion. |
 
 ## 10. Data Security
 
@@ -133,9 +148,10 @@ The data practices declared in Apple's App Store Connect for this app reflect th
 - Username
 - Profile photo
 - Gender and gender preference
+- Date of birth
 - Interaction history
 
-BLE sighting data is collected but **not linked to your identity** in a way that is shared externally.
+BLE sighting data and the hashed device identifier used for age verification are collected but are **not linked to your identity** in a way that is shared externally.
 
 ## 12. Changes to This Privacy Policy
 
