@@ -129,7 +129,7 @@ Please include your phone model, Android version, and a short description of the
 
 ---
 
-<sub>© 2026 Glimpse. All rights reserved.</sub>
+<sub>© 2026 Glimpse - Dates 2 Go. All rights reserved.</sub>
 
 <br>
 
@@ -261,4 +261,4 @@ Bitte gib dein Telefon-Modell, deine Android-Version und eine kurze Beschreibung
 
 ---
 
-<sub>© 2026 Glimpse. Alle Rechte vorbehalten.</sub>
+<sub>© 2026 Glimpse - Dates 2 Go. Alle Rechte vorbehalten.</sub>
