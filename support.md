@@ -1,6 +1,11 @@
+---
+title: Glimpse — Support
+description: Help, FAQ and contact for the Glimpse app
+---
+
 # Glimpse — Support
 
-> **Last updated:** 17 June 2026
+> **Last updated:** 3 July 2026
 
 Welcome to Glimpse support. Glimpse helps you discover and connect with people who are physically near you right now, using your phone's Bluetooth to notice when another Glimpse user is in the same place. This page answers the most common questions and explains how to get help.
 
@@ -25,11 +30,12 @@ When interest is mutual, both people get a notification so you know it's worth s
 
 ## Getting started
 
-1. **Download and open Glimpse** from the App Store.
-2. **Create your profile** — add your name, a photo, your gender, and who you're looking for.
-3. **Allow Bluetooth** when prompted. This is what lets Glimpse notice people near you. Without it, the app cannot work.
-4. **Allow Notifications** so you're told when someone summons you or when you have a match.
-5. **Set yourself visible.** You control whether other nearby users can see you with the visibility toggle. When you're hidden, no one nearby will see you.
+1. **Download and open Glimpse** from Google Play.
+2. **Confirm your age.** Glimpse is for adults aged 18 and older, so you'll enter your date of birth once during setup.
+3. **Create your profile** — add your name, a photo, your gender, and who you're looking for.
+4. **Allow Bluetooth** when prompted. This is what lets Glimpse notice people near you. Without it, the app cannot work.
+5. **Allow Notifications** so you're told when someone summons you or when you have a match.
+6. **Set yourself visible.** You control whether other nearby users can see you with the visibility toggle. When you're hidden, no one nearby will see you.
 
 That's it — keep Glimpse running and it will surface people around you as you go about your day.
 
@@ -39,11 +45,11 @@ That's it — keep Glimpse running and it will surface people around you as you 
 
 | Permission | Status | Why |
 | --- | --- | --- |
-| **Bluetooth** | Required | Glimpse uses Bluetooth Low Energy to detect other Glimpse users nearby. It does **not** use Bluetooth to connect to headphones, speakers, or other accessories, and it does **not** track your GPS location. |
+| **Bluetooth** | Required | Glimpse uses Bluetooth Low Energy to detect other Glimpse users nearby. It does **not** use Bluetooth to connect to headphones, speakers, or other accessories, and it does **not** track your GPS location (the scan permission is declared `neverForLocation`). |
 | **Notifications** | Recommended | So you find out about summons, likes, and matches even when the app isn't open. |
 | **Camera / Photos** | Optional | For your profile photo. Only used when you choose to add or change your picture. |
 
-You can review or change all of these any time in **iOS Settings → Glimpse**.
+You can review or change all of these any time in **Android: Settings → Apps → Glimpse → Permissions**.
 
 ---
 
@@ -53,7 +59,7 @@ You can review or change all of these any time in **iOS Settings → Glimpse**.
 
 A few things to check:
 
-- **Bluetooth is on** for your phone and allowed for Glimpse (iOS Settings → Glimpse → Bluetooth).
+- **Bluetooth is on** for your phone and allowed for Glimpse (Settings → Apps → Glimpse → Permissions).
 - **You're visible** — check the visibility toggle inside the app.
 - **There's actually another Glimpse user nearby.** Glimpse only shows people who have the app and are also nearby and visible right now. In areas with few users, you may not see anyone.
 - **Glimpse is running.** For the most reliable detection, keep the app open or running in the background rather than force-quitting it.
@@ -68,7 +74,7 @@ Turn visibility off inside the app. While you're hidden, nearby users will not s
 
 ### Why do I need to keep the app running?
 
-Bluetooth detection works best when Glimpse is active. If you force-quit the app, iOS limits what it can do in the background, so you may miss nearby people. Leaving Glimpse running (even in the background) gives you the best experience.
+Bluetooth detection works best when Glimpse is active. If you force-quit the app, Android limits what it can do in the background, so you may miss nearby people. Leaving Glimpse running (even in the background) gives you the best experience. If detection stops when your screen is off, check that battery optimization isn't restricting Glimpse.
 
 ### What is a "summon"?
 
@@ -76,7 +82,7 @@ A summon is a low-pressure way to let a nearby person know you noticed them, wit
 
 ### I'm not getting notifications.
 
-Make sure notifications are enabled in **iOS Settings → Glimpse → Notifications**. Also check that Focus / Do Not Disturb isn't silencing them.
+Make sure notifications are enabled in **Settings → Apps → Glimpse → Notifications**. Also check that Do Not Disturb isn't silencing them.
 
 ### How do I edit my profile or photo?
 
@@ -89,13 +95,14 @@ Open your profile in the app and tap to edit your name, photo, or preferences.
 - Glimpse shows other users only the profile information you choose to share (such as your name and photo). It does not reveal your precise location.
 - Your visibility is always under your control via the in-app toggle.
 - We do not sell your personal data.
+- For full details, see our [Privacy Policy](privacy-policy.html).
 - If you have a privacy question, email **[feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)**.
 
 ---
 
 ## Account and data requests
 
-You can request to delete your account and associated data at any time. Email **[feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)** from the address associated with your account, with the subject **"Delete my account,"** and we'll process the request.
+You can request to delete your account and associated data at any time — directly in the app, or by email. See [Deleting your account](delete-account.html) for details. To request deletion by email, write to **[feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)** from the address associated with your account, with the subject **"Delete my account,"** and we'll process the request.
 
 ---
 
@@ -103,13 +110,13 @@ You can request to delete your account and associated data at any time. Email **
 
 If something isn't working, try these steps in order:
 
-1. Make sure you're on the latest version of Glimpse from the App Store.
-2. Confirm Bluetooth and Notifications are allowed in iOS Settings → Glimpse.
+1. Make sure you're on the latest version of Glimpse from Google Play.
+2. Confirm Bluetooth and Notifications are allowed in Settings → Apps → Glimpse → Permissions.
 3. Toggle your in-app visibility off and on again.
 4. Fully close and reopen the app.
-5. Restart your iPhone.
+5. Restart your phone.
 
-If it still doesn't work, email us with a description of the problem, your iPhone model, and your iOS version.
+If it still doesn't work, email us with a description of the problem, your phone model, and your Android version.
 
 ---
 
@@ -118,7 +125,7 @@ If it still doesn't work, email us with a description of the problem, your iPhon
 - **Email:** [feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)
 - **Response time:** typically within 2 business days
 
-Please include your iPhone model, iOS version, and a short description of the issue (and a screenshot if you have one) so we can help you faster.
+Please include your phone model, Android version, and a short description of the issue (and a screenshot if you have one) so we can help you faster.
 
 ---
 
@@ -130,7 +137,7 @@ Please include your iPhone model, iOS version, and a short description of the is
 
 # Glimpse — Support (Deutsch)
 
-> **Zuletzt aktualisiert:** 17. Juni 2026
+> **Zuletzt aktualisiert:** 3. Juli 2026
 
 Willkommen beim Glimpse-Support. Glimpse hilft dir, Menschen zu entdecken und mit ihnen in Kontakt zu treten, die gerade jetzt physisch in deiner Nähe sind – über das Bluetooth deines Telefons erkennt die App, wenn sich eine andere Glimpse-Nutzerin oder ein anderer Glimpse-Nutzer am selben Ort befindet. Diese Seite beantwortet die häufigsten Fragen und erklärt, wie du Hilfe bekommst.
 
@@ -155,11 +162,12 @@ Wenn das Interesse gegenseitig ist, bekommen beide eine Benachrichtigung, damit 
 
 ## Erste Schritte
 
-1. **Lade Glimpse herunter** und öffne es aus dem App Store.
-2. **Erstelle dein Profil** – füge deinen Namen, ein Foto, dein Geschlecht und hinzu, wen du suchst.
-3. **Erlaube Bluetooth**, wenn du gefragt wirst. Nur dadurch kann Glimpse Menschen in deiner Nähe bemerken. Ohne Bluetooth funktioniert die App nicht.
-4. **Erlaube Benachrichtigungen**, damit du erfährst, wenn dich jemand summoned oder du ein Match hast.
-5. **Mach dich sichtbar.** Du steuerst selbst, ob andere Nutzer in der Nähe dich sehen können – über den Sichtbarkeits-Schalter. Wenn du verborgen bist, sieht dich niemand in der Nähe.
+1. **Lade Glimpse herunter** und öffne es aus Google Play.
+2. **Bestätige dein Alter.** Glimpse ist für Erwachsene ab 18 Jahren, daher gibst du beim Einrichten einmalig dein Geburtsdatum ein.
+3. **Erstelle dein Profil** – füge deinen Namen, ein Foto, dein Geschlecht und hinzu, wen du suchst.
+4. **Erlaube Bluetooth**, wenn du gefragt wirst. Nur dadurch kann Glimpse Menschen in deiner Nähe bemerken. Ohne Bluetooth funktioniert die App nicht.
+5. **Erlaube Benachrichtigungen**, damit du erfährst, wenn dich jemand summoned oder du ein Match hast.
+6. **Mach dich sichtbar.** Du steuerst selbst, ob andere Nutzer in der Nähe dich sehen können – über den Sichtbarkeits-Schalter. Wenn du verborgen bist, sieht dich niemand in der Nähe.
 
 Das war's – lass Glimpse einfach laufen und es zeigt dir Menschen in deiner Umgebung, während du deinen Tag verbringst.
 
@@ -169,11 +177,11 @@ Das war's – lass Glimpse einfach laufen und es zeigt dir Menschen in deiner Um
 
 | Berechtigung | Status | Warum |
 | --- | --- | --- |
-| **Bluetooth** | Erforderlich | Glimpse nutzt Bluetooth Low Energy, um andere Glimpse-Nutzer in der Nähe zu erkennen. Es nutzt Bluetooth **nicht**, um sich mit Kopfhörern, Lautsprechern oder anderem Zubehör zu verbinden, und es verfolgt deinen GPS-Standort **nicht**. |
+| **Bluetooth** | Erforderlich | Glimpse nutzt Bluetooth Low Energy, um andere Glimpse-Nutzer in der Nähe zu erkennen. Es nutzt Bluetooth **nicht**, um sich mit Kopfhörern, Lautsprechern oder anderem Zubehör zu verbinden, und es verfolgt deinen GPS-Standort **nicht** (die Scan-Berechtigung ist als `neverForLocation` deklariert). |
 | **Benachrichtigungen** | Empfohlen | Damit du von Summons, Likes und Matches erfährst, auch wenn die App nicht geöffnet ist. |
 | **Kamera / Fotos** | Optional | Für dein Profilfoto. Wird nur verwendet, wenn du dein Bild hinzufügen oder ändern möchtest. |
 
-Du kannst all dies jederzeit in den **iOS-Einstellungen → Glimpse** überprüfen oder ändern.
+Du kannst all dies jederzeit unter **Android: Einstellungen → Apps → Glimpse → Berechtigungen** überprüfen oder ändern.
 
 ---
 
@@ -183,7 +191,7 @@ Du kannst all dies jederzeit in den **iOS-Einstellungen → Glimpse** überprüf
 
 Ein paar Dinge zum Überprüfen:
 
-- **Bluetooth ist aktiviert** für dein Telefon und für Glimpse erlaubt (iOS-Einstellungen → Glimpse → Bluetooth).
+- **Bluetooth ist aktiviert** für dein Telefon und für Glimpse erlaubt (Einstellungen → Apps → Glimpse → Berechtigungen).
 - **Du bist sichtbar** – prüfe den Sichtbarkeits-Schalter in der App.
 - **Es ist tatsächlich jemand mit Glimpse in der Nähe.** Glimpse zeigt nur Menschen, die die App haben und gerade ebenfalls in der Nähe und sichtbar sind. In Gegenden mit wenigen Nutzern siehst du möglicherweise niemanden.
 - **Glimpse läuft.** Für die zuverlässigste Erkennung lass die App geöffnet oder im Hintergrund laufen, anstatt sie zu beenden.
@@ -198,7 +206,7 @@ Schalte die Sichtbarkeit in der App aus. Solange du verborgen bist, sehen dich N
 
 ### Warum muss ich die App laufen lassen?
 
-Die Bluetooth-Erkennung funktioniert am besten, wenn Glimpse aktiv ist. Wenn du die App beendest, schränkt iOS ein, was sie im Hintergrund tun kann, sodass du Menschen in der Nähe verpassen kannst. Glimpse laufen zu lassen (auch im Hintergrund) bietet dir das beste Erlebnis.
+Die Bluetooth-Erkennung funktioniert am besten, wenn Glimpse aktiv ist. Wenn du die App beendest, schränkt Android ein, was sie im Hintergrund tun kann, sodass du Menschen in der Nähe verpassen kannst. Glimpse laufen zu lassen (auch im Hintergrund) bietet dir das beste Erlebnis. Falls die Erkennung bei ausgeschaltetem Bildschirm stoppt, prüfe, ob die Akku-Optimierung Glimpse einschränkt.
 
 ### Was ist ein „Summon“?
 
@@ -206,7 +214,7 @@ Ein Summon ist eine entspannte Möglichkeit, einer Person in der Nähe mitzuteil
 
 ### Ich erhalte keine Benachrichtigungen.
 
-Stelle sicher, dass Benachrichtigungen in den **iOS-Einstellungen → Glimpse → Mitteilungen** aktiviert sind. Prüfe außerdem, ob Fokus / „Nicht stören“ sie nicht stummschaltet.
+Stelle sicher, dass Benachrichtigungen in den **Einstellungen → Apps → Glimpse → Benachrichtigungen** aktiviert sind. Prüfe außerdem, ob „Nicht stören“ sie nicht stummschaltet.
 
 ### Wie bearbeite ich mein Profil oder Foto?
 
@@ -219,13 +227,14 @@ Stelle sicher, dass Benachrichtigungen in den **iOS-Einstellungen → Glimpse �
 - Glimpse zeigt anderen Nutzern nur die Profilinformationen, die du teilen möchtest (etwa deinen Namen und dein Foto). Dein genauer Standort wird nicht preisgegeben.
 - Deine Sichtbarkeit liegt jederzeit über den In-App-Schalter in deiner Hand.
 - Wir verkaufen deine persönlichen Daten nicht.
+- Alle Details findest du in unserer [Datenschutzerklärung](privacy-policy.html).
 - Bei Datenschutzfragen schreib an **[feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)**.
 
 ---
 
 ## Konto- und Datenanfragen
 
-Du kannst jederzeit die Löschung deines Kontos und der zugehörigen Daten beantragen. Schreib uns an **[feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)** von der mit deinem Konto verknüpften Adresse, mit dem Betreff **„Mein Konto löschen“**, und wir bearbeiten die Anfrage.
+Du kannst jederzeit die Löschung deines Kontos und der zugehörigen Daten beantragen – direkt in der App oder per E-Mail. Details findest du unter [Konto löschen](delete-account.html). Für eine Löschung per E-Mail schreib uns an **[feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)** von der mit deinem Konto verknüpften Adresse, mit dem Betreff **„Mein Konto löschen“**, und wir bearbeiten die Anfrage.
 
 ---
 
@@ -233,13 +242,13 @@ Du kannst jederzeit die Löschung deines Kontos und der zugehörigen Daten beant
 
 Wenn etwas nicht funktioniert, probiere diese Schritte der Reihe nach:
 
-1. Stelle sicher, dass du die neueste Version von Glimpse aus dem App Store nutzt.
-2. Bestätige, dass Bluetooth und Benachrichtigungen in den iOS-Einstellungen → Glimpse erlaubt sind.
+1. Stelle sicher, dass du die neueste Version von Glimpse aus Google Play nutzt.
+2. Bestätige, dass Bluetooth und Benachrichtigungen in den Einstellungen → Apps → Glimpse → Berechtigungen erlaubt sind.
 3. Schalte deine In-App-Sichtbarkeit aus und wieder ein.
 4. Schließe die App vollständig und öffne sie erneut.
-5. Starte dein iPhone neu.
+5. Starte dein Telefon neu.
 
-Wenn es immer noch nicht funktioniert, schreib uns mit einer Beschreibung des Problems, deinem iPhone-Modell und deiner iOS-Version.
+Wenn es immer noch nicht funktioniert, schreib uns mit einer Beschreibung des Problems, deinem Telefon-Modell und deiner Android-Version.
 
 ---
 
@@ -248,7 +257,7 @@ Wenn es immer noch nicht funktioniert, schreib uns mit einer Beschreibung des Pr
 - **E-Mail:** [feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)
 - **Antwortzeit:** in der Regel innerhalb von 2 Werktagen
 
-Bitte gib dein iPhone-Modell, deine iOS-Version und eine kurze Beschreibung des Problems an (und einen Screenshot, falls vorhanden), damit wir dir schneller helfen können.
+Bitte gib dein Telefon-Modell, deine Android-Version und eine kurze Beschreibung des Problems an (und einen Screenshot, falls vorhanden), damit wir dir schneller helfen können.
 
 ---
 

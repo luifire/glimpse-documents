@@ -1,0 +1,8 @@
+title: Glimpse
+description: Privacy, safety and support documents for the Glimpse app
+theme: jekyll-theme-cayman
+
+# Only these documents should be rendered/served. Exclude repo meta files.
+exclude:
+  - README.md
+  - LICENSE
