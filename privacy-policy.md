@@ -5,7 +5,9 @@ description: How Glimpse collects, uses and protects your data
 
 # Privacy Policy – Glimpse
 
-_Last updated: 3 July 2026_
+_Last updated: 4 July 2026_
+
+This policy applies to the Glimpse app on both Android and iOS. Where a detail is platform-specific, the platform is named explicitly.
 
 ## 1. Controller
 
@@ -37,7 +39,7 @@ Gender preference may constitute data concerning sexual orientation and is there
 
 ### b) Camera and Photo Access
 
-The app requests access to your camera and photo library (Android permissions `CAMERA` and `READ_MEDIA_IMAGES`) only when you choose to add or change your profile photo.
+The app requests access to your camera and photo library only when you choose to add or change your profile photo.
 
 - **Purpose:** Users can take or select a profile photo to be recognizable within the app.
 - **Storage:** The photo is stored online and temporarily cached on other users' devices to ensure app performance. Other users have no direct access to the image file.
@@ -49,10 +51,10 @@ The app requests access to your camera and photo library (Android permissions `C
 
 ### c) Bluetooth Access
 
-The app uses Bluetooth Low Energy (BLE) to detect other nearby users. On Android this uses the `BLUETOOTH_SCAN` (declared with the `neverForLocation` flag), `BLUETOOTH_CONNECT` and `BLUETOOTH_ADVERTISE` permissions.
+The app uses Bluetooth Low Energy (BLE) to detect other nearby users.
 
 - **Purpose:** Detect other nearby Glimpse users — without processing GPS or location data.
-- **No location data:** The Bluetooth scan permission is declared with `neverForLocation`, meaning Bluetooth is **not** used to derive your physical location. No GPS coordinates are collected or stored.
+- **No location data:** Bluetooth is **not** used to derive your physical location (on Android the scan permission is declared with the `neverForLocation` flag). No GPS coordinates are collected or stored.
 - **Storage:** Detection events (sightings) are stored temporarily both locally and online to keep the interaction list up to date.
 
 > **Legal basis:** Consent and performance of contract (Art. 6(1)(a),(b) GDPR / Art. 13(1) DSG).
@@ -66,7 +68,7 @@ The app uses Bluetooth Low Energy (BLE) to detect other nearby users. On Android
 
 ### e) Push Notifications
 
-The app requests the `POST_NOTIFICATIONS` permission to send notifications about matches, interactions, and activity from other users via Firebase Cloud Messaging (FCM).
+The app requests notification permission to send notifications about matches, interactions, and activity from other users via Firebase Cloud Messaging (FCM).
 
 - **Storage:** FCM tokens are stored server-side and used solely for delivering notifications.
 
@@ -77,7 +79,7 @@ The app requests the `POST_NOTIFICATIONS` permission to send notifications about
 Glimpse is for adults only, so before you can create a profile you confirm your **date of birth** during onboarding. We use it solely to check that you meet the minimum age of 18. For this age check we process:
 
 - your **self-declared date of birth**;
-- a **pseudonymous device identifier** — a salted, one-way SHA-256 hash derived from your Android device ID (or, if that is unavailable, a random identifier stored on your device). It cannot be reversed to reveal the original device ID, is not linked to advertising, and is not shared. Its only purpose is to make the age decision reinstall-proof, so the 18+ requirement cannot be bypassed by deleting and reinstalling the app; and
+- a **pseudonymous device identifier** — a salted, one-way SHA-256 hash derived from a device identifier (such as the Android device ID or the iOS identifier for vendor), or, if that is unavailable, a random identifier stored on your device. It cannot be reversed to reveal the original identifier, is not linked to advertising, and is not shared. Its only purpose is to make the age decision reinstall-proof, so the 18+ requirement cannot be bypassed by deleting and reinstalling the app; and
 - the **resulting age status** (allowed / blocked), used to enable or restrict access to the app's features.
 
 **If you do not meet the minimum age**, we do **not** create a dating profile, do **not** upload a photo, and do **not** collect an advertising ID or track you. We keep only a minimal pseudonymous record — the device hash plus a "blocked" flag, **without your date of birth** — purely to enforce the age restriction (see section 9).
@@ -125,7 +127,7 @@ You have the right to:
 
 To exercise any of these rights, send a request to: [feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com)
 
-App permissions (camera, Bluetooth, notifications) can be revoked at any time under **Android: Settings → Apps → Glimpse → Permissions**.
+App permissions (camera, Bluetooth, notifications) can be revoked at any time in your device settings — **Android:** Settings → Apps → Glimpse → Permissions; **iOS:** Settings → Glimpse.
 
 ## 8. Right to Lodge a Complaint
 
@@ -153,9 +155,9 @@ We keep personal data only for as long as it is needed for the purposes describe
 
 Technical and organisational measures are in place to protect data against unauthorised access, loss, or misuse. All data transmission is encrypted (HTTPS/TLS).
 
-## 11. Google Play Data Safety
+## 11. App Store & Google Play Privacy Disclosures
 
-The data practices declared in the **Google Play Data Safety** section for this app reflect the categories described in this policy. The following data is collected and **linked to your identity**:
+The data practices declared in the **Google Play Data Safety** section (Android) and the **Apple App Store privacy** information (iOS) for this app reflect the categories described in this policy. The following data is collected and **linked to your identity**:
 
 - Username
 - Gender and gender preference
