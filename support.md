@@ -5,7 +5,7 @@ description: Help, FAQ and contact for the Glimpse app
 
 # Glimpse — Support
 
-> **Last updated:** 3 July 2026
+> **Last updated:** 4 July 2026
 
 Welcome to Glimpse support. Glimpse helps you discover and connect with people who are physically near you right now, using your phone's Bluetooth to notice when another Glimpse user is in the same place. This page answers the most common questions and explains how to get help.
 
@@ -88,6 +88,10 @@ Make sure notifications are enabled in **Settings → Apps → Glimpse → Notif
 
 Open your profile in the app and tap to edit your name, photo, or preferences.
 
+### How do I block or report someone?
+
+Open the person's profile and choose to block or report them. **Blocking** removes them from your view. **Reporting** flags them to us for review — if a user is reported by several different people, their account can be automatically suspended. Reported users disappear from your lists entirely.
+
 ---
 
 ## Privacy and your data
@@ -137,7 +141,7 @@ Please include your phone model, Android version, and a short description of the
 
 # Glimpse — Support (Deutsch)
 
-> **Zuletzt aktualisiert:** 3. Juli 2026
+> **Zuletzt aktualisiert:** 4. Juli 2026
 
 Willkommen beim Glimpse-Support. Glimpse hilft dir, Menschen zu entdecken und mit ihnen in Kontakt zu treten, die gerade jetzt physisch in deiner Nähe sind – über das Bluetooth deines Telefons erkennt die App, wenn sich eine andere Glimpse-Nutzerin oder ein anderer Glimpse-Nutzer am selben Ort befindet. Diese Seite beantwortet die häufigsten Fragen und erklärt, wie du Hilfe bekommst.
 
@@ -219,6 +223,10 @@ Stelle sicher, dass Benachrichtigungen in den **Einstellungen → Apps → Glimp
 ### Wie bearbeite ich mein Profil oder Foto?
 
 Öffne dein Profil in der App und tippe darauf, um deinen Namen, dein Foto oder deine Präferenzen zu bearbeiten.
+
+### Wie blockiere oder melde ich jemanden?
+
+Öffne das Profil der Person und wähle Blockieren oder Melden. **Blockieren** entfernt sie aus deiner Ansicht. Beim **Melden** wird die Person zur Prüfung an uns gemeldet – erhält eine Person mehrere Meldungen von verschiedenen Nutzern, kann ihr Konto automatisch gesperrt werden. Gemeldete Personen verschwinden vollständig aus deinen Listen.
 
 ---
 

@@ -61,8 +61,8 @@ The app uses Bluetooth Low Energy (BLE) to detect other nearby users.
 
 ### d) Interaction Data
 
-- **Purpose:** When users like, block, or otherwise interact with other users, this data is stored online.
-- **Necessity:** This is required to track interactions (e.g. blocks) and protect user privacy, even after a reinstall.
+- **Purpose:** When users like, block, report, or otherwise interact with other users, this data is stored online.
+- **Necessity:** This is required to track interactions (e.g. blocks and reports) and protect user privacy, even after a reinstall. Reporting is covered in more detail in section 3g.
 
 > **Legal basis:** Performance of contract and legitimate interests (Art. 6(1)(b),(f) GDPR / Art. 13(1) DSG).
 
@@ -79,12 +79,22 @@ The app requests notification permission to send notifications about matches, in
 Glimpse is for adults only, so before you can create a profile you confirm your **date of birth** during onboarding. We use it solely to check that you meet the minimum age of 18. For this age check we process:
 
 - your **self-declared date of birth**;
-- a **pseudonymous device identifier** — a salted, one-way SHA-256 hash derived from a device identifier (such as the Android device ID or the iOS identifier for vendor), or, if that is unavailable, a random identifier stored on your device. It cannot be reversed to reveal the original identifier, is not linked to advertising, and is not shared. Its only purpose is to make the age decision reinstall-proof, so the 18+ requirement cannot be bypassed by deleting and reinstalling the app; and
+- a **pseudonymous device identifier** — a salted, one-way SHA-256 hash derived from a device identifier (such as the Android device ID or the iOS identifier for vendor), or, if that is unavailable, a random identifier stored on your device. It cannot be reversed to reveal the original identifier, is not linked to advertising, and is not shared. It is used purely to make our safety decisions reinstall-proof: it prevents the 18+ age requirement — and a moderation block (see section 3g) — from being bypassed by deleting and reinstalling the app; and
 - the **resulting age status** (allowed / blocked), used to enable or restrict access to the app's features.
 
 **If you do not meet the minimum age**, we do **not** create a dating profile, do **not** upload a photo, and do **not** collect an advertising ID or track you. We keep only a minimal pseudonymous record — the device hash plus a "blocked" flag, **without your date of birth** — purely to enforce the age restriction (see section 9).
 
 > **Legal basis:** Compliance with a legal obligation and legitimate interests in protecting minors and age assurance (Art. 6(1)(c),(f) GDPR / Art. 13(1) DSG).
+
+### g) Reporting and Moderation
+
+To keep the community safe you can **report** other users. When you do, we store the report (who reported whom, and when).
+
+- **Purpose:** Detect and act on abusive behaviour. If a user is reported by several different people, their account may be automatically **suspended** so they can no longer be seen by or interact with others.
+- **Reinstall protection:** To keep a suspension effective, we reuse the same pseudonymous device hash described in section 3f, so a suspended user cannot bypass the block by deleting and reinstalling the app. This hash is not linked to advertising and is not shared.
+- **Retention:** A suspended device keeps only a minimal pseudonymous marker (device hash + suspension status) to enforce the block; see section 9.
+
+> **Legal basis:** Legitimate interests in protecting users and preventing abuse (Art. 6(1)(f) GDPR / Art. 13(1) DSG).
 
 ## 4. Legal Basis Summary
 
@@ -94,6 +104,7 @@ Glimpse is for adults only, so before you can create a profile you confirm your 
 | Profile photo | Consent (Art. 6(1)(a)) |
 | Gender preference | Explicit consent (Art. 9(2)(a)) |
 | Interaction data | Contract + legitimate interests (Art. 6(1)(b),(f)) |
+| Reports / moderation data | Legitimate interests (Art. 6(1)(f)) |
 | BLE sighting data | Consent + contract (Art. 6(1)(a),(b)) |
 | FCM token | Consent (Art. 6(1)(a)) |
 | Date of birth + hashed device identifier | Legal obligation + legitimate interests (Art. 6(1)(c),(f)) |
@@ -146,10 +157,11 @@ We keep personal data only for as long as it is needed for the purposes describe
 | Profile photos | Kept while your account exists; deleted when you delete your account. We also aim to remove the photos of long-inactive accounts. |
 | Gender / preference data | Deleted when you delete your account. |
 | Interaction data | Kept as long as needed to enforce blocks and protect users; deleted or anonymised when you delete your account. |
+| Reports / moderation data | Kept as long as needed to review reported behaviour and enforce suspensions; deleted or anonymised when no longer required. |
 | BLE sighting data | Kept only temporarily to power the nearby-users list, and removed once it is no longer needed. |
 | FCM tokens | Kept as long as needed to deliver notifications; removed when you delete your account. |
 | Date of birth | Deleted when you delete your account. |
-| Age-block marker (device hash + status) | For a device found not to meet the minimum age, we retain only a pseudonymous marker (device hash + "blocked" flag, **no date of birth**) to enforce the age restriction. Any non-blocked record is deleted on account deletion. |
+| Age-block / suspension marker (device hash + status) | For a device found not to meet the minimum age, or suspended for abuse, we retain only a pseudonymous marker (device hash + "blocked"/"suspended" flag, **no date of birth**) to enforce the restriction. Any non-blocked record is deleted on account deletion. |
 
 ## 10. Data Security
 
@@ -166,7 +178,7 @@ The data practices declared in the **Google Play Data Safety** section (Android)
 - Interaction history
 - Push notification token (device identifier)
 
-Data is **encrypted in transit**, is **not sold**, and you can request its deletion (in-app or by email). BLE sighting data and the hashed device identifier used for age verification are collected but are not shared externally in a form linked to your public identity. The app does **not** collect location data.
+Data is **encrypted in transit**, is **not sold**, and you can request its deletion (in-app or by email). BLE sighting data and the hashed device identifier used for age verification and abuse prevention are collected but are not shared externally in a form linked to your public identity. The app does **not** collect location data.
 
 ## 12. Changes to This Privacy Policy
 
