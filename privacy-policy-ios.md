@@ -1,3 +1,8 @@
+---
+title: Privacy Policy – Glimpse (iOS)
+description: How the Glimpse iOS app collects, uses and protects your data
+---
+
 # Privacy Policy – Glimpse iOS
 
 ## 1. Controller
