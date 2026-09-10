@@ -9,6 +9,7 @@ Glimpse is a proximity-based dating and social app that helps you connect with p
 
 ## Documents
 
+- [How Glimpse works](how-it-works/) — the app in one minute, in English and German.
 - [Privacy Policy](privacy-policy.html) — how we collect, use and protect your data.
 - [Deleting your account](delete-account.html) — how to delete your account and associated data.
 - [Child Safety (CSAE) Policy](csae-policy.html) — our zero-tolerance policy against child sexual abuse and exploitation.

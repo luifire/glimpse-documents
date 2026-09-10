@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>So funktioniert Glimpse</title>
+<meta name="description" content="Glimpse in einer Minute: Dating mit Menschen, denen du wirklich begegnet bist.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glimpse">
+<meta property="og:title" content="So funktioniert Glimpse">
+<meta property="og:description" content="Dating mit Menschen, denen du wirklich begegnet bist. Kein Swipen quer durch die Stadt.">
+<meta property="og:url" content="https://luifire.github.io/glimpse-documents/how-it-works/">
+<meta name="theme-color" content="#14110F">
+<style>
+@font-face{
+  font-family:"Geist"; src:url("assets/geist-latin.woff2") format("woff2");
+  font-weight:100 900; font-style:normal; font-display:swap;
+}
+/* App-Palette (dunkles Theme). Die Ramp ist in OKLCH spezifiziert; Hex ist nur der sRGB-Rückfall. */
+:root{
+  color-scheme:dark;
+  --bg:#14110F; --surface:#2E1612; --text:#F7EBE7;
+  --dim:rgba(247,235,231,.6); --dim2:rgba(247,235,231,.4); --line:rgba(255,255,255,.10);
+  --lightest:#FF71AF; --light:#FF6F00; --mid:#A0051F; --on-lightest:#3D0111;
+  --font:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@supports (color: oklch(0 0 0)){
+  :root{ --lightest:oklch(0.740 0.185 356.0); --light:oklch(0.716 0.205 47.0); --mid:oklch(0.447 0.178 23.0); }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  min-height:100dvh; background:var(--bg); color:var(--text); font:17px/1.5 var(--font);
+  -webkit-text-size-adjust:100%;
+  display:flex; flex-direction:column; align-items:center;
+  padding-block:1.5rem 1.25rem; padding-inline:1.25rem;
+}
+.col{width:100%; max-width:34rem}
+main.col{display:flex; flex-direction:column; gap:2.75rem}
+:focus-visible{outline:2px solid var(--lightest); outline-offset:3px; border-radius:4px}
+
+/* Rollenfarben wie in CircularActionButton: Füllung 13 %, Rand 33 %, Schein 20 % */
+.r-lightest{--c:var(--lightest); --fill:rgba(255,113,175,.13); --ring:rgba(255,113,175,.33); --glow:rgba(255,113,175,.20)}
+.r-light{--c:var(--light); --fill:rgba(255,111,0,.13); --ring:rgba(255,111,0,.33); --glow:rgba(255,111,0,.20)}
+.r-mid{--c:var(--mid); --fill:rgba(160,5,31,.13); --ring:rgba(160,5,31,.33); --glow:rgba(160,5,31,.20)}
+@supports (color: color-mix(in oklch, red 10%, transparent)){
+  .r-lightest,.r-light,.r-mid{
+    --fill:color-mix(in oklch, var(--c) 13%, transparent);
+    --ring:color-mix(in oklch, var(--c) 33%, transparent);
+    --glow:color-mix(in oklch, var(--c) 20%, transparent);
+  }
+}
+
+/* Kopfzeile: Wortmarke links, Sprachwahl rechts */
+.top{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem}
+.mark{font-weight:700; font-size:18px; letter-spacing:-.01em; margin:0}
+.mark span{color:var(--lightest)}
+/* Sprachwahl im Look der Tab-Kacheln: aktiv = Mid-Tönung mit Rand */
+.lang{display:inline-flex; gap:6px}
+.lang button{
+  appearance:none; border:1px solid transparent; background:var(--line); color:var(--dim);
+  font:800 14px/1 var(--font); min-width:48px; min-height:40px; padding:0 .75rem;
+  border-radius:12px; cursor:pointer;
+}
+.lang button[aria-pressed="true"]{background:rgba(160,5,31,.2); border-color:var(--mid); color:var(--text)}
+
+/* Der eine Moment: zwei Punkte treffen sich, danach ist die Seite still. */
+.meet{position:relative; width:4rem; height:9px; margin-bottom:1.25rem}
+.meet span{position:absolute; top:0; width:9px; height:9px; border-radius:50%}
+.meet .a{left:0; background:var(--light); animation:meet-a .7s cubic-bezier(.33,0,.2,1) forwards}
+.meet .b{left:calc(4rem - 9px); background:var(--lightest); animation:meet-b .7s cubic-bezier(.33,0,.2,1) forwards}
+@keyframes meet-a{to{transform:translateX(calc(2rem - 4.5px))}}
+@keyframes meet-b{to{transform:translateX(calc(-2rem + 4.5px))}}
+@media (prefers-reduced-motion: reduce){
+  .meet .a,.meet .b{animation:none}
+  .meet .a{transform:translateX(calc(2rem - 4.5px))}
+  .meet .b{transform:translateX(calc(-2rem + 4.5px))}
+}
+
+h1{font-weight:700; font-size:clamp(32px,8vw,48px); line-height:1.05; letter-spacing:-.025em;
+  margin:0; text-wrap:balance}
+.sub{margin:1rem 0 0; color:var(--dim); max-width:36ch}
+
+/* Schritte: Nummer links, Text rechts, Beispiel darunter über die volle Breite */
+.steps{list-style:none; margin:0; padding:0; counter-reset:step; display:flex; flex-direction:column}
+.steps>li{counter-increment:step; display:grid; grid-template-columns:2rem 1fr; column-gap:1rem;
+  position:relative; padding-bottom:2rem}
+.steps>li:last-child{padding-bottom:0}
+.steps>li::before{
+  content:counter(step); grid-column:1; grid-row:1 / span 2;
+  width:2rem; height:2rem; border-radius:50%; background:var(--line); color:var(--text);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:600; font-size:15px; font-variant-numeric:tabular-nums;
+}
+.steps>li:not(:last-child)::after{
+  content:""; position:absolute; left:calc(1rem - 1px); top:2.5rem; bottom:.5rem;
+  width:2px; background:var(--line); border-radius:1px;
+}
+h2{font-weight:700; font-size:20px; line-height:1.25; letter-spacing:-.01em; margin:.25rem 0 .375rem}
+.text p{margin:0; color:var(--dim)}
+.tag{color:var(--text); font-weight:600}
+.demo{grid-column:1 / -1; position:relative; z-index:1; margin-top:1rem; display:flex; flex-direction:column; gap:.75rem}
+
+/* Nachbau der Aktionsleiste (CircularActionButton) */
+.panel{background:var(--bg); border:1px solid var(--line); border-radius:18px; padding:.75rem .5rem 1rem}
+.actions{display:flex; justify-content:center; align-items:flex-start}
+.act{flex:1 1 0; max-width:8rem; min-width:0; display:flex; flex-direction:column; align-items:center; text-align:center}
+.well{height:72px; width:100%; display:flex; align-items:center; justify-content:center}
+.circle{--d:58px; width:var(--d); height:var(--d); border-radius:50%; flex:none;
+  background:var(--fill); border:1.5px solid var(--ring); box-shadow:0 3px 12px var(--glow);
+  display:flex; align-items:center; justify-content:center; overflow:hidden}
+.big .circle{--d:66px}
+/* Code sagt diameter * 1.4, aber Compose deckelt size() auf den Kreis: effektiv 100 % */
+.circle img{width:100%; height:100%; flex:none; object-fit:contain}
+.r-lightest img{filter:url(#t-lightest)}
+.r-light img{filter:url(#t-light)}
+.r-mid img{filter:url(#t-mid)}
+.lbl{margin-top:9px; color:var(--c); font-weight:700; font-size:12.5px; line-height:1.25}
+.hint{margin-top:2px; color:var(--c); opacity:.6; font-weight:500; font-size:11.5px; line-height:1.25}
+.pass{--c:rgba(255,255,255,.72); --fill:rgba(255,255,255,.07); --ring:rgba(255,255,255,.20); --glow:transparent}
+.pass svg{width:26px; height:26px; color:var(--c)}
+
+/* Tab-Kacheln der Startseite */
+.tabs{display:flex; gap:6px}
+.tabs>span{flex:1 1 0; min-width:0; text-align:center; padding:.625rem .25rem; border-radius:12px;
+  background:var(--line); color:var(--dim); border:1px solid transparent;
+  font-weight:800; font-size:15px; line-height:1.2}
+.tabs .on{background:rgba(160,5,31,.2); border-color:var(--mid); color:var(--text)}
+
+/* Zwei Wege, Interesse zu zeigen */
+.ways{display:grid; grid-template-columns:1fr 1fr; gap:.75rem}
+@media (max-width:479px){ .ways{grid-template-columns:1fr} }
+.way{background:var(--surface); border-radius:14px; padding:1rem 1.125rem}
+.way h3{margin:0; font-size:17px; font-weight:700; color:var(--c)}
+.way .kind{display:block; font-size:14px; color:var(--c); opacity:.7; font-weight:500; margin:.125rem 0 .5rem}
+.way p{margin:0; font-size:16px; color:var(--dim)}
+
+/* Legende und Kontrolle teilen sich eine Listenform */
+.block h2{margin:0 0 .375rem}
+.block .lead{margin:0 0 .875rem; color:var(--dim)}
+.block ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.625rem}
+.block li{display:grid; grid-template-columns:.875rem 1fr; column-gap:.875rem; align-items:baseline; color:var(--dim)}
+.block li::before{content:""; width:.875rem; height:.875rem; border-radius:50%; background:var(--c, var(--dim2));
+  transform:translateY(.1em)}
+.control li::before{width:.5rem; height:.5rem; margin-left:.1875rem}
+.block b{color:var(--text); font-weight:600}
+
+.cta{display:flex; flex-direction:column; gap:.5rem}
+.btn{display:flex; align-items:center; justify-content:center; min-height:52px; padding:.75rem 1.125rem;
+  border-radius:14px; font-size:18px; font-weight:700; letter-spacing:.005em; text-decoration:none; width:100%;
+  background:var(--lightest); color:var(--on-lightest)}
+.textlink{color:var(--dim); text-decoration:underline; text-underline-offset:3px;
+  display:inline-flex; align-items:center; min-height:44px; font-size:16px}
+
+footer{margin-top:auto; padding-top:2rem; font-size:16px; color:var(--dim)}
+footer a{color:var(--dim); text-decoration:underline; text-underline-offset:3px;
+  display:inline-block; min-height:44px; line-height:44px}
+
+/* Sprache: nur die gewählte Sprache ist sichtbar */
+html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
+</style>
+<script>
+/* Sprache vor dem ersten Paint setzen: ?lang= > gespeicherte Wahl > Browsersprache > Deutsch */
+(function(){
+  var pick = (new URLSearchParams(location.search).get("lang") || "").toLowerCase();
+  if (pick !== "de" && pick !== "en") {
+    try { pick = localStorage.getItem("glimpse-lang") || ""; } catch (e) { pick = ""; }
+  }
+  if (pick !== "de" && pick !== "en") {
+    pick = (navigator.language || "de").toLowerCase().indexOf("en") === 0 ? "en" : "de";
+  }
+  document.documentElement.lang = pick;
+})();
+</script>
+</head>
+<body>
+
+<!-- Färbt nur die Magenta-Flächen der Icon-Vorlagen um; Schwarz und Weiß bleiben (wie MagentaTemplateImage) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="t-lightest" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  .443 .557 0 0 0  .686 .314 0 0 0  0 0 0 1 0"/></filter>
+  <filter id="t-light" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  .435 .565 0 0 0  0 1 0 0 0  0 0 0 1 0"/></filter>
+  <filter id="t-mid" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".627 .373 0 0 0  .020 .980 0 0 0  .122 .878 0 0 0  0 0 0 1 0"/></filter>
+</svg>
+
+<main class="col">
+  <header>
+    <div class="top">
+      <p class="mark">glim<span>pse</span></p>
+      <div class="lang" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set="de" lang="de">DE</button>
+        <button type="button" data-set="en" lang="en">EN</button>
+      </div>
+    </div>
+    <div class="meet" aria-hidden="true"><span class="a"></span><span class="b"></span></div>
+    <h1><span data-lang="de">So funktioniert Glimpse.</span><span data-lang="en">How Glimpse works.</span></h1>
+    <p class="sub">
+      <span data-lang="de">Dating mit Menschen, denen du wirklich begegnet bist. Kein Swipen quer durch die Stadt.</span>
+      <span data-lang="en">Dating with people you have actually crossed paths with. No swiping across town.</span>
+    </p>
+  </header>
+
+  <ol class="steps">
+    <li>
+      <h2><span data-lang="de">Profil anlegen</span><span data-lang="en">Make a profile</span></h2>
+      <div class="text">
+        <p data-lang="de">Name, ein Foto, wer du bist und wen du suchst. Das war’s. Glimpse ist ab 18.</p>
+        <p data-lang="en">A name, a photo, who you are and who you’re looking for. That’s it. Glimpse is 18+.</p>
+      </div>
+    </li>
+
+    <li>
+      <h2><span data-lang="de">Einfach rausgehen</span><span data-lang="en">Just go out</span></h2>
+      <div class="text">
+        <p data-lang="de">Schalte dich sichtbar und steck das Handy weg. Kommst du jemandem mit Glimpse nahe – im Café, in der Bahn, auf dem Campus –, erkennen sich eure Handys über Bluetooth. Ganz ohne GPS.</p>
+        <p data-lang="en">Turn yourself visible and put your phone away. When you come close to someone with Glimpse – at a café, on the train, on campus – your phones notice each other over Bluetooth. No GPS involved.</p>
+      </div>
+    </li>
+
+    <li>
+      <h2><span data-lang="de">Sehen, wer da war</span><span data-lang="en">See who was there</span></h2>
+      <div class="text">
+        <p data-lang="de">Unter <span class="tag">In der Nähe</span> siehst du, wer gerade um dich herum ist. Unter <span class="tag">Glimpse</span> alle, die dir zuletzt über den Weg gelaufen sind. Unter <span class="tag">Matches</span> alle, bei denen sich etwas tut. Du siehst nur Menschen, die zu deiner Suche passen – und die dich suchen.</p>
+        <p data-lang="en">Under <span class="tag">nearby</span> you see who is around you right now. Under <span class="tag">glimpses</span> everyone you recently crossed paths with. Under <span class="tag">matches</span> everyone where something is happening. You only see people who fit what you’re looking for – and who are looking for someone like you.</p>
+      </div>
+      <div class="demo" aria-hidden="true">
+        <div class="tabs">
+          <span class="on"><span data-lang="de">In der Nähe</span><span data-lang="en">nearby</span></span>
+          <span><span data-lang="de">Glimpse</span><span data-lang="en">glimpses</span></span>
+          <span><span data-lang="de">Matches</span><span data-lang="en">matches</span></span>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <h2><span data-lang="de">Interesse zeigen</span><span data-lang="en">Show interest</span></h2>
+      <div class="text">
+        <p data-lang="de">Tippst du auf eine Person, hast du drei Knöpfe:</p>
+        <p data-lang="en">Tap on someone and you get three buttons:</p>
+      </div>
+      <div class="demo">
+        <div class="panel actions" aria-hidden="true">
+          <div class="act pass">
+            <span class="well"><span class="circle"><svg viewBox="0 0 26 26"><path d="M2.1 2.1 23.9 23.9M2.1 23.9 23.9 2.1" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span></span>
+            <span class="lbl"><span data-lang="de">kein Interesse</span><span data-lang="en">not interested</span></span>
+          </div>
+          <div class="act big r-light">
+            <span class="well"><span class="circle"><img src="assets/fire_template.png" alt=""></span></span>
+            <span class="lbl">Flirt 2 Go</span>
+            <span class="hint"><span data-lang="de">darf ich anflirten?</span><span data-lang="en">can I flirt?</span></span>
+          </div>
+          <div class="act r-lightest">
+            <span class="well"><span class="circle"><img src="assets/firework_template.png" alt=""></span></span>
+            <span class="lbl">Date 2 Go</span>
+            <span class="hint"><span data-lang="de">anonym</span><span data-lang="en">anonymous</span></span>
+          </div>
+        </div>
+        <div class="ways">
+          <div class="way r-lightest">
+            <h3>Date 2 Go</h3>
+            <span class="kind" data-lang="de">anonym</span><span class="kind" data-lang="en">anonymous</span>
+            <p data-lang="de">Die Person erfährt nur, dass jemand sie mag – nicht wer. Mögt ihr euch beide, ist es ein Match.</p>
+            <p data-lang="en">They only learn that someone likes them – not who. If you both like each other, it’s a match.</p>
+          </div>
+          <div class="way r-light">
+            <h3>Flirt 2 Go</h3>
+            <span class="kind" data-lang="de">direkt, jetzt</span><span class="kind" data-lang="en">direct, right now</span>
+            <p data-lang="de">Die Person sieht, dass du gern Hallo sagen würdest, und sagt Ja oder Nein. Bei Ja: rübergehen, lächeln, reden.</p>
+            <p data-lang="en">They see that you’d like to say hi, and answer yes or no. If it’s a yes: walk over, smile, talk.</p>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <h2><span data-lang="de">Treffen</span><span data-lang="en">Meet</span></h2>
+      <div class="text">
+        <p data-lang="de">Wollt ihr beide, könnt ihr euch ein paar kurze Nachrichten schreiben, um euch zu finden. Der Rest passiert im echten Leben – nicht im Chat. Danach tippst du auf <span class="tag">Wir haben uns getroffen</span>.</p>
+        <p data-lang="en">Once you both want to, you can send each other a few short messages to find each other. The rest happens in real life – not in a chat. Afterwards, tap <span class="tag">We have met</span>.</p>
+      </div>
+      <div class="demo" aria-hidden="true">
+        <div class="panel actions">
+          <div class="act pass">
+            <span class="well"><span class="circle"><svg viewBox="0 0 26 26"><path d="M2.1 2.1 23.9 23.9M2.1 23.9 23.9 2.1" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span></span>
+            <span class="lbl"><span data-lang="de">nicht mehr<br>interessiert</span><span data-lang="en">not interested<br>anymore</span></span>
+          </div>
+          <div class="act r-light">
+            <span class="well"><span class="circle"><img src="assets/have_met_template.png" alt=""></span></span>
+            <span class="lbl"><span data-lang="de">Wir haben<br>uns getroffen</span><span data-lang="en">We<br>have met</span></span>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <h2><span data-lang="de">Entscheiden</span><span data-lang="en">Decide</span></h2>
+      <div class="text">
+        <p data-lang="de">Jetzt entscheidet jede Seite für sich, in Ruhe: zweites Date oder nicht. Sagt ihr beide Ja, steht das zweite Date – und ihr könnt euch wieder schreiben.</p>
+        <p data-lang="en">Now each of you decides, in your own time: second date or not. If you both say yes, the second date is on – and you can message each other again.</p>
+      </div>
+      <div class="demo" aria-hidden="true">
+        <div class="panel actions">
+          <div class="act pass">
+            <span class="well"><span class="circle"><svg viewBox="0 0 26 26"><path d="M2.1 2.1 23.9 23.9M2.1 23.9 23.9 2.1" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span></span>
+            <span class="lbl"><span data-lang="de">kein Interesse</span><span data-lang="en">not interested</span></span>
+          </div>
+          <div class="act big r-mid">
+            <span class="well"><span class="circle"><img src="assets/second_date_template.png" alt=""></span></span>
+            <span class="lbl"><span data-lang="de">zweites Date</span><span data-lang="en">second date</span></span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+
+  <section class="block colors" aria-labelledby="colors-h">
+    <h2 id="colors-h"><span data-lang="de">Die Farben</span><span data-lang="en">The colours</span></h2>
+    <p class="lead"><span data-lang="de">In der App siehst du an der Farbe, wo ihr gerade steht.</span><span data-lang="en">In the app, the colour tells you where the two of you stand.</span></p>
+    <ul>
+      <li class="r-lightest"><span data-lang="de"><b>Pink</b> – Date 2 Go und Match: leises Interesse, das auf Gegenseitigkeit trifft.</span><span data-lang="en"><b>Pink</b> – Date 2 Go and match: quiet interest that turned mutual.</span></li>
+      <li class="r-light"><span data-lang="de"><b>Orange</b> – Flirt 2 Go und euer Treffen: Jetzt passiert etwas.</span><span data-lang="en"><b>Orange</b> – Flirt 2 Go and meeting up: something is happening now.</span></li>
+      <li class="r-mid"><span data-lang="de"><b>Rot</b> – zweites Date: Ihr wollt euch wiedersehen.</span><span data-lang="en"><b>Red</b> – second date: you both want to meet again.</span></li>
+    </ul>
+  </section>
+
+  <section class="block control" aria-labelledby="control-h">
+    <h2 id="control-h"><span data-lang="de">Du bestimmst</span><span data-lang="en">You’re in control</span></h2>
+    <ul>
+      <li><span data-lang="de"><b>Unsichtbar</b> mit einem Tipp – dann sieht dich niemand.</span><span data-lang="en"><b>Go invisible</b> with one tap – then nobody sees you.</span></li>
+      <li><span data-lang="de"><b>Kein Standort.</b> Glimpse weiß nur, dass jemand in der Nähe ist – nicht, wo.</span><span data-lang="en"><b>No location.</b> Glimpse only knows that someone is near – not where.</span></li>
+      <li><span data-lang="de"><b>Deinen Namen</b> kannst du vor Fremden verbergen.</span><span data-lang="en"><b>Your name</b> can stay hidden from strangers.</span></li>
+      <li><span data-lang="de"><b>Blockieren, melden, Konto löschen</b> – jederzeit, direkt in der App.</span><span data-lang="en"><b>Block, report, delete your account</b> – any time, right in the app.</span></li>
+    </ul>
+  </section>
+
+  <div class="cta">
+    <a class="btn" href="../get/index.html"><span data-lang="de">Glimpse holen</span><span data-lang="en">Get Glimpse</span></a>
+    <a class="textlink" href="../support.html"><span data-lang="de">Fragen? Zum Support</span><span data-lang="en">Questions? Go to support</span></a>
+  </div>
+</main>
+
+<footer class="col">
+  <a href="../privacy-policy.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a>
+  ·
+  <a href="../support.html">Support</a>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var TITLES = { de: "So funktioniert Glimpse", en: "How Glimpse works" };
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".lang button");
+
+  function apply(lang){
+    root.lang = lang;
+    document.title = TITLES[lang];
+    buttons.forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-set") === lang)); });
+  }
+
+  buttons.forEach(function(b){
+    b.addEventListener("click", function(){
+      var lang = b.getAttribute("data-set");
+      apply(lang);
+      try { localStorage.setItem("glimpse-lang", lang); } catch (e) {}
+      // Die URL trägt die Wahl mit, damit ein geteilter Link in derselben Sprache öffnet
+      var url = new URL(location.href);
+      url.searchParams.set("lang", lang);
+      history.replaceState(null, "", url);
+    });
+  });
+
+  apply(root.lang === "en" ? "en" : "de");
+})();
+</script>
+</body>
+</html>
