@@ -113,6 +113,9 @@ html:not([data-inapp]) .inapp{display:none}
     <span data-lang="de">Glimpse zeigt dir nur Menschen, denen du wirklich begegnet bist. Kein Swipen quer durch die Stadt.</span>
     <span data-lang="en">Glimpse only shows you people you have actually met. No swiping across town.</span>
   </p>
+  <p class="crossref">
+    <a class="textlink" id="how-link" href="../how-it-works/index.html"><span data-lang="de">So funktioniert Glimpse</span><span data-lang="en">How Glimpse works</span></a>
+  </p>
 
   <p class="hint inapp plat p-ios">
     <span data-lang="de">Öffne die Seite in <b>Safari</b>, sonst startet TestFlight nicht.</span>
@@ -210,6 +213,10 @@ html:not([data-inapp]) .inapp{display:none}
 
   /* Sprache: Deutsch bleibt, Englisch nur bei englischer Browsersprache */
   if ((navigator.language || "de").toLowerCase().indexOf("en") === 0) root.lang = "en";
+
+  /* Erklärseite in derselben Sprache öffnen */
+  var howLink = document.getElementById("how-link");
+  if (howLink) howLink.href += "?lang=" + root.lang;
 
   /* Kampagne: unbekannter oder fehlender Wert lässt die Standard-Schlagzeile stehen */
   var campaign = CAMPAIGNS[(params.get("c") || "").toLowerCase()];
