@@ -72,6 +72,18 @@ footer a{color:var(--muted);text-decoration:none}
 footer a:hover{color:var(--fg)}
 footer .legal{display:flex;flex-wrap:wrap;gap:8px}
 
+/* Index oben auf den Dokumentseiten */
+html{scroll-behavior:smooth}
+.doc h2{scroll-margin-top:16px}
+.doc .toc{margin:1.4rem 0 .5rem;padding:13px 16px 14px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.doc .toc-t{margin:0 0 10px;font:500 11px/1.3 "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.doc .toc ul{margin:0;padding:0;list-style:none;columns:2;column-gap:26px}
+.doc .toc li{margin:0 0 5px;line-height:1.28;break-inside:avoid}
+.doc .toc li:last-child{margin-bottom:0}
+.doc .toc a{font-size:14px;font-weight:600;color:rgba(255,244,241,.86)}
+.doc .toc a:hover{color:var(--accent)}
+@media(max-width:30rem){.doc .toc ul{columns:1}}
+
 /* Nur die gewaehlte Sprache ist sichtbar */
 html[data-lang=de] .l-en{display:none}
 html[data-lang=en] .l-de{display:none}
@@ -90,6 +102,9 @@ html[data-lang=en] .l-de{display:none}
   a{color:#111;text-decoration:underline}
   .doc a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;color:#555}
   .doc blockquote,.doc .langnote,.doc pre{border-color:#bbb;background:#f6f6f6;color:#333}
+  .doc .toc{border-color:#bbb;background:#f6f6f6;break-inside:avoid}
+  .doc .toc a{color:#111;text-decoration:none}
+  .doc .toc-t{color:#333}
   .doc th,.doc td{border-color:#bbb}
   .doc th{color:#333}
   .doc em{color:#444}
