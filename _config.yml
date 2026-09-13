@@ -8,3 +8,4 @@ exclude:
   - LICENSE
   - get/tools
   - app-store-listing.md
+  - beta-support-restore.md
