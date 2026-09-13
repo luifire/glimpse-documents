@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="de" data-lang="de"><head>
+<meta charset="utf-8">
+<title>Glimpse — Support</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#140A0C">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Help, FAQ and contact for the Glimpse app">
+<meta property="og:title" content="Glimpse — Support">
+<meta property="og:description" content="Help, FAQ and contact for the Glimpse app">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://luifire.github.io/glimpse-documents/get/assets/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glimpse. Flirte in echt, nicht auf der Couch.">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Glimpse">
+<meta property="og:url" content="https://luifire.github.io/glimpse-documents/support.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="alternate" hreflang="de" href="https://luifire.github.io/glimpse-documents/support.html?lang=de">
+<link rel="alternate" hreflang="en" href="https://luifire.github.io/glimpse-documents/support.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://luifire.github.io/glimpse-documents/support.html">
+<link rel="stylesheet" href="assets/glimpse-docs.css">
+<script>
+/* Sprache vor dem ersten Paint setzen: ?lang= > gespeicherte Wahl > Browsersprache > Deutsch */
+(function(){var p=(new URLSearchParams(location.search).get("lang")||"").toLowerCase();
+if(p!=="de"&&p!=="en"){try{p=localStorage.getItem("glimpse-lang")||"";}catch(e){p="";}}
+if(p!=="de"&&p!=="en"){p=(navigator.language||"de").toLowerCase().indexOf("en")===0?"en":"de";}
+document.documentElement.dataset.lang=p;document.documentElement.lang=p;})();
+</script>
+</head><body>
+<main>
+<div class="bar"><a class="brand" href="./"><img src="get/assets/glimpse-logo.png" alt=""><span class="wm">Glimpse</span></a><span class="sep">&bull;</span><span class="tg">Dates 2 Go</span>
+<div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-set="de" aria-pressed="true">DE</button><button type="button" data-set="en" aria-pressed="false">EN</button></div></div>
+
+<a class="back" href="./"><span>&larr;</span><span class="l-de" lang="de">Alle Dokumente</span><span class="l-en" lang="en">All documents</span></a>
+
+<article class="doc">
+<div class="l-en" lang="en">
+<h1>Glimpse — Support</h1>
+<blockquote>
+<p><strong>Last updated:</strong> 13 September 2026</p>
+</blockquote>
+<p>Welcome to Glimpse support. Glimpse helps you discover and connect with people who are physically near you right now, using your phone's Bluetooth to notice when another Glimpse user is in the same place. This page answers the most common questions and explains how to get help.</p>
+<blockquote>
+<p><strong>Need a person?</strong> Email us at <strong><a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></strong> and we'll get back to you, usually within 2 business days.</p>
+</blockquote>
+<hr>
+<h2>What is Glimpse?</h2>
+<p>Glimpse is a proximity-based dating and social app. Instead of swiping through people who could be anywhere in the world, Glimpse only shows you people who are actually nearby — at the same café, event, gym, or street. When two phones running Glimpse come close to each other, they notice one another over Bluetooth and the people appear on each other's screen.</p>
+<p>From there you can:</p>
+<ul>
+<li><strong>Summon someone</strong> — a lightweight nudge that says "I noticed you."</li>
+<li><strong>Like</strong> someone you're interested in.</li>
+<li><strong>Meet</strong> — confirm you'd like to actually say hello in person.</li>
+<li><strong>Decide</strong> — after an encounter, choose whether you want to stay connected.</li>
+</ul>
+<p>When interest is mutual, both people get a notification so you know it's worth saying hi.</p>
+<hr>
+<h2>Getting started</h2>
+<ol>
+<li><strong>Download and open Glimpse</strong> from Google Play.</li>
+<li><strong>Confirm your age.</strong> Glimpse is for adults aged 18 and older, so you'll enter your date of birth once during setup.</li>
+<li><strong>Create your profile</strong> — add your name, a photo, your gender, and who you're looking for.</li>
+<li><strong>Allow Bluetooth</strong> when prompted. This is what lets Glimpse notice people near you. Without it, the app cannot work.</li>
+<li><strong>Allow Notifications</strong> so you're told when someone summons you or when you have a match.</li>
+<li><strong>Set yourself visible.</strong> You control whether other nearby users can see you with the visibility toggle. When you're hidden, no one nearby will see you.</li>
+</ol>
+<p>That's it — keep Glimpse running and it will surface people around you as you go about your day.</p>
+<hr>
+<h2>Permissions Glimpse asks for, and why</h2>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Status</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bluetooth</strong></td>
+<td>Required</td>
+<td>Glimpse uses Bluetooth Low Energy to detect other Glimpse users nearby. It does <strong>not</strong> use Bluetooth to connect to headphones, speakers, or other accessories, and it does <strong>not</strong> track your GPS location (the scan permission is declared <code>neverForLocation</code>).</td>
+</tr>
+<tr>
+<td><strong>Notifications</strong></td>
+<td>Recommended</td>
+<td>So you find out about summons, likes, and matches even when the app isn't open.</td>
+</tr>
+<tr>
+<td><strong>Camera / Photos</strong></td>
+<td>Optional</td>
+<td>For your profile photo. Only used when you choose to add or change your picture.</td>
+</tr>
+</tbody>
+</table>
+<p>You can review or change all of these any time in <strong>Android: Settings → Apps → Glimpse → Permissions</strong>.</p>
+<hr>
+<h2>Frequently asked questions</h2>
+<h3>Why don't I see anyone nearby?</h3>
+<p>A few things to check:</p>
+<ul>
+<li><strong>Bluetooth is on</strong> for your phone and allowed for Glimpse (Settings → Apps → Glimpse → Permissions).</li>
+<li><strong>You're visible</strong> — check the visibility toggle inside the app.</li>
+<li><strong>There's actually another Glimpse user nearby.</strong> Glimpse only shows people who have the app and are also nearby and visible right now. In areas with few users, you may not see anyone.</li>
+<li><strong>Glimpse is running.</strong> For the most reliable detection, keep the app open or running in the background rather than force-quitting it.</li>
+</ul>
+<h3>Does Glimpse track my location?</h3>
+<p>No. Glimpse does not use GPS or share your map location. It works by noticing when another Glimpse phone is within Bluetooth range — it knows someone is <em>near</em>, not <em>where</em> either of you are on a map.</p>
+<h3>How do I stop being seen by people around me?</h3>
+<p>Turn visibility off inside the app. While you're hidden, nearby users will not see you and you won't appear in anyone's list. You can turn it back on whenever you like.</p>
+<h3>Why do I need to keep the app running?</h3>
+<p>Bluetooth detection works best when Glimpse is active. If you force-quit the app, Android limits what it can do in the background, so you may miss nearby people. Leaving Glimpse running (even in the background) gives you the best experience. If detection stops when your screen is off, check that battery optimization isn't restricting Glimpse.</p>
+<h3>What is a "summon"?</h3>
+<p>A summon is a low-pressure way to let a nearby person know you noticed them, without fully committing to a like. If they summon you back, you'll both be notified.</p>
+<h3>I'm not getting notifications.</h3>
+<p>Make sure notifications are enabled in <strong>Settings → Apps → Glimpse → Notifications</strong>. Also check that Do Not Disturb isn't silencing them.</p>
+<h3>How do I edit my profile or photo?</h3>
+<p>Open your profile in the app and tap to edit your name, photo, or preferences.</p>
+<hr>
+<h2>Privacy and your data</h2>
+<ul>
+<li>Glimpse shows other users only the profile information you choose to share (such as your name and photo). It does not reveal your precise location.</li>
+<li>Your visibility is always under your control via the in-app toggle.</li>
+<li>We do not sell your personal data.</li>
+<li>For full details, see our <a href="privacy-policy.html">Privacy Policy</a>.</li>
+<li>If you have a privacy question, email <strong><a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></strong>.</li>
+</ul>
+<hr>
+<h2>Account and data requests</h2>
+<p>You can request to delete your account and associated data at any time — directly in the app, or by email. See <a href="delete-account.html">Deleting your account</a> for details. To request deletion by email, write to <strong><a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></strong> from the address associated with your account, with the subject <strong>"Delete my account,"</strong> and we'll process the request.</p>
+<hr>
+<h2>Troubleshooting checklist</h2>
+<p>If something isn't working, try these steps in order:</p>
+<ol>
+<li>Make sure you're on the latest version of Glimpse from Google Play.</li>
+<li>Confirm Bluetooth and Notifications are allowed in Settings → Apps → Glimpse → Permissions.</li>
+<li>Toggle your in-app visibility off and on again.</li>
+<li>Fully close and reopen the app.</li>
+<li>Restart your phone.</li>
+</ol>
+<p>If it still doesn't work, email us with a description of the problem, your phone model, and your Android version.</p>
+<hr>
+<h2>Contact us</h2>
+<ul>
+<li><strong>Email:</strong> <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></li>
+<li><strong>Response time:</strong> typically within 2 business days</li>
+</ul>
+<p>Please include your phone model, Android version, and a short description of the issue (and a screenshot if you have one) so we can help you faster.</p>
+<hr>
+<p><sub>© 2026 Glimpse - Dates 2 Go. All rights reserved.</sub></p>
+<p><br></p>
+</div>
+<div class="l-de" lang="de">
+<h1>Glimpse — Support</h1>
+<blockquote>
+<p><strong>Zuletzt aktualisiert:</strong> 13. September 2026</p>
+</blockquote>
+<p>Willkommen beim Glimpse-Support. Glimpse hilft dir, Menschen zu entdecken und mit ihnen in Kontakt zu treten, die gerade jetzt physisch in deiner Nähe sind – über das Bluetooth deines Telefons erkennt die App, wenn sich eine andere Glimpse-Nutzerin oder ein anderer Glimpse-Nutzer am selben Ort befindet. Diese Seite beantwortet die häufigsten Fragen und erklärt, wie du Hilfe bekommst.</p>
+<blockquote>
+<p><strong>Du brauchst einen echten Menschen?</strong> Schreib uns an <strong><a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></strong>, wir melden uns in der Regel innerhalb von 2 Werktagen zurück.</p>
+</blockquote>
+<hr>
+<h2>Was ist Glimpse?</h2>
+<p>Glimpse ist eine auf Nähe basierende Dating- und Social-App. Anstatt dich durch Menschen zu wischen, die irgendwo auf der Welt sein könnten, zeigt dir Glimpse nur Menschen, die tatsächlich in deiner Nähe sind – im selben Café, beim selben Event, im Fitnessstudio oder auf der Straße. Wenn zwei Telefone mit Glimpse einander nahekommen, bemerken sie sich über Bluetooth und die Personen erscheinen gegenseitig auf dem Bildschirm.</p>
+<p>Von dort aus kannst du:</p>
+<ul>
+<li><strong>Jemanden summonen</strong> – ein leichter Anstoß, der sagt „Ich habe dich bemerkt.“</li>
+<li><strong>Jemanden liken</strong>, der dich interessiert.</li>
+<li><strong>Meet</strong> – bestätigen, dass du wirklich persönlich Hallo sagen möchtest.</li>
+<li><strong>Decide</strong> – nach einer Begegnung entscheiden, ob du in Kontakt bleiben möchtest.</li>
+</ul>
+<p>Wenn das Interesse gegenseitig ist, bekommen beide eine Benachrichtigung, damit du weißt, dass es sich lohnt, Hallo zu sagen.</p>
+<hr>
+<h2>Erste Schritte</h2>
+<ol>
+<li><strong>Lade Glimpse herunter</strong> und öffne es aus Google Play.</li>
+<li><strong>Bestätige dein Alter.</strong> Glimpse ist für Erwachsene ab 18 Jahren, daher gibst du beim Einrichten einmalig dein Geburtsdatum ein.</li>
+<li><strong>Erstelle dein Profil</strong> – füge deinen Namen, ein Foto, dein Geschlecht und hinzu, wen du suchst.</li>
+<li><strong>Erlaube Bluetooth</strong>, wenn du gefragt wirst. Nur dadurch kann Glimpse Menschen in deiner Nähe bemerken. Ohne Bluetooth funktioniert die App nicht.</li>
+<li><strong>Erlaube Benachrichtigungen</strong>, damit du erfährst, wenn dich jemand summoned oder du ein Match hast.</li>
+<li><strong>Mach dich sichtbar.</strong> Du steuerst selbst, ob andere Nutzer in der Nähe dich sehen können – über den Sichtbarkeits-Schalter. Wenn du verborgen bist, sieht dich niemand in der Nähe.</li>
+</ol>
+<p>Das war's – lass Glimpse einfach laufen und es zeigt dir Menschen in deiner Umgebung, während du deinen Tag verbringst.</p>
+<hr>
+<h2>Welche Berechtigungen Glimpse anfragt – und warum</h2>
+<table>
+<thead>
+<tr>
+<th>Berechtigung</th>
+<th>Status</th>
+<th>Warum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bluetooth</strong></td>
+<td>Erforderlich</td>
+<td>Glimpse nutzt Bluetooth Low Energy, um andere Glimpse-Nutzer in der Nähe zu erkennen. Es nutzt Bluetooth <strong>nicht</strong>, um sich mit Kopfhörern, Lautsprechern oder anderem Zubehör zu verbinden, und es verfolgt deinen GPS-Standort <strong>nicht</strong> (die Scan-Berechtigung ist als <code>neverForLocation</code> deklariert).</td>
+</tr>
+<tr>
+<td><strong>Benachrichtigungen</strong></td>
+<td>Empfohlen</td>
+<td>Damit du von Summons, Likes und Matches erfährst, auch wenn die App nicht geöffnet ist.</td>
+</tr>
+<tr>
+<td><strong>Kamera / Fotos</strong></td>
+<td>Optional</td>
+<td>Für dein Profilfoto. Wird nur verwendet, wenn du dein Bild hinzufügen oder ändern möchtest.</td>
+</tr>
+</tbody>
+</table>
+<p>Du kannst all dies jederzeit unter <strong>Android: Einstellungen → Apps → Glimpse → Berechtigungen</strong> überprüfen oder ändern.</p>
+<hr>
+<h2>Häufig gestellte Fragen</h2>
+<h3>Warum sehe ich niemanden in der Nähe?</h3>
+<p>Ein paar Dinge zum Überprüfen:</p>
+<ul>
+<li><strong>Bluetooth ist aktiviert</strong> für dein Telefon und für Glimpse erlaubt (Einstellungen → Apps → Glimpse → Berechtigungen).</li>
+<li><strong>Du bist sichtbar</strong> – prüfe den Sichtbarkeits-Schalter in der App.</li>
+<li><strong>Es ist tatsächlich jemand mit Glimpse in der Nähe.</strong> Glimpse zeigt nur Menschen, die die App haben und gerade ebenfalls in der Nähe und sichtbar sind. In Gegenden mit wenigen Nutzern siehst du möglicherweise niemanden.</li>
+<li><strong>Glimpse läuft.</strong> Für die zuverlässigste Erkennung lass die App geöffnet oder im Hintergrund laufen, anstatt sie zu beenden.</li>
+</ul>
+<h3>Verfolgt Glimpse meinen Standort?</h3>
+<p>Nein. Glimpse nutzt kein GPS und teilt deinen Kartenstandort nicht. Es funktioniert, indem es bemerkt, wenn sich ein anderes Glimpse-Telefon in Bluetooth-Reichweite befindet – es weiß, dass jemand <em>in der Nähe</em> ist, nicht <em>wo</em> ihr euch auf einer Karte befindet.</p>
+<h3>Wie verhindere ich, dass mich Menschen in der Umgebung sehen?</h3>
+<p>Schalte die Sichtbarkeit in der App aus. Solange du verborgen bist, sehen dich Nutzer in der Nähe nicht und du erscheinst in niemandes Liste. Du kannst sie jederzeit wieder einschalten.</p>
+<h3>Warum muss ich die App laufen lassen?</h3>
+<p>Die Bluetooth-Erkennung funktioniert am besten, wenn Glimpse aktiv ist. Wenn du die App beendest, schränkt Android ein, was sie im Hintergrund tun kann, sodass du Menschen in der Nähe verpassen kannst. Glimpse laufen zu lassen (auch im Hintergrund) bietet dir das beste Erlebnis. Falls die Erkennung bei ausgeschaltetem Bildschirm stoppt, prüfe, ob die Akku-Optimierung Glimpse einschränkt.</p>
+<h3>Was ist ein „Summon“?</h3>
+<p>Ein Summon ist eine entspannte Möglichkeit, einer Person in der Nähe mitzuteilen, dass du sie bemerkt hast, ohne dich gleich auf ein Like festzulegen. Wenn sie dich zurück-summoned, werdet ihr beide benachrichtigt.</p>
+<h3>Ich erhalte keine Benachrichtigungen.</h3>
+<p>Stelle sicher, dass Benachrichtigungen in den <strong>Einstellungen → Apps → Glimpse → Benachrichtigungen</strong> aktiviert sind. Prüfe außerdem, ob „Nicht stören“ sie nicht stummschaltet.</p>
+<h3>Wie bearbeite ich mein Profil oder Foto?</h3>
+<p>Öffne dein Profil in der App und tippe darauf, um deinen Namen, dein Foto oder deine Präferenzen zu bearbeiten.</p>
+<hr>
+<h2>Datenschutz und deine Daten</h2>
+<ul>
+<li>Glimpse zeigt anderen Nutzern nur die Profilinformationen, die du teilen möchtest (etwa deinen Namen und dein Foto). Dein genauer Standort wird nicht preisgegeben.</li>
+<li>Deine Sichtbarkeit liegt jederzeit über den In-App-Schalter in deiner Hand.</li>
+<li>Wir verkaufen deine persönlichen Daten nicht.</li>
+<li>Alle Details findest du in unserer <a href="privacy-policy.html">Datenschutzerklärung</a>.</li>
+<li>Bei Datenschutzfragen schreib an <strong><a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></strong>.</li>
+</ul>
+<hr>
+<h2>Konto- und Datenanfragen</h2>
+<p>Du kannst jederzeit die Löschung deines Kontos und der zugehörigen Daten beantragen – direkt in der App oder per E-Mail. Details findest du unter <a href="delete-account.html">Konto löschen</a>. Für eine Löschung per E-Mail schreib uns an <strong><a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></strong> von der mit deinem Konto verknüpften Adresse, mit dem Betreff <strong>„Mein Konto löschen“</strong>, und wir bearbeiten die Anfrage.</p>
+<hr>
+<h2>Checkliste zur Fehlerbehebung</h2>
+<p>Wenn etwas nicht funktioniert, probiere diese Schritte der Reihe nach:</p>
+<ol>
+<li>Stelle sicher, dass du die neueste Version von Glimpse aus Google Play nutzt.</li>
+<li>Bestätige, dass Bluetooth und Benachrichtigungen in den Einstellungen → Apps → Glimpse → Berechtigungen erlaubt sind.</li>
+<li>Schalte deine In-App-Sichtbarkeit aus und wieder ein.</li>
+<li>Schließe die App vollständig und öffne sie erneut.</li>
+<li>Starte dein Telefon neu.</li>
+</ol>
+<p>Wenn es immer noch nicht funktioniert, schreib uns mit einer Beschreibung des Problems, deinem Telefon-Modell und deiner Android-Version.</p>
+<hr>
+<h2>Kontakt</h2>
+<ul>
+<li><strong>E-Mail:</strong> <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></li>
+<li><strong>Antwortzeit:</strong> in der Regel innerhalb von 2 Werktagen</li>
+</ul>
+<p>Bitte gib dein Telefon-Modell, deine Android-Version und eine kurze Beschreibung des Problems an (und einen Screenshot, falls vorhanden), damit wir dir schneller helfen können.</p>
+<hr>
+<p><sub>© 2026 Glimpse - Dates 2 Go. Alle Rechte vorbehalten.</sub></p>
+</div>
+</article>
+
+<a class="cta" href="get/"><span><span class="l-de" lang="de">Glimpse installieren</span><span class="l-en" lang="en">Get Glimpse</span></span><span class="ar">&rarr;</span></a>
+
+<footer>
+<span><span class="l-de" lang="de">Für iOS und Android. Kein GPS, kein Location Tracking, ab 18.</span><span class="l-en" lang="en">For iOS and Android. No GPS, no location tracking, 18+.</span></span>
+<span class="legal"><a href="how-it-works/"><span class="l-de" lang="de">So funktioniert Glimpse</span><span class="l-en" lang="en">How it works</span></a><span>&middot;</span><a href="terms.html"><span class="l-de" lang="de">Nutzungsbedingungen</span><span class="l-en" lang="en">Terms</span></a><span>&middot;</span><a href="privacy-policy.html"><span class="l-de" lang="de">Datenschutz</span><span class="l-en" lang="en">Privacy</span></a><span>&middot;</span><a href="support.html">Support</a><span>&middot;</span><a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></span>
+<span>&copy; 2026 Glimpse - Dates 2 Go</span>
+</footer>
+</main>
+<script src="assets/glimpse-docs.js"></script>
+</body></html>

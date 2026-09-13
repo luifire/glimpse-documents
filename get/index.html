@@ -1,259 +1,151 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="de" data-lang="de" data-os="other"><head><meta charset="utf-8">
 <title>Glimpse installieren</title>
-<meta name="description" content="Dating für Leute, die sich schon begegnet sind. Glimpse für Android und iPhone.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#140A0C">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Flirte in echt, nicht auf der Couch. Die Dating App mit der kürzesten Match zu Date Zeit. Für iPhone und Android.">
+<meta property="og:title" content="Flirte in echt, nicht auf der Couch.">
+<meta property="og:description" content="Glimpse macht für dich den ersten Schritt. Den zweiten machst du.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Glimpse">
-<meta property="og:title" content="Dating für Leute, die sich schon begegnet sind.">
-<meta property="og:description" content="Glimpse zeigt dir nur Menschen, denen du wirklich begegnet bist. Kein Swipen quer durch die Stadt.">
 <meta property="og:url" content="https://luifire.github.io/glimpse-documents/get/">
 <meta property="og:image" content="https://luifire.github.io/glimpse-documents/get/assets/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glimpse. Flirte in echt, nicht auf der Couch.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dating für Leute, die sich schon begegnet sind.">
-<meta name="twitter:description" content="Glimpse zeigt dir nur Menschen, denen du wirklich begegnet bist.">
-<meta name="theme-color" content="#0E1226">
+<link rel="icon" href="../assets/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-@font-face{
-  font-family:"Geist"; src:url("assets/geist-latin.woff2") format("woff2");
-  font-weight:100 900; font-style:normal; font-display:swap;
-}
-:root{
-  color-scheme:dark;
-  --ground:#0E1226; --raised:#1A2140; --text:#F2EFE7; --quiet:#97A0BE;
-  --signal:#FFC24B; --on-signal:#2A1B00;
-  --body:17px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-}
+:root{--flame-light:#FF6D9E;--flame-mid:#FF7A16;--ink:#140A0C;--cream:#FFF4F1;
+--fg:var(--cream);--muted:rgba(255,244,241,.72);--line:rgba(255,244,241,.18);--card:rgba(255,244,241,.06);--accent:var(--flame-light)}
 *{box-sizing:border-box}
-html,body{margin:0}
-body{
-  min-height:100dvh; background:var(--ground); color:var(--text); font:var(--body);
-  -webkit-text-size-adjust:100%;
-  display:flex; flex-direction:column; padding:1.5rem 1.25rem 1.25rem;
-}
-.col{width:100%; max-width:23rem; margin:auto 0; display:flex; flex-direction:column; gap:1.25rem}
-:focus-visible{outline:2px solid var(--signal); outline-offset:3px; border-radius:4px}
+html,body{margin:0;overflow-x:hidden}
+body{background:var(--ink);color:var(--fg);font-family:Geist,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;min-height:100svh;position:relative}
+body::before{content:"";position:absolute;inset:-20vh -30% auto -30%;height:72vh;pointer-events:none;
+background:radial-gradient(56% 100% at 50% 0,rgba(255,109,158,.55),rgba(255,122,22,.26) 48%,transparent 72%)}
+main{position:relative;width:100%;max-width:31rem;margin:0 auto;padding:clamp(18px,5vw,32px) clamp(20px,6vw,32px) 40px;display:flex;flex-direction:column;gap:clamp(20px,5vw,26px)}
+.mono{font-family:"JetBrains Mono",monospace;font-weight:500;text-transform:uppercase;letter-spacing:.14em}
+a{color:var(--accent);text-decoration:none}a:hover{color:var(--flame-mid)}
+.bar{display:flex;align-items:center;gap:9px}
+.bar img{width:30px;height:30px;display:block}
+.bar .wm{font-size:19px;font-weight:800;letter-spacing:-.025em}
+.bar .sep{opacity:.34;font-size:12px}
+.bar .tg{font-size:14px;font-weight:700;opacity:.82}
+.lang{margin-left:auto;display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px}
+.lang button{font:500 10px/1 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;padding:7px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--fg);color:var(--ink)}
+.hero{margin-top:2px}
+.kick{margin:0 0 6px;font-size:15.5px;line-height:1.25;font-weight:600;letter-spacing:-.015em;color:rgba(255,244,241,.78)}
+h1{margin:0;font-size:clamp(38px,11vw,52px);line-height:.98;font-weight:900;letter-spacing:-.05em;text-wrap:balance}
+h1 em{font-style:normal;background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{margin:14px 0 0;font-size:16px;line-height:1.42;color:rgba(255,244,241,.86);text-wrap:pretty}
+.lede b{font-weight:700;color:var(--fg)}
+.ways{display:flex;flex-direction:column;gap:12px}
+.w{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border-radius:16px;border:1px solid var(--line);background:var(--card)}
+.w img{width:26px;height:26px;display:block;flex:none;margin-top:1px}
+.w .t{font-size:14px;line-height:1.35;color:var(--muted)}
+.w .t b{display:block;font-size:15px;font-weight:800;letter-spacing:-.02em;color:var(--fg);margin-bottom:2px}
+.card{border:1px solid var(--line);border-radius:18px;padding:18px;background:var(--card)}
+.card>.h{font-size:11px;color:var(--muted);display:block;margin-bottom:12px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:60px;padding:16px 22px;border-radius:999px;border:0;
+background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));color:var(--ink);font-size:18px;font-weight:900;letter-spacing:-.025em;text-align:center;
+box-shadow:0 8px 22px rgba(255,109,158,.28)}
+.btn:hover{color:var(--ink);filter:brightness(1.06)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:rgba(255,244,241,.08);color:var(--fg);border:1.5px solid rgba(255,244,241,.55);box-shadow:none;font-weight:800}
+.btn.ghost:hover{color:var(--ink);background:var(--cream);border-color:var(--cream);filter:none}
+.btn small{display:block;font-size:12.5px;font-weight:600;opacity:.68;letter-spacing:0;margin-top:3px}
+.steps{display:flex;flex-direction:column;gap:10px;counter-reset:s}
+.step{display:flex;align-items:center;gap:12px}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+font:800 13px/1 Geist,sans-serif;background:var(--fg);color:var(--ink)}
+.note{display:flex;gap:9px;margin:0 0 14px;font-size:13.5px;line-height:1.38;color:var(--muted)}
+.note b{font-weight:800;color:var(--fg)}
+.note::before{content:"!";flex:none;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font:800 11px/1 Geist,sans-serif;background:var(--accent);color:var(--ink);margin-top:1px}
+.hint{margin:0 0 14px;font-size:15px;line-height:1.45;color:rgba(255,244,241,.88);text-wrap:pretty}
+.hint b{font-weight:800;color:var(--fg)}
+.qr{display:flex;align-items:center;gap:16px}
+.qr .code{width:118px;height:118px;flex:none;background:var(--cream);border-radius:12px;padding:8px}
+.qr .code img{width:100%;height:100%;display:block}
+.qr .t{font-size:15px;line-height:1.35;font-weight:600}
+.qr .t small{display:block;margin-top:5px;font-size:13.5px;font-weight:400;color:var(--muted)}
+.also{display:flex;flex-wrap:wrap;gap:10px}
+.also a{flex:1;min-width:140px;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;border:1.5px solid rgba(255,244,241,.4);font-size:15px;font-weight:800;letter-spacing:-.015em;color:var(--fg)}
+.also a:hover{border-color:var(--cream);background:rgba(255,244,241,.08);color:var(--fg)}
+.claim{margin:0;font-size:19px;line-height:1.26;font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+.claim b{font-weight:900;background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));-webkit-background-clip:text;background-clip:text;color:transparent}
+.how{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:15px 22px;border-radius:999px;border:1.5px solid rgba(255,244,241,.4);font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--fg)}
+.how:hover{border-color:var(--cream);background:rgba(255,244,241,.08);color:var(--fg)}
+.how .ar{font-weight:400;opacity:.6}
+footer{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:8px;font-size:12.5px;line-height:1.4;color:var(--muted)}
+footer .legal{display:flex;gap:8px}
+.en{display:none}
+html[data-lang=en] .de{display:none}
+html[data-lang=en] .en{display:inline}
+html[data-os=ios] .p-android,html[data-os=ios] .p-desk,html[data-os=android] .p-ios,html[data-os=android] .p-desk,html[data-os=other] .p-ios,html[data-os=other] .p-android{display:none}
+html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-os=other] .also{display:none}
+</style></head><body>
+<main>
+<div class="bar"><img src="assets/glimpse-logo.png" alt="Glimpse"><span class="wm">Glimpse</span><span class="sep">&bull;</span><span class="tg">Dates 2 Go</span>
+<div class="lang"><button type="button" data-set="de" aria-pressed="true">DE</button><button type="button" data-set="en" aria-pressed="false">EN</button></div></div>
 
-.mark{font-family:"Geist",system-ui,sans-serif; font-weight:600; font-size:16px;
-  letter-spacing:-.01em; margin:0 0 .875rem}
-h1{font-family:"Geist",system-ui,sans-serif; font-weight:600;
-  font-size:clamp(32px,8vw,50px); line-height:1.05; letter-spacing:-.025em;
-  margin:0; text-wrap:balance}
-.sub{margin:0; color:var(--quiet); max-width:34ch}
-.explain{margin:0; font-size:16px; color:var(--quiet); max-width:34ch}
-.hint{margin:0; font-size:16px; color:var(--text)}
-.hint b{color:var(--signal); font-weight:600}
+<div class="hero">
+<h1><span class="de">Flirte in echt, <em>nicht auf der Couch.</em></span><span class="en">Flirt for real, <em>not on the couch.</em></span></h1>
+<p class="lede"><span class="de">Glimpse macht für dich den ersten Schritt. <b>Den zweiten machst du.</b></span><span class="en">Glimpse makes the first move for you. <b>You make the second.</b></span></p>
+</div>
 
-/* Der eine Moment: zwei Punkte treffen sich, danach ist die Seite still. */
-.meet{position:relative; width:4rem; height:9px; margin-bottom:1.25rem}
-.meet span{position:absolute; top:0; width:9px; height:9px; border-radius:50%}
-.meet .a{left:0; background:var(--quiet); animation:meet-a .7s cubic-bezier(.33,0,.2,1) forwards}
-.meet .b{left:calc(4rem - 9px); background:var(--signal); animation:meet-b .7s cubic-bezier(.33,0,.2,1) forwards}
-@keyframes meet-a{to{transform:translateX(calc(2rem - 4.5px))}}
-@keyframes meet-b{to{transform:translateX(calc(-2rem + 4.5px))}}
-@media (prefers-reduced-motion: reduce){
-  .meet .a,.meet .b{animation:none}
-  .meet .a{transform:translateX(calc(2rem - 4.5px))}
-  .meet .b{transform:translateX(calc(-2rem + 4.5px))}
-}
+<div class="ways">
+<div class="w"><img src="assets/fire_flame.png" alt=""><span class="t"><b>Flirt 2 Go</b><span class="de">Du fragst direkt, ob du rüberkommen darfst. Oder du bittest die Person zu dir.</span><span class="en">You ask straight out if you can come over. Or you invite them over to you.</span></span></div>
+<div class="w"><img src="assets/firework_flame.png" alt=""><span class="t"><b>Date 2 Go</b><span class="de">Du fragst anonym. Passt es beidseitig, wisst ihr's beide.</span><span class="en">You ask anonymously. If you both say yes, you both find out.</span></span></div>
+</div>
 
-.stack{display:flex; flex-direction:column; gap:1rem}
-.stack.wide{gap:1.25rem}
-.steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.625rem;
-  counter-reset:step}
-.steps li{counter-increment:step}
-.btn{display:flex; align-items:center; gap:.75rem; min-height:52px; padding:.75rem 1.125rem;
-  border-radius:14px; font-size:17px; font-weight:600; text-decoration:none; width:100%}
-.btn .n{font-variant-numeric:tabular-nums; opacity:.55; font-weight:500}
-.btn .n::before{content:counter(step)}
-.calm{background:var(--raised); color:var(--text)}
-.loud{background:var(--signal); color:var(--on-signal)}
-.textlink{color:var(--quiet); text-decoration:underline; text-underline-offset:3px;
-  display:inline-flex; align-items:center; min-height:44px; font-size:16px}
+<div class="card p-ios">
+<span class="h mono"><span class="de">iPhone, offener Test im App Store</span><span class="en">iPhone, open test via the App Store</span></span>
+<p class="hint"><span class="de">Glimpse läuft auf dem iPhone gerade als <b>offener Test</b>. Du lädst dir dafür <b>TestFlight</b> aus dem App Store, das ist Apples offizielle App für Tests. Zwei Schritte, dann bist du drin.</span><span class="en">Glimpse is an <b>open test</b> on iPhone right now. You install <b>TestFlight</b> from the App Store, Apple's official app for tests. Two steps and you are in.</span></p>
+<p class="note"><span class="de">Öffne die Seite in <b>Safari</b>, sonst startet TestFlight nicht.</span><span class="en">Open this page in <b>Safari</b>, otherwise TestFlight will not start.</span></p>
+<div class="steps">
+<div class="step"><a class="btn ghost" href="https://apps.apple.com/de/app/testflight/id899247664"><span class="de">TestFlight im App Store laden<small>Gratis, Apples App für offene Tests</small></span><span class="en">Get TestFlight from the App Store<small>Free, Apple's app for open tests</small></span></a></div>
+<div class="step"><a class="btn" href="https://testflight.apple.com/join/fv2p49fh"><span class="de">Glimpse in TestFlight öffnen</span><span class="en">Open Glimpse in TestFlight</span></a></div>
+</div>
+</div>
 
-/* Store-Zeile: nur wo die Seite die Entscheidung nicht treffen kann */
-.storerow{display:flex; gap:12px; align-items:center}
-.storerow>a,.storelink{display:flex; align-items:center; height:48px; width:162px;
-  flex:0 0 auto; text-decoration:none}
-.badge{height:48px; width:162px; display:block}
-.tf{background:#000; border:1px solid #A6A6A6; border-radius:6px; color:#fff; padding:0 .875rem}
-.tf .stack{display:flex; flex-direction:column; line-height:1.1; text-align:left}
-.tf .small{font-size:9px; letter-spacing:.02em; color:#D9D9D9}
-.tf .big{font-size:17px; font-weight:500}
-@media (max-width:379px){ .storerow{flex-direction:column; align-items:flex-start} }
-.qr{display:flex; align-items:center; gap:.875rem}
-.qr img{width:104px; height:104px; background:#F2EFE7; padding:8px; border-radius:8px}
+<div class="card p-android">
+<span class="h mono"><span class="de">Android, Google Play</span><span class="en">Android, Google Play</span></span>
+<p class="note"><span class="de">Öffne die Seite in <b>Chrome</b>, sonst bricht der Weg zu Google Play ab.</span><span class="en">Open this page in <b>Chrome</b>, otherwise the route to Google Play breaks.</span></p>
+<a class="btn" href="https://play.google.com/store/apps/details?id=com.luifire.glimpse"><span class="de">Bei Google Play holen</span><span class="en">Get it on Google Play</span></a>
+</div>
 
-.crossref{margin:0}
-footer{margin-top:auto; padding-top:1.5rem; font-size:16px; color:var(--quiet)}
-footer a{color:var(--quiet); text-decoration:underline; text-underline-offset:3px;
-  display:inline-block; min-height:44px; line-height:44px}
+<div class="card p-desk">
+<span class="h mono"><span class="de">Am Rechner</span><span class="en">On desktop</span></span>
+<div class="qr"><div class="code"><img src="assets/qr-glimpse.svg" alt="QR-Code zu Glimpse"></div>
+<p class="t"><span class="de">Scannen und flirten.<small>Code mit dem Handy scannen, dann geht es weiter zu App Store oder Google Play.</small></span><span class="en">Scan and flirt.<small>Scan the code with your phone, it takes you straight to the App Store or Google Play.</small></span></p></div>
+</div>
 
-/* Sprache: Deutsch ist gesetzt, Englisch liegt daneben */
-html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
-/* Plattform: ohne Skript bleibt alles sichtbar und benutzbar */
-html[data-platform="ios"] .plat:not(.p-ios){display:none}
-html[data-platform="android"] .plat:not(.p-android){display:none}
-html[data-platform="unknown"] .plat:not(.p-unknown){display:none}
-html:not([data-inapp]) .inapp{display:none}
-</style>
-</head>
-<body>
+<div class="also">
+<a class="a-ios" href="https://testflight.apple.com/join/fv2p49fh"><span class="de">Auch fürs iPhone</span><span class="en">Also for iPhone</span></a>
+<a class="a-android" href="https://play.google.com/store/apps/details?id=com.luifire.glimpse"><span class="de">Auch für Android</span><span class="en">Also for Android</span></a>
+</div>
 
-<main class="col">
-  <div>
-    <p class="mark">glimpse</p>
-    <div class="meet" aria-hidden="true"><span class="a"></span><span class="b"></span></div>
-    <h1><span data-lang="de" id="h-de">Dating für Leute, die sich schon begegnet sind.</span><span data-lang="en" id="h-en">Dating for people who have already met.</span></h1>
-  </div>
+<p class="claim"><span class="de">Die Dating App mit der <b>kürzesten Match zu Date Zeit.</b></span><span class="en">The dating app with the <b>shortest match to date time.</b></span></p>
 
-  <p class="sub">
-    <span data-lang="de">Glimpse zeigt dir nur Menschen, denen du wirklich begegnet bist. Kein Swipen quer durch die Stadt.</span>
-    <span data-lang="en">Glimpse only shows you people you have actually met. No swiping across town.</span>
-  </p>
-  <p class="crossref">
-    <a class="textlink" id="how-link" href="../how-it-works/index.html"><span data-lang="de">So funktioniert Glimpse</span><span data-lang="en">How Glimpse works</span></a>
-  </p>
+<a class="how" href="https://luifire.github.io/glimpse-documents/how-it-works/index.html"><span><span class="de">So funktioniert Glimpse</span><span class="en">How Glimpse works</span></span><span class="ar">&rarr;</span></a>
 
-  <p class="hint inapp plat p-ios">
-    <span data-lang="de">Öffne die Seite in <b>Safari</b>, sonst startet TestFlight nicht.</span>
-    <span data-lang="en">Open this page in <b>Safari</b>, otherwise TestFlight won't start.</span>
-  </p>
-  <p class="hint inapp plat p-android">
-    <span data-lang="de">Öffne die Seite in <b>Chrome</b>, sonst bricht der Weg zu Google Play ab.</span>
-    <span data-lang="en">Open this page in <b>Chrome</b>, otherwise the route to Google Play breaks.</span>
-  </p>
-
-  <!-- iPhone: zwei Schritte, beide von Anfang an nutzbar -->
-  <ol class="steps plat p-ios">
-    <li><a class="btn calm" href="https://apps.apple.com/de/app/testflight/id899247664"><span class="n"></span><span data-lang="de">TestFlight laden</span><span data-lang="en">Get TestFlight</span></a></li>
-    <li><a class="btn loud" id="tf-step" href="https://testflight.apple.com/join/fv2p49fh"><span class="n"></span><span data-lang="de">Glimpse öffnen</span><span data-lang="en">Open Glimpse</span></a></li>
-  </ol>
-  <p class="explain plat p-ios p-unknown">
-    <span data-lang="de">Auf dem iPhone läuft Glimpse gerade als offener Test. TestFlight ist Apples App dafür. Zwei Schritte, dann bist du drin.</span>
-    <span data-lang="en">On iPhone, Glimpse is an open test right now. TestFlight is Apple's app for it. Two steps and you're in.</span>
-  </p>
-
-  <!-- Android: Weiterleitung, Badge bleibt als Rückfallebene stehen -->
-  <div class="plat p-android stack">
-    <p class="explain" id="redirect-line" hidden>
-      <span data-lang="de">Du wirst zu Google Play weitergeleitet.</span>
-      <span data-lang="en">Taking you to Google Play.</span>
-    </p>
-    <a id="play-solo" class="storelink" aria-label="Google Play" href="https://play.google.com/store/apps/details?id=com.luifire.glimpse">
-      <span data-lang="de"><svg class="badge" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="10 10 135 40"><defs><linearGradient id="s1de-a" x1="31.8" y1="183.29" x2="15.02" y2="166.51" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00a0ff"/><stop offset=".01" stop-color="#00a1ff"/><stop offset=".26" stop-color="#00beff"/><stop offset=".51" stop-color="#00d2ff"/><stop offset=".76" stop-color="#00dfff"/><stop offset="1" stop-color="#00e3ff"/></linearGradient><linearGradient id="s1de-b" x1="43.83" y1="172" x2="19.64" y2="172" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe000"/><stop offset=".41" stop-color="#ffbd00"/><stop offset=".78" stop-color="orange"/><stop offset="1" stop-color="#ff9c00"/></linearGradient><linearGradient id="s1de-c" x1="34.83" y1="169.7" x2="12.07" y2="146.95" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff3a44"/><stop offset="1" stop-color="#c31162"/></linearGradient><linearGradient id="s1de-d" x1="17.3" y1="191.82" x2="27.46" y2="181.66" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#32a071"/><stop offset=".07" stop-color="#2da771"/><stop offset=".48" stop-color="#15cf74"/><stop offset=".8" stop-color="#06e775"/><stop offset="1" stop-color="#00f076"/></linearGradient></defs><title>ka_get</title><path fill="none" d="M0 0h155v60H0z"/><rect x="10" y="10" width="135" height="40" rx="5" ry="5"/><path d="M140 10.8a4.2 4.2 0 0 1 4.2 4.2v30a4.2 4.2 0 0 1-4.2 4.2H15a4.2 4.2 0 0 1-4.2-4.2V15a4.2 4.2 0 0 1 4.2-4.2h125m0-.8H15a5 5 0 0 0-5 5v30a5 5 0 0 0 5 5h125a5 5 0 0 0 5-5V15a5 5 0 0 0-5-5z" fill="#a6a6a6"/><path d="M78.14 31.75A4.25 4.25 0 1 0 82.41 36a4.19 4.19 0 0 0-4.27-4.25zm0 6.83a2.58 2.58 0 1 1 2.4-2.58 2.46 2.46 0 0 1-2.4 2.58zm-9.31-6.83A4.25 4.25 0 1 0 73.09 36a4.19 4.19 0 0 0-4.27-4.25zm0 6.83A2.58 2.58 0 1 1 71.22 36a2.46 2.46 0 0 1-2.4 2.58zm-11.09-5.52v1.8h4.32a3.77 3.77 0 0 1-1 2.27 4.42 4.42 0 0 1-3.33 1.32 4.8 4.8 0 0 1 0-9.6A4.6 4.6 0 0 1 61 30.14l1.27-1.27A6.29 6.29 0 0 0 57.74 27a6.61 6.61 0 1 0 0 13.21 6 6 0 0 0 4.61-1.85 6 6 0 0 0 1.56-4.22 5.87 5.87 0 0 0-.1-1.13zm45.31 1.4a4 4 0 0 0-3.64-2.71 4 4 0 0 0-4 4.25 4.16 4.16 0 0 0 4.22 4.25 4.23 4.23 0 0 0 3.54-1.88l-1.45-1a2.43 2.43 0 0 1-2.09 1.18 2.16 2.16 0 0 1-2.06-1.29l5.69-2.35zm-5.8 1.42a2.33 2.33 0 0 1 2.22-2.48 1.65 1.65 0 0 1 1.58.9zM92.63 40h1.87V27.5h-1.87zm-3.06-7.3h-.07a3 3 0 0 0-2.24-1 4.26 4.26 0 0 0 0 8.51 2.9 2.9 0 0 0 2.24-1h.06v.61c0 1.63-.87 2.5-2.27 2.5a2.35 2.35 0 0 1-2.14-1.51l-1.63.68A4.05 4.05 0 0 0 87.29 44c2.19 0 4-1.29 4-4.43V32h-1.72zm-2.14 5.88a2.59 2.59 0 0 1 0-5.16A2.4 2.4 0 0 1 89.7 36a2.38 2.38 0 0 1-2.28 2.58zm24.38-11.08h-4.47V40h1.87v-4.74h2.61a3.89 3.89 0 1 0 0-7.76zm0 6h-2.61v-4.26h2.65a2.14 2.14 0 1 1 0 4.29zm11.53-1.8a3.5 3.5 0 0 0-3.33 1.91l1.66.69a1.77 1.77 0 0 1 1.7-.92 1.8 1.8 0 0 1 2 1.61v.13a4.13 4.13 0 0 0-1.95-.48c-1.79 0-3.6 1-3.6 2.81a2.89 2.89 0 0 0 3.1 2.75 2.63 2.63 0 0 0 2.4-1.2h.06v1h1.8v-4.81c0-2.19-1.66-3.46-3.79-3.46zm-.23 6.85c-.61 0-1.46-.31-1.46-1.06 0-1 1.06-1.33 2-1.33a3.32 3.32 0 0 1 1.7.42 2.26 2.26 0 0 1-2.19 2zM133.74 32l-2.14 5.42h-.06L129.32 32h-2l3.33 7.58-1.9 4.21h1.95L135.82 32zm-16.81 8h1.87V27.5h-1.87z" fill="#fff"/><path d="M20.44 17.54a2 2 0 0 0-.46 1.4v22.12a2 2 0 0 0 .46 1.4l.07.07L32.9 30.15v-.29L20.51 17.47z" fill="url(#s1de-a)"/><path d="M37 34.28l-4.1-4.13v-.29l4.1-4.14.09.05L42 28.56c1.4.79 1.4 2.09 0 2.89l-4.89 2.78z" fill="url(#s1de-b)"/><path d="M37.12 34.22L32.9 30 20.44 42.46a1.63 1.63 0 0 0 2.08.06l14.61-8.3" fill="url(#s1de-c)"/><path d="M37.12 25.78l-14.61-8.3a1.63 1.63 0 0 0-2.08.06L32.9 30z" fill="url(#s1de-d)"/><path d="M37 34.13l-14.49 8.25a1.67 1.67 0 0 1-2 0l-.07.07.07.07a1.66 1.66 0 0 0 2 0l14.61-8.3z" style="isolation:isolate" opacity=".2"/><path d="M20.44 42.32a2 2 0 0 1-.46-1.4v.15a2 2 0 0 0 .46 1.4l.07-.07zM42 31.3l-5 2.83.09.09L42 31.44A1.75 1.75 0 0 0 43 30a1.86 1.86 0 0 1-1 1.3z" style="isolation:isolate" opacity=".12"/><path d="M22.51 17.62L42 28.7a1.86 1.86 0 0 1 1 1.3 1.75 1.75 0 0 0-1-1.44L22.51 17.48c-1.4-.79-2.54-.13-2.54 1.47v.15c.03-1.61 1.15-2.27 2.54-1.48z" style="isolation:isolate" fill="#fff" opacity=".25"/><path d="M53 23.13a1.74 1.74 0 0 1-1.12-.36 2 2 0 0 1-.65-1l.7-.29a1.1 1.1 0 0 0 1.1.95 1 1 0 0 0 .83-.35 1.43 1.43 0 0 0 .29-.94V17h.77v4.09a2 2 0 0 1-.54 1.51 1.88 1.88 0 0 1-1.38.53zM59.71 17.74H57v1.9h2.46v.72H57v1.9h2.73V23H56.2v-6h3.5zM63 23h-.77v-5.26h-1.72V17h4.12v.74H63zM65.27 23v-.8l3.19-4.46H65.4V17h4v.8l-3.19 4.46h3.23V23zM72.54 23h-.77v-5.26H70.1V17h4.12v.74h-1.68zM77.2 23v-6h2.17a1.76 1.76 0 0 1 1.22.46 1.51 1.51 0 0 1 .52 1.17 1.31 1.31 0 0 1-.22.75 1.39 1.39 0 0 1-.59.49 1.52 1.52 0 0 1 .73.52 1.36 1.36 0 0 1 .29.86 1.57 1.57 0 0 1-.54 1.22 1.85 1.85 0 0 1-1.28.49zm.8-3.43h1.4a.9.9 0 0 0 .7-.29.89.89 0 0 0 0-1.26.86.86 0 0 0-.67-.29H78zm0 2.69h1.55a.92.92 0 0 0 .72-.31 1 1 0 0 0 .28-.68 1 1 0 0 0-1-1H78zM85.85 17.74h-2.73v1.9h2.46v.72h-2.46v1.9h2.73V23h-3.5v-6h3.5zM87.06 23v-6h.77v6z" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width=".2"/></svg></span>
-      <span data-lang="en"><svg class="badge" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="10 10 135 40"><defs><linearGradient id="s1en-a" x1="31.8" y1="183.29" x2="15.02" y2="166.51" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00a0ff"/><stop offset=".01" stop-color="#00a1ff"/><stop offset=".26" stop-color="#00beff"/><stop offset=".51" stop-color="#00d2ff"/><stop offset=".76" stop-color="#00dfff"/><stop offset="1" stop-color="#00e3ff"/></linearGradient><linearGradient id="s1en-b" x1="43.83" y1="172" x2="19.64" y2="172" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe000"/><stop offset=".41" stop-color="#ffbd00"/><stop offset=".78" stop-color="orange"/><stop offset="1" stop-color="#ff9c00"/></linearGradient><linearGradient id="s1en-c" x1="34.83" y1="169.7" x2="12.07" y2="146.95" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff3a44"/><stop offset="1" stop-color="#c31162"/></linearGradient><linearGradient id="s1en-d" x1="17.3" y1="191.82" x2="27.46" y2="181.66" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#32a071"/><stop offset=".07" stop-color="#2da771"/><stop offset=".48" stop-color="#15cf74"/><stop offset=".8" stop-color="#06e775"/><stop offset="1" stop-color="#00f076"/></linearGradient></defs><title>fil_get</title><path fill="none" d="M0 0h155v60H0z"/><rect x="10" y="10" width="135" height="40" rx="5" ry="5"/><path d="M140 10.8a4.2 4.2 0 0 1 4.2 4.2v30a4.2 4.2 0 0 1-4.2 4.2H15a4.2 4.2 0 0 1-4.2-4.2V15a4.2 4.2 0 0 1 4.2-4.2h125m0-.8H15a5 5 0 0 0-5 5v30a5 5 0 0 0 5 5h125a5 5 0 0 0 5-5V15a5 5 0 0 0-5-5z" fill="#a6a6a6"/><path d="M57.42 20.24a2.71 2.71 0 0 1-.75 2 2.91 2.91 0 0 1-2.2.89 3.15 3.15 0 0 1-2.21-5.37 3 3 0 0 1 2.21-.9 3.1 3.1 0 0 1 1.23.25 2.47 2.47 0 0 1 .94.67l-.53.53a2 2 0 0 0-1.64-.71 2.32 2.32 0 0 0-2.33 2.4 2.36 2.36 0 0 0 4 1.73 1.89 1.89 0 0 0 .5-1.22h-2.17v-.72h2.91a2.54 2.54 0 0 1 .04.45zM62 17.74h-2.7v1.9h2.46v.72H59.3v1.9H62V23h-3.5v-6H62zM65.28 23h-.77v-5.26h-1.68V17H67v.74h-1.72zM69.94 23v-6h.77v6zM74.13 23h-.77v-5.26h-1.68V17h4.12v.74h-1.67zM83.61 22.22a3.12 3.12 0 0 1-4.4 0 3.24 3.24 0 0 1 0-4.45 3.1 3.1 0 0 1 4.4 0 3.23 3.23 0 0 1 0 4.45zm-3.83-.5a2.31 2.31 0 0 0 3.26 0 2.56 2.56 0 0 0 0-3.44 2.31 2.31 0 0 0-3.26 0 2.56 2.56 0 0 0 0 3.44zM85.58 23v-6h.94l2.92 4.67V17h.77v6h-.8l-3.05-4.89V23z" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width=".2"/><path d="M78.14 31.75A4.25 4.25 0 1 0 82.41 36a4.19 4.19 0 0 0-4.27-4.25zm0 6.83a2.58 2.58 0 1 1 2.4-2.58 2.46 2.46 0 0 1-2.4 2.58zm-9.31-6.83A4.25 4.25 0 1 0 73.09 36a4.19 4.19 0 0 0-4.27-4.25zm0 6.83A2.58 2.58 0 1 1 71.22 36a2.46 2.46 0 0 1-2.4 2.58zm-11.09-5.52v1.8h4.32a3.77 3.77 0 0 1-1 2.27 4.42 4.42 0 0 1-3.33 1.32 4.8 4.8 0 0 1 0-9.6A4.6 4.6 0 0 1 61 30.14l1.27-1.27A6.29 6.29 0 0 0 57.74 27a6.61 6.61 0 1 0 0 13.21 6 6 0 0 0 4.61-1.85 6 6 0 0 0 1.56-4.22 5.87 5.87 0 0 0-.1-1.13zm45.31 1.4a4 4 0 0 0-3.64-2.71 4 4 0 0 0-4 4.25 4.16 4.16 0 0 0 4.22 4.25 4.23 4.23 0 0 0 3.54-1.88l-1.45-1a2.43 2.43 0 0 1-2.09 1.18 2.16 2.16 0 0 1-2.06-1.29l5.69-2.35zm-5.8 1.42a2.33 2.33 0 0 1 2.22-2.48 1.65 1.65 0 0 1 1.58.9zM92.63 40h1.87V27.5h-1.87zm-3.06-7.3h-.07a3 3 0 0 0-2.24-1 4.26 4.26 0 0 0 0 8.51 2.9 2.9 0 0 0 2.24-1h.06v.61c0 1.63-.87 2.5-2.27 2.5a2.35 2.35 0 0 1-2.14-1.51l-1.63.68A4.05 4.05 0 0 0 87.29 44c2.19 0 4-1.29 4-4.43V32h-1.72zm-2.14 5.88a2.59 2.59 0 0 1 0-5.16A2.4 2.4 0 0 1 89.7 36a2.38 2.38 0 0 1-2.28 2.58zm24.38-11.08h-4.47V40h1.87v-4.74h2.61a3.89 3.89 0 1 0 0-7.76zm0 6h-2.61v-4.26h2.65a2.14 2.14 0 1 1 0 4.29zm11.53-1.8a3.5 3.5 0 0 0-3.33 1.91l1.66.69a1.77 1.77 0 0 1 1.7-.92 1.8 1.8 0 0 1 2 1.61v.13a4.13 4.13 0 0 0-1.95-.48c-1.79 0-3.6 1-3.6 2.81a2.89 2.89 0 0 0 3.1 2.75 2.63 2.63 0 0 0 2.4-1.2h.06v1h1.8v-4.81c0-2.19-1.66-3.46-3.79-3.46zm-.23 6.85c-.61 0-1.46-.31-1.46-1.06 0-1 1.06-1.33 2-1.33a3.32 3.32 0 0 1 1.7.42 2.26 2.26 0 0 1-2.19 2zM133.74 32l-2.14 5.42h-.06L129.32 32h-2l3.33 7.58-1.9 4.21h1.95L135.82 32zm-16.81 8h1.87V27.5h-1.87z" fill="#fff"/><path d="M20.44 17.54a2 2 0 0 0-.46 1.4v22.12a2 2 0 0 0 .46 1.4l.07.07L32.9 30.15v-.29L20.51 17.47z" fill="url(#s1en-a)"/><path d="M37 34.28l-4.1-4.13v-.29l4.1-4.14.09.05L42 28.56c1.4.79 1.4 2.09 0 2.89l-4.89 2.78z" fill="url(#s1en-b)"/><path d="M37.12 34.22L32.9 30 20.44 42.46a1.63 1.63 0 0 0 2.08.06l14.61-8.3" fill="url(#s1en-c)"/><path d="M37.12 25.78l-14.61-8.3a1.63 1.63 0 0 0-2.08.06L32.9 30z" fill="url(#s1en-d)"/><path d="M37 34.13l-14.49 8.25a1.67 1.67 0 0 1-2 0l-.07.07.07.07a1.66 1.66 0 0 0 2 0l14.61-8.3z" style="isolation:isolate" opacity=".2"/><path d="M20.44 42.32a2 2 0 0 1-.46-1.4v.15a2 2 0 0 0 .46 1.4l.07-.07zM42 31.3l-5 2.83.09.09L42 31.44A1.75 1.75 0 0 0 43 30a1.86 1.86 0 0 1-1 1.3z" style="isolation:isolate" opacity=".12"/><path d="M22.51 17.62L42 28.7a1.86 1.86 0 0 1 1 1.3 1.75 1.75 0 0 0-1-1.44L22.51 17.48c-1.4-.79-2.54-.13-2.54 1.47v.15c.03-1.61 1.15-2.27 2.54-1.48z" style="isolation:isolate" fill="#fff" opacity=".25"/></svg></span>
-    </a>
-  </div>
-
-  <!-- Unbekannte Plattform und Desktop: beide Wege gleichrangig -->
-  <div class="plat p-unknown stack wide">
-    <div class="storerow">
-      <a id="play-row" href="https://play.google.com/store/apps/details?id=com.luifire.glimpse" aria-label="Google Play">
-        <span data-lang="de"><svg class="badge" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="10 10 135 40"><defs><linearGradient id="s2de-a" x1="31.8" y1="183.29" x2="15.02" y2="166.51" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00a0ff"/><stop offset=".01" stop-color="#00a1ff"/><stop offset=".26" stop-color="#00beff"/><stop offset=".51" stop-color="#00d2ff"/><stop offset=".76" stop-color="#00dfff"/><stop offset="1" stop-color="#00e3ff"/></linearGradient><linearGradient id="s2de-b" x1="43.83" y1="172" x2="19.64" y2="172" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe000"/><stop offset=".41" stop-color="#ffbd00"/><stop offset=".78" stop-color="orange"/><stop offset="1" stop-color="#ff9c00"/></linearGradient><linearGradient id="s2de-c" x1="34.83" y1="169.7" x2="12.07" y2="146.95" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff3a44"/><stop offset="1" stop-color="#c31162"/></linearGradient><linearGradient id="s2de-d" x1="17.3" y1="191.82" x2="27.46" y2="181.66" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#32a071"/><stop offset=".07" stop-color="#2da771"/><stop offset=".48" stop-color="#15cf74"/><stop offset=".8" stop-color="#06e775"/><stop offset="1" stop-color="#00f076"/></linearGradient></defs><title>ka_get</title><path fill="none" d="M0 0h155v60H0z"/><rect x="10" y="10" width="135" height="40" rx="5" ry="5"/><path d="M140 10.8a4.2 4.2 0 0 1 4.2 4.2v30a4.2 4.2 0 0 1-4.2 4.2H15a4.2 4.2 0 0 1-4.2-4.2V15a4.2 4.2 0 0 1 4.2-4.2h125m0-.8H15a5 5 0 0 0-5 5v30a5 5 0 0 0 5 5h125a5 5 0 0 0 5-5V15a5 5 0 0 0-5-5z" fill="#a6a6a6"/><path d="M78.14 31.75A4.25 4.25 0 1 0 82.41 36a4.19 4.19 0 0 0-4.27-4.25zm0 6.83a2.58 2.58 0 1 1 2.4-2.58 2.46 2.46 0 0 1-2.4 2.58zm-9.31-6.83A4.25 4.25 0 1 0 73.09 36a4.19 4.19 0 0 0-4.27-4.25zm0 6.83A2.58 2.58 0 1 1 71.22 36a2.46 2.46 0 0 1-2.4 2.58zm-11.09-5.52v1.8h4.32a3.77 3.77 0 0 1-1 2.27 4.42 4.42 0 0 1-3.33 1.32 4.8 4.8 0 0 1 0-9.6A4.6 4.6 0 0 1 61 30.14l1.27-1.27A6.29 6.29 0 0 0 57.74 27a6.61 6.61 0 1 0 0 13.21 6 6 0 0 0 4.61-1.85 6 6 0 0 0 1.56-4.22 5.87 5.87 0 0 0-.1-1.13zm45.31 1.4a4 4 0 0 0-3.64-2.71 4 4 0 0 0-4 4.25 4.16 4.16 0 0 0 4.22 4.25 4.23 4.23 0 0 0 3.54-1.88l-1.45-1a2.43 2.43 0 0 1-2.09 1.18 2.16 2.16 0 0 1-2.06-1.29l5.69-2.35zm-5.8 1.42a2.33 2.33 0 0 1 2.22-2.48 1.65 1.65 0 0 1 1.58.9zM92.63 40h1.87V27.5h-1.87zm-3.06-7.3h-.07a3 3 0 0 0-2.24-1 4.26 4.26 0 0 0 0 8.51 2.9 2.9 0 0 0 2.24-1h.06v.61c0 1.63-.87 2.5-2.27 2.5a2.35 2.35 0 0 1-2.14-1.51l-1.63.68A4.05 4.05 0 0 0 87.29 44c2.19 0 4-1.29 4-4.43V32h-1.72zm-2.14 5.88a2.59 2.59 0 0 1 0-5.16A2.4 2.4 0 0 1 89.7 36a2.38 2.38 0 0 1-2.28 2.58zm24.38-11.08h-4.47V40h1.87v-4.74h2.61a3.89 3.89 0 1 0 0-7.76zm0 6h-2.61v-4.26h2.65a2.14 2.14 0 1 1 0 4.29zm11.53-1.8a3.5 3.5 0 0 0-3.33 1.91l1.66.69a1.77 1.77 0 0 1 1.7-.92 1.8 1.8 0 0 1 2 1.61v.13a4.13 4.13 0 0 0-1.95-.48c-1.79 0-3.6 1-3.6 2.81a2.89 2.89 0 0 0 3.1 2.75 2.63 2.63 0 0 0 2.4-1.2h.06v1h1.8v-4.81c0-2.19-1.66-3.46-3.79-3.46zm-.23 6.85c-.61 0-1.46-.31-1.46-1.06 0-1 1.06-1.33 2-1.33a3.32 3.32 0 0 1 1.7.42 2.26 2.26 0 0 1-2.19 2zM133.74 32l-2.14 5.42h-.06L129.32 32h-2l3.33 7.58-1.9 4.21h1.95L135.82 32zm-16.81 8h1.87V27.5h-1.87z" fill="#fff"/><path d="M20.44 17.54a2 2 0 0 0-.46 1.4v22.12a2 2 0 0 0 .46 1.4l.07.07L32.9 30.15v-.29L20.51 17.47z" fill="url(#s2de-a)"/><path d="M37 34.28l-4.1-4.13v-.29l4.1-4.14.09.05L42 28.56c1.4.79 1.4 2.09 0 2.89l-4.89 2.78z" fill="url(#s2de-b)"/><path d="M37.12 34.22L32.9 30 20.44 42.46a1.63 1.63 0 0 0 2.08.06l14.61-8.3" fill="url(#s2de-c)"/><path d="M37.12 25.78l-14.61-8.3a1.63 1.63 0 0 0-2.08.06L32.9 30z" fill="url(#s2de-d)"/><path d="M37 34.13l-14.49 8.25a1.67 1.67 0 0 1-2 0l-.07.07.07.07a1.66 1.66 0 0 0 2 0l14.61-8.3z" style="isolation:isolate" opacity=".2"/><path d="M20.44 42.32a2 2 0 0 1-.46-1.4v.15a2 2 0 0 0 .46 1.4l.07-.07zM42 31.3l-5 2.83.09.09L42 31.44A1.75 1.75 0 0 0 43 30a1.86 1.86 0 0 1-1 1.3z" style="isolation:isolate" opacity=".12"/><path d="M22.51 17.62L42 28.7a1.86 1.86 0 0 1 1 1.3 1.75 1.75 0 0 0-1-1.44L22.51 17.48c-1.4-.79-2.54-.13-2.54 1.47v.15c.03-1.61 1.15-2.27 2.54-1.48z" style="isolation:isolate" fill="#fff" opacity=".25"/><path d="M53 23.13a1.74 1.74 0 0 1-1.12-.36 2 2 0 0 1-.65-1l.7-.29a1.1 1.1 0 0 0 1.1.95 1 1 0 0 0 .83-.35 1.43 1.43 0 0 0 .29-.94V17h.77v4.09a2 2 0 0 1-.54 1.51 1.88 1.88 0 0 1-1.38.53zM59.71 17.74H57v1.9h2.46v.72H57v1.9h2.73V23H56.2v-6h3.5zM63 23h-.77v-5.26h-1.72V17h4.12v.74H63zM65.27 23v-.8l3.19-4.46H65.4V17h4v.8l-3.19 4.46h3.23V23zM72.54 23h-.77v-5.26H70.1V17h4.12v.74h-1.68zM77.2 23v-6h2.17a1.76 1.76 0 0 1 1.22.46 1.51 1.51 0 0 1 .52 1.17 1.31 1.31 0 0 1-.22.75 1.39 1.39 0 0 1-.59.49 1.52 1.52 0 0 1 .73.52 1.36 1.36 0 0 1 .29.86 1.57 1.57 0 0 1-.54 1.22 1.85 1.85 0 0 1-1.28.49zm.8-3.43h1.4a.9.9 0 0 0 .7-.29.89.89 0 0 0 0-1.26.86.86 0 0 0-.67-.29H78zm0 2.69h1.55a.92.92 0 0 0 .72-.31 1 1 0 0 0 .28-.68 1 1 0 0 0-1-1H78zM85.85 17.74h-2.73v1.9h2.46v.72h-2.46v1.9h2.73V23h-3.5v-6h3.5zM87.06 23v-6h.77v6z" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width=".2"/></svg></span>
-        <span data-lang="en"><svg class="badge" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="10 10 135 40"><defs><linearGradient id="s2en-a" x1="31.8" y1="183.29" x2="15.02" y2="166.51" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00a0ff"/><stop offset=".01" stop-color="#00a1ff"/><stop offset=".26" stop-color="#00beff"/><stop offset=".51" stop-color="#00d2ff"/><stop offset=".76" stop-color="#00dfff"/><stop offset="1" stop-color="#00e3ff"/></linearGradient><linearGradient id="s2en-b" x1="43.83" y1="172" x2="19.64" y2="172" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe000"/><stop offset=".41" stop-color="#ffbd00"/><stop offset=".78" stop-color="orange"/><stop offset="1" stop-color="#ff9c00"/></linearGradient><linearGradient id="s2en-c" x1="34.83" y1="169.7" x2="12.07" y2="146.95" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff3a44"/><stop offset="1" stop-color="#c31162"/></linearGradient><linearGradient id="s2en-d" x1="17.3" y1="191.82" x2="27.46" y2="181.66" gradientTransform="matrix(1 0 0 -1 0 202)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#32a071"/><stop offset=".07" stop-color="#2da771"/><stop offset=".48" stop-color="#15cf74"/><stop offset=".8" stop-color="#06e775"/><stop offset="1" stop-color="#00f076"/></linearGradient></defs><title>fil_get</title><path fill="none" d="M0 0h155v60H0z"/><rect x="10" y="10" width="135" height="40" rx="5" ry="5"/><path d="M140 10.8a4.2 4.2 0 0 1 4.2 4.2v30a4.2 4.2 0 0 1-4.2 4.2H15a4.2 4.2 0 0 1-4.2-4.2V15a4.2 4.2 0 0 1 4.2-4.2h125m0-.8H15a5 5 0 0 0-5 5v30a5 5 0 0 0 5 5h125a5 5 0 0 0 5-5V15a5 5 0 0 0-5-5z" fill="#a6a6a6"/><path d="M57.42 20.24a2.71 2.71 0 0 1-.75 2 2.91 2.91 0 0 1-2.2.89 3.15 3.15 0 0 1-2.21-5.37 3 3 0 0 1 2.21-.9 3.1 3.1 0 0 1 1.23.25 2.47 2.47 0 0 1 .94.67l-.53.53a2 2 0 0 0-1.64-.71 2.32 2.32 0 0 0-2.33 2.4 2.36 2.36 0 0 0 4 1.73 1.89 1.89 0 0 0 .5-1.22h-2.17v-.72h2.91a2.54 2.54 0 0 1 .04.45zM62 17.74h-2.7v1.9h2.46v.72H59.3v1.9H62V23h-3.5v-6H62zM65.28 23h-.77v-5.26h-1.68V17H67v.74h-1.72zM69.94 23v-6h.77v6zM74.13 23h-.77v-5.26h-1.68V17h4.12v.74h-1.67zM83.61 22.22a3.12 3.12 0 0 1-4.4 0 3.24 3.24 0 0 1 0-4.45 3.1 3.1 0 0 1 4.4 0 3.23 3.23 0 0 1 0 4.45zm-3.83-.5a2.31 2.31 0 0 0 3.26 0 2.56 2.56 0 0 0 0-3.44 2.31 2.31 0 0 0-3.26 0 2.56 2.56 0 0 0 0 3.44zM85.58 23v-6h.94l2.92 4.67V17h.77v6h-.8l-3.05-4.89V23z" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width=".2"/><path d="M78.14 31.75A4.25 4.25 0 1 0 82.41 36a4.19 4.19 0 0 0-4.27-4.25zm0 6.83a2.58 2.58 0 1 1 2.4-2.58 2.46 2.46 0 0 1-2.4 2.58zm-9.31-6.83A4.25 4.25 0 1 0 73.09 36a4.19 4.19 0 0 0-4.27-4.25zm0 6.83A2.58 2.58 0 1 1 71.22 36a2.46 2.46 0 0 1-2.4 2.58zm-11.09-5.52v1.8h4.32a3.77 3.77 0 0 1-1 2.27 4.42 4.42 0 0 1-3.33 1.32 4.8 4.8 0 0 1 0-9.6A4.6 4.6 0 0 1 61 30.14l1.27-1.27A6.29 6.29 0 0 0 57.74 27a6.61 6.61 0 1 0 0 13.21 6 6 0 0 0 4.61-1.85 6 6 0 0 0 1.56-4.22 5.87 5.87 0 0 0-.1-1.13zm45.31 1.4a4 4 0 0 0-3.64-2.71 4 4 0 0 0-4 4.25 4.16 4.16 0 0 0 4.22 4.25 4.23 4.23 0 0 0 3.54-1.88l-1.45-1a2.43 2.43 0 0 1-2.09 1.18 2.16 2.16 0 0 1-2.06-1.29l5.69-2.35zm-5.8 1.42a2.33 2.33 0 0 1 2.22-2.48 1.65 1.65 0 0 1 1.58.9zM92.63 40h1.87V27.5h-1.87zm-3.06-7.3h-.07a3 3 0 0 0-2.24-1 4.26 4.26 0 0 0 0 8.51 2.9 2.9 0 0 0 2.24-1h.06v.61c0 1.63-.87 2.5-2.27 2.5a2.35 2.35 0 0 1-2.14-1.51l-1.63.68A4.05 4.05 0 0 0 87.29 44c2.19 0 4-1.29 4-4.43V32h-1.72zm-2.14 5.88a2.59 2.59 0 0 1 0-5.16A2.4 2.4 0 0 1 89.7 36a2.38 2.38 0 0 1-2.28 2.58zm24.38-11.08h-4.47V40h1.87v-4.74h2.61a3.89 3.89 0 1 0 0-7.76zm0 6h-2.61v-4.26h2.65a2.14 2.14 0 1 1 0 4.29zm11.53-1.8a3.5 3.5 0 0 0-3.33 1.91l1.66.69a1.77 1.77 0 0 1 1.7-.92 1.8 1.8 0 0 1 2 1.61v.13a4.13 4.13 0 0 0-1.95-.48c-1.79 0-3.6 1-3.6 2.81a2.89 2.89 0 0 0 3.1 2.75 2.63 2.63 0 0 0 2.4-1.2h.06v1h1.8v-4.81c0-2.19-1.66-3.46-3.79-3.46zm-.23 6.85c-.61 0-1.46-.31-1.46-1.06 0-1 1.06-1.33 2-1.33a3.32 3.32 0 0 1 1.7.42 2.26 2.26 0 0 1-2.19 2zM133.74 32l-2.14 5.42h-.06L129.32 32h-2l3.33 7.58-1.9 4.21h1.95L135.82 32zm-16.81 8h1.87V27.5h-1.87z" fill="#fff"/><path d="M20.44 17.54a2 2 0 0 0-.46 1.4v22.12a2 2 0 0 0 .46 1.4l.07.07L32.9 30.15v-.29L20.51 17.47z" fill="url(#s2en-a)"/><path d="M37 34.28l-4.1-4.13v-.29l4.1-4.14.09.05L42 28.56c1.4.79 1.4 2.09 0 2.89l-4.89 2.78z" fill="url(#s2en-b)"/><path d="M37.12 34.22L32.9 30 20.44 42.46a1.63 1.63 0 0 0 2.08.06l14.61-8.3" fill="url(#s2en-c)"/><path d="M37.12 25.78l-14.61-8.3a1.63 1.63 0 0 0-2.08.06L32.9 30z" fill="url(#s2en-d)"/><path d="M37 34.13l-14.49 8.25a1.67 1.67 0 0 1-2 0l-.07.07.07.07a1.66 1.66 0 0 0 2 0l14.61-8.3z" style="isolation:isolate" opacity=".2"/><path d="M20.44 42.32a2 2 0 0 1-.46-1.4v.15a2 2 0 0 0 .46 1.4l.07-.07zM42 31.3l-5 2.83.09.09L42 31.44A1.75 1.75 0 0 0 43 30a1.86 1.86 0 0 1-1 1.3z" style="isolation:isolate" opacity=".12"/><path d="M22.51 17.62L42 28.7a1.86 1.86 0 0 1 1 1.3 1.75 1.75 0 0 0-1-1.44L22.51 17.48c-1.4-.79-2.54-.13-2.54 1.47v.15c.03-1.61 1.15-2.27 2.54-1.48z" style="isolation:isolate" fill="#fff" opacity=".25"/></svg></span>
-      </a>
-      <a class="tf" href="https://testflight.apple.com/join/fv2p49fh">
-        <span class="stack">
-          <span class="small" data-lang="de">Offener Test via</span><span class="small" data-lang="en">Open test via</span>
-          <span class="big">TestFlight</span>
-        </span>
-      </a>
-    </div>
-    <div class="qr">
-      <img src="assets/qr.svg" alt="" width="104" height="104">
-      <p class="explain">
-        <span data-lang="de">Scanne den Code mit deinem Handy.</span>
-        <span data-lang="en">Scan the code with your phone.</span>
-      </p>
-    </div>
-  </div>
-
-  <p class="plat p-ios crossref">
-    <a class="textlink" id="x-android" href="https://play.google.com/store/apps/details?id=com.luifire.glimpse"><span data-lang="de">Auch für Android</span><span data-lang="en">Also for Android</span></a>
-  </p>
-  <p class="plat p-android crossref">
-    <a class="textlink" href="https://testflight.apple.com/join/fv2p49fh"><span data-lang="de">Auch fürs iPhone</span><span data-lang="en">Also for iPhone</span></a>
-  </p>
-</main>
-
-<footer class="col">
-  <a href="../imprint.html"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a>
-  ·
-  <a href="../privacy-policy.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a>
+<footer>
+<span><span class="de">Für iOS und Android. Kein GPS, kein Location Tracking, ab 18.</span><span class="en">For iOS and Android. No GPS, no location tracking, 18+.</span></span>
+<span class="legal"><a href="https://luifire.github.io/glimpse-documents/imprint.html"><span class="de">Impressum</span><span class="en">Imprint</span></a><span>&middot;</span><a href="https://luifire.github.io/glimpse-documents/privacy-policy.html"><span class="de">Datenschutz</span><span class="en">Privacy</span></a></span>
 </footer>
-
+</main>
 <script>
-(function(){
-  "use strict";
-
-  /* --- Abschnitt 2: die Werte, die beim Umzug angefasst werden ------------- */
-  var DOMAIN         = "https://luifire.github.io/glimpse-documents/get/";  // TODO: eigene Domain (dann auch <meta og:*> und tools/make_qr.py)
-  var TESTFLIGHT_URL = "https://testflight.apple.com/join/fv2p49fh";                       // öffentlicher Join-Link
-  var PLAY_URL       = "https://play.google.com/store/apps/details?id=com.luifire.glimpse";
-  var APPSTORE_TESTFLIGHT_URL = "https://apps.apple.com/de/app/testflight/id899247664";    // Apples TestFlight-App
-  var IMPRINT_URL    = "../imprint.html";   // TODO: Seite existiert noch nicht
-  var PRIVACY_URL    = "../privacy-policy.html";
-  /* LOGO: kein SVG im Projekt vorhanden, die Wortmarke ist in Geist gesetzt (.mark). */
-
-  /* Schlagzeilen je Kampagne, gesteuert über ?c= */
-  var CAMPAIGNS = {
-    mensa: { de: "Gescannt in der Mensa. Genau da fängt es an.",
-             en: "Scanned in the dining hall. That's exactly where it starts." },
-    bib:   { de: "Gescannt in der Bib. Genau da fängt es an.",
-             en: "Scanned in the library. That's exactly where it starts." },
-    htwg:  { de: "Gescannt auf dem Campus. Genau da fängt es an.",
-             en: "Scanned on campus. That's exactly where it starts." }
-  };
-
-  var root = document.documentElement;
-  var params = new URLSearchParams(location.search);
-
-  /* Sprache: Deutsch bleibt, Englisch nur bei englischer Browsersprache */
-  if ((navigator.language || "de").toLowerCase().indexOf("en") === 0) root.lang = "en";
-
-  /* Erklärseite in derselben Sprache öffnen */
-  var howLink = document.getElementById("how-link");
-  if (howLink) howLink.href += "?lang=" + root.lang;
-
-  /* Kampagne: unbekannter oder fehlender Wert lässt die Standard-Schlagzeile stehen */
-  var campaign = CAMPAIGNS[(params.get("c") || "").toLowerCase()];
-  if (campaign) {
-    document.getElementById("h-de").textContent = campaign.de;
-    document.getElementById("h-en").textContent = campaign.en;
-  }
-
-  /* utm_-Parameter erreichen die Play Console nur über den referrer-Parameter */
-  var utm = [];
-  params.forEach(function(v, k){ if (k.indexOf("utm_") === 0) utm.push(k + "=" + v); });
-  var playUrl = PLAY_URL;
-  if (utm.length) playUrl += "&referrer=" + encodeURIComponent(utm.join("&"));
-  ["play-solo", "play-row", "x-android"].forEach(function(id){
-    var el = document.getElementById(id); if (el) el.href = playUrl;
-  });
-
-  /* Plattform: userAgentData zuerst, User Agent als Rückfall; iPadOS meldet sich als Mac */
-  var ua = navigator.userAgent || "";
-  var uaPlatform = (navigator.userAgentData && navigator.userAgentData.platform) || "";
-  var isAndroid = uaPlatform === "Android" || /Android/i.test(ua);
-  var looksMac = /Mac/i.test(uaPlatform) || /Macintosh|Mac OS X/i.test(ua);
-  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (looksMac && navigator.maxTouchPoints > 1);
-  root.setAttribute("data-platform", isAndroid ? "android" : (isIOS ? "ios" : "unknown"));
-
-  /* In-App-Browser: dort scheitert der Sprung nach TestFlight regelmäßig */
-  if (/Instagram|FBAN|FBAV|FB_IAB|Snapchat|TikTok|Musical_ly|LinkedInApp|Line\//i.test(ua)) {
-    root.setAttribute("data-inapp", "1");
-  }
-
-  /* Android weiterleiten, den Badge darunter stehen lassen */
-  if (isAndroid) {
-    var line = document.getElementById("redirect-line");
-    if (line) line.hidden = false;
-    setTimeout(function(){ location.replace(playUrl); }, 900);
-  }
-})();
+(()=>{const h=document.documentElement,q=new URLSearchParams(location.search);
+const ua=navigator.userAgent,ios=/iPad|iPhone|iPod/.test(ua)||(/Mac/.test(ua)&&navigator.maxTouchPoints>1),and=/Android/.test(ua);
+h.dataset.os=q.get('os')||(ios?'ios':and?'android':'other');
+const setLang=l=>{h.dataset.lang=l;h.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===l));try{localStorage.setItem('glimpse-lang',l)}catch(e){}};
+let l=null;try{l=localStorage.getItem('glimpse-lang')}catch(e){}
+setLang(q.get('lang')||l||((navigator.language||'de').toLowerCase().startsWith('de')?'de':'en'));
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.set)));})();
 </script>
-</body>
-</html>
+</body></html>

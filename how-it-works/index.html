@@ -10,18 +10,20 @@
 <meta property="og:title" content="So funktioniert Glimpse">
 <meta property="og:description" content="Dating mit Menschen, denen du wirklich begegnet bist. Kein Swipen quer durch die Stadt.">
 <meta property="og:url" content="https://luifire.github.io/glimpse-documents/how-it-works/">
-<meta name="theme-color" content="#14110F">
+<meta name="theme-color" content="#140A0C">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="../assets/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-@font-face{
-  font-family:"Geist"; src:url("assets/geist-latin.woff2") format("woff2");
-  font-weight:100 900; font-style:normal; font-display:swap;
-}
 /* App-Palette (dunkles Theme). Die Ramp ist in OKLCH spezifiziert; Hex ist nur der sRGB-Rückfall. */
 :root{
   color-scheme:dark;
-  --bg:#14110F; --surface:#2E1612; --text:#F7EBE7;
-  --dim:rgba(247,235,231,.6); --dim2:rgba(247,235,231,.4); --line:rgba(255,255,255,.10);
+  --bg:#140A0C; --surface:#2E1612; --text:#FFF4F1;
+  --dim:rgba(255,244,241,.72); --dim2:rgba(255,244,241,.45); --line:rgba(255,244,241,.18);
   --lightest:#FF71AF; --light:#FF6F00; --mid:#A0051F; --on-lightest:#3D0111;
+  --flame-light:#FF6D9E; --flame-mid:#FF7A16;
   --font:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 @supports (color: oklch(0 0 0)){
@@ -34,8 +36,12 @@ body{
   -webkit-text-size-adjust:100%;
   display:flex; flex-direction:column; align-items:center;
   padding-block:1.5rem 1.25rem; padding-inline:1.25rem;
+  position:relative; overflow-x:hidden;
 }
-.col{width:100%; max-width:34rem}
+/* Der gleiche Lichtschein wie auf der Installationsseite */
+body::before{content:""; position:absolute; inset:-20vh -30% auto -30%; height:72vh; pointer-events:none;
+  background:radial-gradient(56% 100% at 50% 0,rgba(255,109,158,.55),rgba(255,122,22,.26) 48%,transparent 72%)}
+.col{width:100%; max-width:34rem; position:relative; z-index:1}
 main.col{display:flex; flex-direction:column; gap:2.75rem}
 :focus-visible{outline:2px solid var(--lightest); outline-offset:3px; border-radius:4px}
 
@@ -52,17 +58,17 @@ main.col{display:flex; flex-direction:column; gap:2.75rem}
 }
 
 /* Kopfzeile: Wortmarke links, Sprachwahl rechts */
-.top{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem}
-.mark{font-weight:700; font-size:18px; letter-spacing:-.01em; margin:0}
-.mark span{color:var(--lightest)}
-/* Sprachwahl im Look der Tab-Kacheln: aktiv = Mid-Tönung mit Rand */
-.lang{display:inline-flex; gap:6px}
-.lang button{
-  appearance:none; border:1px solid transparent; background:var(--line); color:var(--dim);
-  font:800 14px/1 var(--font); min-width:48px; min-height:40px; padding:0 .75rem;
-  border-radius:12px; cursor:pointer;
-}
-.lang button[aria-pressed="true"]{background:rgba(160,5,31,.2); border-color:var(--mid); color:var(--text)}
+.bar{display:flex; align-items:center; gap:9px; margin-bottom:1.25rem}
+.bar a.brand{display:flex; align-items:center; gap:9px; color:var(--text); text-decoration:none}
+.bar img{width:30px; height:30px; display:block}
+.bar .wm{font-size:19px; font-weight:800; letter-spacing:-.025em}
+.bar .sep{opacity:.34; font-size:12px}
+.bar .tg{font-size:14px; font-weight:700; opacity:.82}
+.lang{margin-left:auto; display:flex; gap:2px; padding:3px; border:1px solid var(--line); border-radius:999px}
+.lang button{appearance:none; border:0; background:none; color:var(--dim); cursor:pointer;
+  font:500 10px/1 "JetBrains Mono",monospace; letter-spacing:.1em; text-transform:uppercase;
+  padding:6px 9px; border-radius:999px}
+.lang button[aria-pressed="true"]{background:var(--text); color:var(--bg)}
 
 /* Der eine Moment: zwei Punkte treffen sich, danach ist die Seite still. */
 .meet{position:relative; width:4rem; height:9px; margin-bottom:1.25rem}
@@ -146,15 +152,20 @@ h2{font-weight:700; font-size:20px; line-height:1.25; letter-spacing:-.01em; mar
 .block b{color:var(--text); font-weight:600}
 
 .cta{display:flex; flex-direction:column; gap:.5rem}
-.btn{display:flex; align-items:center; justify-content:center; min-height:52px; padding:.75rem 1.125rem;
-  border-radius:14px; font-size:18px; font-weight:700; letter-spacing:.005em; text-decoration:none; width:100%;
-  background:var(--lightest); color:var(--on-lightest)}
+.btn{display:flex; align-items:center; justify-content:center; min-height:60px; padding:16px 22px;
+  border-radius:999px; font-size:18px; font-weight:900; letter-spacing:-.025em; text-decoration:none; width:100%;
+  background:linear-gradient(96deg,var(--flame-light),var(--flame-mid)); color:var(--bg);
+  box-shadow:0 8px 22px rgba(255,109,158,.28)}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:translateY(1px)}
 .textlink{color:var(--dim); text-decoration:underline; text-underline-offset:3px;
   display:inline-flex; align-items:center; min-height:44px; font-size:16px}
 
-footer{margin-top:auto; padding-top:2rem; font-size:16px; color:var(--dim)}
-footer a{color:var(--dim); text-decoration:underline; text-underline-offset:3px;
-  display:inline-block; min-height:44px; line-height:44px}
+footer{margin-top:2.75rem; padding-top:16px; border-top:1px solid var(--line);
+  display:flex; flex-direction:column; gap:8px; font-size:12.5px; line-height:1.4; color:var(--dim)}
+footer .legal{display:flex; flex-wrap:wrap; align-items:center; gap:8px}
+footer a{color:var(--dim); text-decoration:none}
+footer a:hover{color:var(--text)}
 
 /* Sprache: nur die gewählte Sprache ist sichtbar */
 html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
@@ -184,8 +195,8 @@ html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
 
 <main class="col">
   <header>
-    <div class="top">
-      <p class="mark">glim<span>pse</span></p>
+    <div class="bar">
+      <a class="brand" href="../"><img src="../get/assets/glimpse-logo.png" alt=""><span class="wm">Glimpse</span></a><span class="sep">&bull;</span><span class="tg">Dates 2 Go</span>
       <div class="lang" role="group" aria-label="Sprache / Language">
         <button type="button" data-set="de" lang="de">DE</button>
         <button type="button" data-set="en" lang="en">EN</button>
@@ -339,9 +350,9 @@ html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
 </main>
 
 <footer class="col">
-  <a href="../privacy-policy.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a>
-  ·
-  <a href="../support.html">Support</a>
+  <span><span data-lang="de">Für iOS und Android. Kein GPS, kein Location Tracking, ab 18.</span><span data-lang="en">For iOS and Android. No GPS, no location tracking, 18+.</span></span>
+  <span class="legal"><a href="../"><span data-lang="de">Alle Dokumente</span><span data-lang="en">All documents</span></a><span>·</span><a href="../privacy-policy.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a><span>·</span><a href="../support.html">Support</a></span>
+  <span>&copy; 2026 Glimpse - Dates 2 Go</span>
 </footer>
 
 <script>
