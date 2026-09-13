@@ -5,7 +5,7 @@ description: How Glimpse collects, uses and protects your data
 
 # Privacy Policy – Glimpse
 
-_Last updated: 4 July 2026_
+_Last updated: 13 September 2026_
 
 This policy applies to the Glimpse app on both Android and iOS. Where a detail is platform-specific, the platform is named explicitly.
 
@@ -45,7 +45,7 @@ The app requests access to your camera and photo library only when you choose to
 - **Storage:** The photo is stored online and temporarily cached on other users' devices to ensure app performance. Other users have no direct access to the image file.
 - **Visibility:** The profile photo is only visible to users who can see you in the app. Users can set themselves to "invisible", which hides their photo.
 - **Local visibility:** People who know the user in real life may see the photo.
-- **Deletion:** Users can delete their account and photo directly in the app. Deletion requests can also be sent to [feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com).
+- **Deletion:** Users can delete their account and photo directly in the app. Replacing the profile photo deletes the previous one straight away. Deletion requests can also be sent to [feedback.glimpse@gmail.com](mailto:feedback.glimpse@gmail.com).
 
 > **Legal basis:** Consent (Art. 6(1)(a) GDPR / Art. 13(1) DSG).
 
@@ -143,7 +143,7 @@ We keep personal data only for as long as it is needed for the purposes describe
 | Data | Retention |
 | --- | --- |
 | Username | Kept while your account exists; deleted when you delete your account. |
-| Profile photos | Kept while your account exists; deleted when you delete your account. We also aim to remove the photos of long-inactive accounts. |
+| Profile photos | Kept while your account exists; deleted when you delete your account. If you replace your photo, the previous one is deleted straight away. We also aim to remove the photos of long-inactive accounts. |
 | Gender / preference data | Deleted when you delete your account. |
 | Interaction data | Kept as long as needed to enforce blocks and protect users; deleted or anonymised when you delete your account. |
 | BLE sighting data | Kept only temporarily to power the nearby-users list, and removed once it is no longer needed. |
