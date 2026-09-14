@@ -1,3 +1,6 @@
+/* Schriften lokal (SIL OFL, Lizenzen in assets/fonts/), kein Abruf bei Google. */
+@font-face{font-family:Geist;font-style:normal;font-weight:100 900;font-display:swap;src:url("fonts/geist-variable.woff2") format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/jetbrains-mono-500.woff2") format("woff2")}
 /* Glimpse Dokumentseiten. Ein Stylesheet fuer index, terms, privacy-policy,
    delete-account, csae-policy und support. Gleiche Palette und Kopfzeile wie /get/. */
 

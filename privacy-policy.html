@@ -16,8 +16,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:site_name" content="Glimpse">
 <meta property="og:url" content="https://luifire.github.io/glimpse-documents/privacy-policy.html">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="alternate" hreflang="de" href="https://luifire.github.io/glimpse-documents/privacy-policy.html?lang=de">
@@ -42,7 +40,7 @@ document.documentElement.dataset.lang=p;document.documentElement.lang=p;})();
 <!-- ANBIETER-TODO: Name und c/o-Domiziladresse eintragen (auch in terms.html und imprint.html), PFLICHTANGABE, muss vor der Store-Einreichung wieder drinstehen -->
 <div class="l-en" lang="en">
 <h1>Privacy Policy</h1>
-<p><em>Last updated: 13 September 2026</em></p>
+<p><em>Last updated: 14 September 2026</em></p>
 <p>This policy applies to the Glimpse app on both Android and iOS. Where a detail is platform-specific, the platform is named explicitly.</p>
 <nav class="toc" aria-label="Contents">
 <p class="toc-t">Contents</p>
@@ -60,6 +58,7 @@ document.documentElement.dataset.lang=p;document.documentElement.lang=p;})();
 <li><a href="#app-store-google-play-privacy-en">11. App Store &amp; Google Play Privacy Disclosures</a></li>
 <li><a href="#changes-to-this-privacy-policy-en">12. Changes to This Privacy Policy</a></li>
 <li><a href="#contact-en">13. Contact</a></li>
+<li><a href="#these-web-pages-en">14. These Web Pages</a></li>
 </ul>
 </nav>
 <h2 id="controller-en">1. Controller</h2>
@@ -77,7 +76,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <li><strong>Gender</strong> — used to display you correctly to other users.</li>
 <li><strong>Gender preference</strong> — used to filter which users are shown to you.</li>
 </ul>
-<p>Gender preference may constitute data concerning sexual orientation and is therefore treated as a <strong>special category of personal data</strong> under Art. 9 GDPR / Art. 5 DSG. Processing is based on your explicit consent. You give it during onboarding by ticking the dedicated box below the “looking for” selection; entering the information alone is not consent, and without the tick no profile is created. You may withdraw the consent at any time by deleting your account.</p>
+<p>Your gender together with your gender preference may constitute data concerning sexual orientation and is therefore treated as a <strong>special category of personal data</strong> under Art. 9 GDPR / Art. 5 DSG. Processing of both is based on your explicit consent. You give it during onboarding by ticking the dedicated box below the “looking for” selection; entering the information alone is not consent, and without the tick no profile is created. You may withdraw the consent at any time by deleting your account; because Glimpse cannot show you to anyone or show anyone to you without these two details, deleting the account is the only way to withdraw it.</p>
 <blockquote>
 <p><strong>Legal basis:</strong> Explicit consent (Art. 9(2)(a) GDPR / Art. 5 DSG).</p>
 </blockquote>
@@ -98,7 +97,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <p>The app uses Bluetooth Low Energy (BLE) to detect other nearby users.</p>
 <ul>
 <li><strong>Purpose:</strong> Detect other nearby Glimpse users — without processing GPS or location data.</li>
-<li><strong>No location data:</strong> Bluetooth is <strong>not</strong> used to derive your physical location (on Android the scan permission is declared with the <code>neverForLocation</code> flag). No GPS coordinates are collected or stored.</li>
+<li><strong>No location data:</strong> Bluetooth is <strong>not</strong> used to derive your physical location (on Android the scan permission is declared with the <code>neverForLocation</code> flag). No GPS coordinates are collected or stored. On Android 11 and older the system additionally requires the location permission for Bluetooth scanning; Glimpse asks for it there only for that reason and does not read your location.</li>
 <li><strong>Storage:</strong> Detection events (sightings) are stored temporarily both locally and online to keep the interaction list up to date.</li>
 </ul>
 <blockquote>
@@ -107,15 +106,16 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <h3>d) Interaction Data</h3>
 <ul>
 <li><strong>Purpose:</strong> When users like (Date 2 Go, Flirt 2 Go), block, or otherwise interact with other users, this data is stored online.</li>
-<li><strong>Necessity:</strong> This is required to track interactions (e.g. blocks) and protect user privacy, even after a reinstall.</li>
+<li><strong>Necessity:</strong> This is required to track interactions (e.g. blocks) and protect user privacy. The data is stored on the server, so it applies regardless of the device you use, for as long as your account exists.</li>
 </ul>
 <blockquote>
 <p><strong>Legal basis:</strong> Performance of contract and legitimate interests (Art. 6(1)(b),(f) GDPR / Art. 13(1) DSG).</p>
 </blockquote>
 <h3>e) Push Notifications</h3>
-<p>The app requests notification permission to send notifications about matches, interactions, and activity from other users via Firebase Cloud Messaging (FCM).</p>
+<p>The app requests notification permission to send notifications about matches, interactions, and activity from other users. Delivery runs via Firebase Cloud Messaging (FCM, Google) and, on iPhones, via the Apple Push Notification Service (APNs).</p>
 <ul>
 <li><strong>Storage:</strong> FCM tokens are stored server-side and used solely for delivering notifications.</li>
+<li><strong>Content:</strong> A notification carries the type of interaction, the sender's user ID, the sender's gender and, where the sender has released it or you have matched, the sender's username. Push notifications are queued on our server and deleted 3 days after delivery (30 days if delivery permanently fails).</li>
 </ul>
 <blockquote>
 <p><strong>Legal basis:</strong> Consent (Art. 6(1)(a) GDPR / Art. 13(1) DSG).</p>
@@ -124,13 +124,30 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <p>Glimpse is for adults only, so before you can create a profile you declare your <strong>date of birth</strong> yourself during onboarding. We use it solely to check that you meet the minimum age of 18. The declaration itself is not checked against an ID document or any other source; only the date you entered is evaluated. For this we process:</p>
 <ul>
 <li>your <strong>self-declared date of birth</strong>;</li>
-<li>a <strong>pseudonymous device identifier</strong> — a salted, one-way SHA-256 hash derived from a device identifier (such as the Android device ID or the iOS identifier for vendor), or, if that is unavailable, a random identifier stored on your device. It cannot be reversed to reveal the original identifier, is not linked to advertising, and is not shared. Its only purpose is to make the age decision reinstall-proof, so the 18+ requirement cannot be bypassed by deleting and reinstalling the app; and</li>
+<li>a <strong>pseudonymous device identifier</strong> — a salted, one-way SHA-256 hash. On Android it is derived from the Android device ID, or, if that is unavailable, from a random identifier stored on your device; on iOS it is derived from a random identifier that is generated once and stored in the device keychain. It cannot be reversed to reveal the original identifier, is not linked to advertising, and is not shared. Its only purpose is to make the age decision reinstall-proof, so the 18+ requirement cannot be bypassed by deleting and reinstalling the app; and</li>
 <li>the <strong>resulting age status</strong> (allowed / blocked), used to enable or restrict access to the app's features.</li>
 </ul>
 <p><strong>If you do not meet the minimum age</strong>, we do <strong>not</strong> create a dating profile, do <strong>not</strong> upload a photo, and do <strong>not</strong> collect an advertising ID or track you. We keep only a minimal pseudonymous record — the device hash plus a "blocked" flag, <strong>without your date of birth</strong> — purely to enforce the age restriction (see section 9).</p>
 <blockquote>
 <p><strong>Legal basis:</strong> Compliance with a legal obligation and legitimate interests in protecting minors and age assurance (Art. 6(1)(c),(f) GDPR / Art. 13(1) DSG).</p>
 </blockquote>
+<h3>g) Chat Messages</h3>
+<p>After a match or an accepted Flirt 2 Go you can exchange short messages (up to 100 characters) to find each other. The message text is delivered as a push notification: it passes through our server (Supabase), through Firebase Cloud Messaging (Google) and, if the other person uses an iPhone, through the Apple Push Notification Service. The visible notification only says that a message has arrived; the text itself is shown inside the app. The chat history is stored only on your devices. On the server a message is kept for up to 3 days after delivery, or up to 30 days if delivery permanently fails, and is then deleted automatically.</p>
+<blockquote>
+<p><strong>Legal basis:</strong> Performance of contract (Art. 6(1)(b) GDPR / Art. 13(1) DSG).</p>
+</blockquote>
+<h3>h) Reports and Moderation</h3>
+<p>If you report a user, we store who reported whom and when. An account reported by two different users is suspended <strong>automatically</strong>, before a person has reviewed the case (see the Terms of Use, section 9); this is an automated decision within the meaning of Art. 22 GDPR. The suspension and its reason are recorded on the account and on the pseudonymous device identifier. You can contest a suspension at any time by email; a person then reviews the case. For every report we receive an email containing the usernames and IDs of the accounts involved. Profile photos are reviewed by us by hand; we log which photo was reviewed when and with which result. After an account is deleted, reports and the review log are detached from the person and kept only without reference to the original account, for as long as they are needed to enforce suspensions.</p>
+<blockquote>
+<p><strong>Legal basis:</strong> Legitimate interests in protecting users and enforcing the Terms of Use (Art. 6(1)(f) GDPR / Art. 31(1) DSG).</p>
+</blockquote>
+<h3>i) Email Contact</h3>
+<p>If you write to us, we process your email address and the content of your message to handle your request. Our mailbox is hosted by Google (Gmail), so this data is processed by Google in the United States. Report notifications are sent to that mailbox through the email service Brevo (EU). We delete correspondence once the request is settled; correspondence about reports and suspensions is kept for as long as the suspension is enforced.</p>
+<blockquote>
+<p><strong>Legal basis:</strong> Performance of contract and legitimate interests (Art. 6(1)(b),(f) GDPR / Art. 13(1) DSG).</p>
+</blockquote>
+<h3>j) Which Details Are Required</h3>
+<p>Without a date of birth, gender, gender preference and the Bluetooth permission no profile can be created and the app cannot work. A username and a profile photo are required to create a profile because other users need to recognise you; you may hide the username. Notifications and camera access are optional.</p>
 <h2 id="legal-basis-summary-en">4. Legal Basis Summary</h2>
 <table>
 <thead>
@@ -149,7 +166,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <td>Consent (Art. 6(1)(a))</td>
 </tr>
 <tr>
-<td>Gender preference</td>
+<td>Gender and gender preference</td>
 <td>Explicit consent (Art. 9(2)(a))</td>
 </tr>
 <tr>
@@ -165,13 +182,25 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <td>Consent (Art. 6(1)(a))</td>
 </tr>
 <tr>
+<td>Chat messages</td>
+<td>Performance of contract (Art. 6(1)(b))</td>
+</tr>
+<tr>
+<td>Reports, suspension and photo review log</td>
+<td>Legitimate interests (Art. 6(1)(f))</td>
+</tr>
+<tr>
+<td>Email correspondence</td>
+<td>Contract + legitimate interests (Art. 6(1)(b),(f))</td>
+</tr>
+<tr>
 <td>Date of birth + hashed device identifier</td>
 <td>Legal obligation + legitimate interests (Art. 6(1)(c),(f))</td>
 </tr>
 </tbody>
 </table>
 <h2 id="international-data-transfers-en">5. International Data Transfers</h2>
-<p>Supabase and Firebase (Google) may store and process data on servers located in the United States. These transfers are carried out on the basis of the <strong>EU Standard Contractual Clauses (SCCs)</strong> adopted by the European Commission, which provide an appropriate level of data protection.</p>
+<p>Supabase, Firebase (Google), Apple (push delivery to iPhones), Google (our Gmail mailbox) and GitHub (hosting of these web pages) may store and process data on servers located in the United States. These transfers are carried out on the basis of the <strong>EU-US Data Privacy Framework</strong>, under which Google, Apple and GitHub are certified, and of the <strong>EU Standard Contractual Clauses (SCCs)</strong> adopted by the European Commission, which provide an appropriate level of data protection. Brevo processes data within the EU.</p>
 <ul>
 <li>Supabase: <a href="https://supabase.com/privacy">supabase.com/privacy</a></li>
 <li>Firebase / Google: <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></li>
@@ -197,6 +226,26 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <td>Push notifications (FCM)</td>
 <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
 </tr>
+<tr>
+<td>Apple</td>
+<td>Push delivery to iPhones (APNs)</td>
+<td><a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></td>
+</tr>
+<tr>
+<td>Brevo</td>
+<td>Sending report notifications to our mailbox (EU)</td>
+<td><a href="https://www.brevo.com/legal/privacypolicy/">brevo.com/legal/privacypolicy</a></td>
+</tr>
+<tr>
+<td>Google (Gmail)</td>
+<td>Mailbox for support, reports and deletion requests</td>
+<td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+</tr>
+<tr>
+<td>GitHub (GitHub Pages)</td>
+<td>Hosting of these web pages (see section 14)</td>
+<td><a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/site-policy</a></td>
+</tr>
 </tbody>
 </table>
 <h2 id="user-rights-en">7. User Rights</h2>
@@ -218,7 +267,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <li><strong>EU users:</strong> The supervisory authority of your EU member state of residence or place of work.</li>
 </ul>
 <h2 id="retention-periods-en">9. Retention Periods</h2>
-<p>We keep personal data only for as long as it is needed for the purposes described in this policy, and delete or anonymise it once it is no longer required. The entries below describe the criteria we apply; where a specific timeframe is given, it is a target rather than a guaranteed maximum, and may change as the app evolves. In all cases you can delete your account (in-app or by email) to have your data removed.</p>
+<p>We keep personal data only for as long as it is needed for the purposes described in this policy, and delete or anonymise it once it is no longer required. The periods below are maximum periods; automatic deletion runs once a day, so a period may be exceeded by at most one day. An account you do not delete stays in place until you delete it; uninstalling the app alone does not delete the account. In all cases you can delete your account (in-app or by email) to have your data removed.</p>
 <table>
 <thead>
 <tr>
@@ -233,7 +282,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 </tr>
 <tr>
 <td>Profile photos</td>
-<td>Kept while your account exists; deleted when you delete your account. If you replace your photo, the previous one is deleted straight away. We also aim to remove the photos of long-inactive accounts.</td>
+<td>Kept while your account exists; deleted when you delete your account. If you replace your photo, the previous one is deleted straight away.</td>
 </tr>
 <tr>
 <td>Gender / preference data</td>
@@ -252,12 +301,24 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <td>Kept as long as needed to deliver notifications; removed when you delete your account.</td>
 </tr>
 <tr>
+<td>Push notifications and chat messages</td>
+<td>On the server up to 3 days after delivery, up to 30 days if delivery permanently fails. The chat history lives only on your devices.</td>
+</tr>
+<tr>
+<td>Reports, suspension and photo review log</td>
+<td>Kept as long as needed to enforce suspensions; detached from the person when you delete your account.</td>
+</tr>
+<tr>
+<td>Email correspondence</td>
+<td>Deleted once the request is settled; correspondence about reports and suspensions is kept as long as the suspension is enforced.</td>
+</tr>
+<tr>
 <td>Date of birth</td>
 <td>Deleted when you delete your account.</td>
 </tr>
 <tr>
-<td>Age-block marker (device hash + status)</td>
-<td>For a device found not to meet the minimum age, we retain only a pseudonymous marker (device hash + "blocked" flag, <strong>no date of birth</strong>) to enforce the age restriction. Any non-blocked record is deleted on account deletion.</td>
+<td>Block marker (device hash + status)</td>
+<td>For a device found not to meet the minimum age, and for an account that was suspended for breaching the Terms of Use, we retain only a pseudonymous marker (device hash + "blocked" or "suspended" flag, <strong>no date of birth</strong>) to enforce the age restriction or the suspension across reinstalls. Any other record is deleted on account deletion.</td>
 </tr>
 </tbody>
 </table>
@@ -271,6 +332,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <li>Date of birth</li>
 <li>Profile photo</li>
 <li>Interaction history</li>
+<li>Chat messages (in transit only)</li>
 <li>Push notification token (device identifier)</li>
 </ul>
 <p>Data is <strong>encrypted in transit</strong>, is <strong>not sold</strong>, and you can request its deletion (in-app or by email). BLE sighting data and the hashed device identifier used for the age declaration are collected but are not shared externally in a form linked to your public identity. The app does <strong>not</strong> collect location data.</p>
@@ -278,10 +340,12 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <p>This privacy policy may be updated. The current version is always available at this page; you can also request it at <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a>.</p>
 <h2 id="contact-en">13. Contact</h2>
 <p>For any privacy-related questions, please contact: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a></p>
+<h2 id="these-web-pages-en">14. These Web Pages</h2>
+<p>These pages are hosted by GitHub, Inc. (GitHub Pages, United States). When you open a page, GitHub processes your IP address and the usual technical request data in its server logs; we have no access to those logs and set no cookies. Your language choice (DE/EN) is stored in your browser's local storage only, without any tracking, so the page opens in the same language next time. Fonts are served from these pages themselves, not from third-party servers.</p>
 </div>
 <div class="l-de" lang="de">
 <h1>Datenschutzerklärung</h1>
-<p><em>Zuletzt aktualisiert: 13. September 2026</em></p>
+<p><em>Zuletzt aktualisiert: 14. September 2026</em></p>
 <p>Diese Erklärung gilt für die App Glimpse auf Android und iOS. Wo ein Punkt nur eine Plattform betrifft, wird sie ausdrücklich genannt.</p>
 <nav class="toc" aria-label="Inhalt">
 <p class="toc-t">Inhalt</p>
@@ -299,6 +363,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <li><a href="#angaben-fuer-app-store-und-de">11. Angaben für App Store und Google Play</a></li>
 <li><a href="#aenderungen-dieser-datenschutzerklaerung-de">12. Änderungen dieser Datenschutzerklärung</a></li>
 <li><a href="#kontakt-de">13. Kontakt</a></li>
+<li><a href="#diese-webseiten-de">14. Diese Webseiten</a></li>
 </ul>
 </nav>
 <h2 id="verantwortlicher-de">1. Verantwortlicher</h2>
@@ -316,7 +381,7 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <li><strong>Geschlecht</strong>, damit du anderen Nutzern korrekt angezeigt wirst.</li>
 <li><strong>Geschlechterpräferenz</strong>, um zu filtern, welche Nutzer dir angezeigt werden.</li>
 </ul>
-<p>Die Geschlechterpräferenz kann eine Angabe über die sexuelle Orientierung darstellen und wird deshalb als <strong>besondere Kategorie personenbezogener Daten</strong> nach Art. 9 DSGVO / Art. 5 DSG behandelt. Die Verarbeitung stützt sich auf deine ausdrückliche Einwilligung. Du erteilst sie beim Onboarding, indem du unter der Auswahl „Ich suche“ das dafür vorgesehene Kästchen aktivierst. Die blosse Eingabe der Angabe ist noch keine Einwilligung, und ohne das Häkchen wird kein Profil angelegt. Du kannst die Einwilligung jederzeit widerrufen, indem du dein Konto löschst.</p>
+<p>Dein Geschlecht zusammen mit deiner Geschlechterpräferenz kann eine Angabe über die sexuelle Orientierung darstellen und wird deshalb als <strong>besondere Kategorie personenbezogener Daten</strong> nach Art. 9 DSGVO / Art. 5 DSG behandelt. Die Verarbeitung beider Angaben stützt sich auf deine ausdrückliche Einwilligung. Du erteilst sie beim Onboarding, indem du unter der Auswahl „Ich suche“ das dafür vorgesehene Kästchen aktivierst. Die blosse Eingabe der Angabe ist noch keine Einwilligung, und ohne das Häkchen wird kein Profil angelegt. Du kannst die Einwilligung jederzeit widerrufen, indem du dein Konto löschst; weil Glimpse dich ohne diese beiden Angaben niemandem anzeigen und dir niemanden anzeigen kann, ist die Kontolöschung der einzige Weg des Widerrufs.</p>
 <blockquote>
 <p><strong>Rechtsgrundlage:</strong> ausdrückliche Einwilligung (Art. 9 Abs. 2 lit. a DSGVO / Art. 5 DSG).</p>
 </blockquote>
@@ -337,7 +402,7 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <p>Die App nutzt Bluetooth Low Energy (BLE), um andere Nutzer in der Nähe zu erkennen.</p>
 <ul>
 <li><strong>Zweck:</strong> andere Glimpse-Nutzer in der Nähe erkennen, ohne GPS- oder Standortdaten zu verarbeiten.</li>
-<li><strong>Keine Standortdaten:</strong> Bluetooth wird <strong>nicht</strong> verwendet, um deinen Aufenthaltsort abzuleiten (unter Android ist die Scan-Berechtigung mit dem Flag <code>neverForLocation</code> deklariert). Es werden keine GPS-Koordinaten erhoben oder gespeichert.</li>
+<li><strong>Keine Standortdaten:</strong> Bluetooth wird <strong>nicht</strong> verwendet, um deinen Aufenthaltsort abzuleiten (unter Android ist die Scan-Berechtigung mit dem Flag <code>neverForLocation</code> deklariert). Es werden keine GPS-Koordinaten erhoben oder gespeichert. Unter Android 11 und älter verlangt das System für Bluetooth-Scans zusätzlich die Standortberechtigung; Glimpse fragt sie dort nur deshalb ab und liest keinen Standort aus.</li>
 <li><strong>Speicherung:</strong> Erkennungsereignisse werden vorübergehend lokal und online gespeichert, damit die Liste der Interaktionen aktuell bleibt.</li>
 </ul>
 <blockquote>
@@ -346,15 +411,16 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <h3>d) Interaktionsdaten</h3>
 <ul>
 <li><strong>Zweck:</strong> Wenn Nutzer andere Nutzer liken (Date 2 Go, Flirt 2 Go), blockieren oder anderweitig mit ihnen interagieren, werden diese Daten online gespeichert.</li>
-<li><strong>Erforderlichkeit:</strong> Das ist nötig, um Interaktionen nachzuhalten, etwa Blockierungen, und die Privatsphäre der Nutzer auch nach einer Neuinstallation zu schützen.</li>
+<li><strong>Erforderlichkeit:</strong> Das ist nötig, um Interaktionen nachzuhalten, etwa Blockierungen, und die Privatsphäre der Nutzer zu schützen. Die Daten liegen auf dem Server und gelten deshalb unabhängig vom benutzten Gerät, solange dein Konto besteht.</li>
 </ul>
 <blockquote>
 <p><strong>Rechtsgrundlage:</strong> Vertragserfüllung und berechtigte Interessen (Art. 6 Abs. 1 lit. b, f DSGVO / Art. 13 Abs. 1 DSG).</p>
 </blockquote>
 <h3>e) Push-Benachrichtigungen</h3>
-<p>Die App fragt die Benachrichtigungsberechtigung an, um dich über Matches, Interaktionen und Aktivitäten anderer Nutzer zu informieren. Der Versand läuft über Firebase Cloud Messaging (FCM).</p>
+<p>Die App fragt die Benachrichtigungsberechtigung an, um dich über Matches, Interaktionen und Aktivitäten anderer Nutzer zu informieren. Die Zustellung läuft über Firebase Cloud Messaging (FCM, Google) und auf iPhones über den Apple Push Notification Service (APNs).</p>
 <ul>
 <li><strong>Speicherung:</strong> FCM-Token werden serverseitig gespeichert und ausschliesslich für die Zustellung von Benachrichtigungen verwendet.</li>
+<li><strong>Inhalt:</strong> Eine Benachrichtigung enthält die Art der Interaktion, die Nutzerkennung und das Geschlecht des Absenders sowie, wenn der Absender ihn freigegeben hat oder ihr gematcht seid, seinen Benutzernamen. Benachrichtigungen werden auf unserem Server zwischengespeichert und 3 Tage nach der Zustellung gelöscht (30 Tage, wenn die Zustellung dauerhaft fehlschlägt).</li>
 </ul>
 <blockquote>
 <p><strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO / Art. 13 Abs. 1 DSG).</p>
@@ -363,13 +429,30 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <p>Glimpse ist ausschliesslich für Erwachsene. Bevor du ein Profil anlegen kannst, gibst du beim Onboarding dein <strong>Geburtsdatum</strong> selbst an. Wir verwenden es allein dafür, zu prüfen, ob du das Mindestalter von 18 Jahren erreichst. Die Angabe selbst wird nicht gegen einen Ausweis oder eine andere Quelle überprüft, geprüft wird allein das angegebene Datum. Dafür verarbeiten wir:</p>
 <ul>
 <li>dein <strong>selbst angegebenes Geburtsdatum</strong>;</li>
-<li>eine <strong>pseudonyme Gerätekennung</strong>, ein Einweg-Hash (SHA-256) mit Salt, der aus einer Gerätekennung abgeleitet wird, etwa der Android-Geräte-ID oder dem iOS Identifier for Vendor, ersatzweise aus einer zufälligen, auf deinem Gerät gespeicherten Kennung. Er lässt sich nicht zurückrechnen, ist nicht mit Werbung verknüpft und wird nicht weitergegeben. Sein einziger Zweck ist, die Altersentscheidung neuinstallationsfest zu machen, damit die 18-Jahre-Grenze nicht durch Löschen und erneutes Installieren umgangen werden kann;</li>
+<li>eine <strong>pseudonyme Gerätekennung</strong>, ein Einweg-Hash (SHA-256) mit Salt. Unter Android wird er aus der Android-Geräte-ID abgeleitet, ersatzweise aus einer zufälligen, auf deinem Gerät gespeicherten Kennung; unter iOS aus einer zufälligen Kennung, die einmalig erzeugt und im Schlüsselbund des Geräts gespeichert wird. Er lässt sich nicht zurückrechnen, ist nicht mit Werbung verknüpft und wird nicht weitergegeben. Sein einziger Zweck ist, die Altersentscheidung neuinstallationsfest zu machen, damit die 18-Jahre-Grenze nicht durch Löschen und erneutes Installieren umgangen werden kann;</li>
 <li>den <strong>daraus folgenden Altersstatus</strong> (zugelassen oder gesperrt), um den Zugang zu den Funktionen der App freizugeben oder zu beschränken.</li>
 </ul>
 <p><strong>Wenn du das Mindestalter nicht erreichst</strong>, legen wir <strong>kein</strong> Dating-Profil an, laden <strong>kein</strong> Foto hoch und erheben <strong>keine</strong> Werbe-ID und kein Tracking. Wir behalten nur einen minimalen pseudonymen Eintrag, den Geräte-Hash zusammen mit einer Sperrmarkierung und <strong>ohne dein Geburtsdatum</strong>, allein um die Altersbeschränkung durchzusetzen (siehe Abschnitt 9).</p>
 <blockquote>
 <p><strong>Rechtsgrundlage:</strong> Erfüllung einer rechtlichen Verpflichtung sowie berechtigte Interessen am Schutz Minderjähriger und an der Alterssicherung (Art. 6 Abs. 1 lit. c, f DSGVO / Art. 13 Abs. 1 DSG).</p>
 </blockquote>
+<h3>g) Chat-Nachrichten</h3>
+<p>Nach einem Match oder einem angenommenen Flirt 2 Go könnt ihr euch kurze Nachrichten (bis 100 Zeichen) schreiben, um euch zu finden. Der Nachrichtentext wird als Push-Benachrichtigung zugestellt: Er läuft über unseren Server (Supabase), über Firebase Cloud Messaging (Google) und, wenn die andere Person ein iPhone nutzt, über den Apple Push Notification Service. In der sichtbaren Benachrichtigung erscheint nur, dass eine Nachricht eingegangen ist; der Text selbst wird erst in der App angezeigt. Der Chatverlauf wird ausschliesslich auf euren Geräten gespeichert. Auf dem Server bleibt eine Nachricht bis zu 3 Tage nach der Zustellung, bei dauerhaft fehlgeschlagener Zustellung bis zu 30 Tage, und wird dann automatisch gelöscht.</p>
+<blockquote>
+<p><strong>Rechtsgrundlage:</strong> Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO / Art. 13 Abs. 1 DSG).</p>
+</blockquote>
+<h3>h) Meldungen und Moderation</h3>
+<p>Meldest du einen Nutzer, speichern wir, wer wen wann gemeldet hat. Wird ein Konto von zwei verschiedenen Nutzern gemeldet, wird es <strong>automatisch</strong> gesperrt, bevor ein Mensch den Fall geprüft hat (siehe Nutzungsbedingungen, Abschnitt 9); das ist eine automatisierte Entscheidung im Sinne von Art. 22 DSGVO. Die Sperre und ihr Grund werden am Konto und an der pseudonymen Gerätekennung vermerkt. Gegen eine Sperre kannst du jederzeit per E-Mail Widerspruch einlegen; dann prüft ein Mensch den Fall. Bei jeder Meldung erhalten wir eine E-Mail mit den Benutzernamen und Kennungen der beteiligten Konten. Profilbilder werden von uns von Hand gesichtet; wir protokollieren, welches Bild wann mit welchem Ergebnis gesichtet wurde. Nach einer Kontolöschung werden Meldungen und Sichtungsprotokoll von der Person gelöst und nur noch ohne Bezug zum ursprünglichen Konto aufbewahrt, solange sie für die Durchsetzung von Sperren gebraucht werden.</p>
+<blockquote>
+<p><strong>Rechtsgrundlage:</strong> berechtigte Interessen am Schutz der Nutzer und an der Durchsetzung der Nutzungsbedingungen (Art. 6 Abs. 1 lit. f DSGVO / Art. 31 Abs. 1 DSG).</p>
+</blockquote>
+<h3>i) Kontakt per E-Mail</h3>
+<p>Schreibst du uns, verarbeiten wir deine E-Mail-Adresse und den Inhalt deiner Nachricht, um dein Anliegen zu bearbeiten. Unser Postfach liegt bei Google (Gmail); diese Daten werden also von Google in den Vereinigten Staaten verarbeitet. Meldungs-Benachrichtigungen gehen über den E-Mail-Dienst Brevo (EU) an dieses Postfach. Wir löschen die Korrespondenz, sobald das Anliegen erledigt ist; Korrespondenz zu Meldungen und Sperren bewahren wir auf, solange die Sperre durchgesetzt wird.</p>
+<blockquote>
+<p><strong>Rechtsgrundlage:</strong> Vertragserfüllung und berechtigte Interessen (Art. 6 Abs. 1 lit. b, f DSGVO / Art. 13 Abs. 1 DSG).</p>
+</blockquote>
+<h3>j) Welche Angaben erforderlich sind</h3>
+<p>Ohne Geburtsdatum, Geschlecht, Geschlechterpräferenz und die Bluetooth-Berechtigung kann kein Profil angelegt werden und die App funktioniert nicht. Benutzername und Profilbild sind für das Anlegen eines Profils erforderlich, weil andere Nutzer dich erkennen müssen; den Benutzernamen kannst du verbergen. Benachrichtigungen und Kamerazugriff sind freiwillig.</p>
 <h2 id="ueberblick-ueber-die-rechtsgrundlagen-de">4. Überblick über die Rechtsgrundlagen</h2>
 <table>
 <thead>
@@ -388,7 +471,7 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <td>Einwilligung (Art. 6 Abs. 1 lit. a)</td>
 </tr>
 <tr>
-<td>Geschlechterpräferenz</td>
+<td>Geschlecht und Geschlechterpräferenz</td>
 <td>ausdrückliche Einwilligung (Art. 9 Abs. 2 lit. a)</td>
 </tr>
 <tr>
@@ -404,13 +487,25 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <td>Einwilligung (Art. 6 Abs. 1 lit. a)</td>
 </tr>
 <tr>
+<td>Chat-Nachrichten</td>
+<td>Vertragserfüllung (Art. 6 Abs. 1 lit. b)</td>
+</tr>
+<tr>
+<td>Meldungen, Sperre und Sichtungsprotokoll</td>
+<td>berechtigte Interessen (Art. 6 Abs. 1 lit. f)</td>
+</tr>
+<tr>
+<td>E-Mail-Korrespondenz</td>
+<td>Vertrag und berechtigte Interessen (Art. 6 Abs. 1 lit. b, f)</td>
+</tr>
+<tr>
 <td>Geburtsdatum und gehashte Gerätekennung</td>
 <td>rechtliche Verpflichtung und berechtigte Interessen (Art. 6 Abs. 1 lit. c, f)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="datenuebermittlung-in-drittlaender-de">5. Datenübermittlung in Drittländer</h2>
-<p>Supabase und Firebase (Google) können Daten auf Servern in den Vereinigten Staaten speichern und verarbeiten. Diese Übermittlungen stützen sich auf die von der Europäischen Kommission erlassenen <strong>EU-Standardvertragsklauseln</strong>, die ein angemessenes Datenschutzniveau gewährleisten.</p>
+<p>Supabase, Firebase (Google), Apple (Push-Zustellung an iPhones), Google (unser Gmail-Postfach) und GitHub (Hosting dieser Webseiten) können Daten auf Servern in den Vereinigten Staaten speichern und verarbeiten. Diese Übermittlungen stützen sich auf das <strong>EU-US Data Privacy Framework</strong>, unter dem Google, Apple und GitHub zertifiziert sind, sowie auf die von der Europäischen Kommission erlassenen <strong>EU-Standardvertragsklauseln</strong>, die ein angemessenes Datenschutzniveau gewährleisten. Brevo verarbeitet Daten innerhalb der EU.</p>
 <ul>
 <li>Supabase: <a href="https://supabase.com/privacy">supabase.com/privacy</a></li>
 <li>Firebase / Google: <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></li>
@@ -436,6 +531,26 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <td>Push-Benachrichtigungen (FCM)</td>
 <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
 </tr>
+<tr>
+<td>Apple</td>
+<td>Push-Zustellung an iPhones (APNs)</td>
+<td><a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></td>
+</tr>
+<tr>
+<td>Brevo</td>
+<td>Versand der Meldungs-Benachrichtigungen an unser Postfach (EU)</td>
+<td><a href="https://www.brevo.com/legal/privacypolicy/">brevo.com/legal/privacypolicy</a></td>
+</tr>
+<tr>
+<td>Google (Gmail)</td>
+<td>Postfach für Support, Meldungen und Löschanträge</td>
+<td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+</tr>
+<tr>
+<td>GitHub (GitHub Pages)</td>
+<td>Hosting dieser Webseiten (siehe Abschnitt 14)</td>
+<td><a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/site-policy</a></td>
+</tr>
 </tbody>
 </table>
 <h2 id="deine-rechte-de">7. Deine Rechte</h2>
@@ -457,7 +572,7 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <li><strong>Nutzer in der EU:</strong> die Aufsichtsbehörde deines Wohnsitz- oder Arbeitsorts.</li>
 </ul>
 <h2 id="speicherdauer-de">9. Speicherdauer</h2>
-<p>Wir speichern personenbezogene Daten nur so lange, wie sie für die in dieser Erklärung beschriebenen Zwecke benötigt werden, und löschen oder anonymisieren sie danach. Die folgenden Angaben beschreiben die Kriterien, die wir anwenden. Wo ein konkreter Zeitraum genannt ist, ist das ein Richtwert und keine garantierte Höchstdauer, und er kann sich mit der Weiterentwicklung der App ändern. In jedem Fall kannst du dein Konto löschen, in der App oder per E-Mail, und damit deine Daten entfernen lassen.</p>
+<p>Wir speichern personenbezogene Daten nur so lange, wie sie für die in dieser Erklärung beschriebenen Zwecke benötigt werden, und löschen oder anonymisieren sie danach. Die folgenden Fristen sind Höchstfristen; die automatische Löschung läuft einmal täglich, eine Frist kann deshalb um höchstens einen Tag überschritten werden. Ein Konto, das du nicht löschst, bleibt bestehen, bis du es löschst; das blosse Deinstallieren der App löscht das Konto nicht. In jedem Fall kannst du dein Konto löschen, in der App oder per E-Mail, und damit deine Daten entfernen lassen.</p>
 <table>
 <thead>
 <tr>
@@ -472,7 +587,7 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 </tr>
 <tr>
 <td>Profilbilder</td>
-<td>Gespeichert, solange dein Konto besteht; gelöscht, wenn du dein Konto löschst. Ersetzt du dein Bild, wird das bisherige sofort gelöscht. Bilder lange inaktiver Konten entfernen wir ebenfalls.</td>
+<td>Gespeichert, solange dein Konto besteht; gelöscht, wenn du dein Konto löschst. Ersetzt du dein Bild, wird das bisherige sofort gelöscht.</td>
 </tr>
 <tr>
 <td>Geschlecht und Präferenz</td>
@@ -491,12 +606,24 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <td>Gespeichert, solange das für die Zustellung von Benachrichtigungen nötig ist; entfernt, wenn du dein Konto löschst.</td>
 </tr>
 <tr>
+<td>Push-Benachrichtigungen und Chat-Nachrichten</td>
+<td>Auf dem Server bis zu 3 Tage nach der Zustellung, bis zu 30 Tage bei dauerhaft fehlgeschlagener Zustellung. Der Chatverlauf liegt nur auf euren Geräten.</td>
+</tr>
+<tr>
+<td>Meldungen, Sperre und Sichtungsprotokoll</td>
+<td>Gespeichert, solange das für die Durchsetzung von Sperren nötig ist; bei der Kontolöschung von der Person gelöst.</td>
+</tr>
+<tr>
+<td>E-Mail-Korrespondenz</td>
+<td>Gelöscht, sobald das Anliegen erledigt ist; Korrespondenz zu Meldungen und Sperren bleibt, solange die Sperre durchgesetzt wird.</td>
+</tr>
+<tr>
 <td>Geburtsdatum</td>
 <td>Gelöscht, wenn du dein Konto löschst.</td>
 </tr>
 <tr>
-<td>Sperrmarkierung der Altersangabe (Geräte-Hash und Status)</td>
-<td>Erreicht ein Gerät das Mindestalter nicht, behalten wir nur eine pseudonyme Markierung (Geräte-Hash und Sperrkennzeichen, <strong>ohne Geburtsdatum</strong>), um die Altersbeschränkung durchzusetzen. Ein nicht gesperrter Eintrag wird bei der Kontolöschung gelöscht.</td>
+<td>Sperrmarkierung (Geräte-Hash und Status)</td>
+<td>Erreicht ein Gerät das Mindestalter nicht oder wurde ein Konto wegen eines Verstosses gegen die Nutzungsbedingungen gesperrt, behalten wir nur eine pseudonyme Markierung (Geräte-Hash und Sperrkennzeichen, <strong>ohne Geburtsdatum</strong>), um die Altersbeschränkung beziehungsweise die Sperre auch nach einer Neuinstallation durchzusetzen. Jeder andere Eintrag wird bei der Kontolöschung gelöscht.</td>
 </tr>
 </tbody>
 </table>
@@ -510,6 +637,7 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <li>Geburtsdatum</li>
 <li>Profilbild</li>
 <li>Interaktionsverlauf</li>
+<li>Chat-Nachrichten (nur bei der Übermittlung)</li>
 <li>Push-Token (Gerätekennung)</li>
 </ul>
 <p>Die Daten sind <strong>bei der Übertragung verschlüsselt</strong>, werden <strong>nicht verkauft</strong>, und du kannst ihre Löschung verlangen, in der App oder per E-Mail. BLE-Erkennungsdaten und die für die Altersangabe verwendete gehashte Gerätekennung werden erhoben, aber nicht in einer mit deiner öffentlichen Identität verknüpften Form nach aussen gegeben. Die App erhebt <strong>keine</strong> Standortdaten.</p>
@@ -517,6 +645,8 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <p>Diese Datenschutzerklärung kann aktualisiert werden. Die jeweils aktuelle Fassung findest du immer auf dieser Seite; du kannst sie auch unter <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a> anfordern.</p>
 <h2 id="kontakt-de">13. Kontakt</h2>
 <p>Bei Fragen zum Datenschutz wende dich an <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a>.</p>
+<h2 id="diese-webseiten-de">14. Diese Webseiten</h2>
+<p>Diese Seiten werden von GitHub, Inc. gehostet (GitHub Pages, Vereinigte Staaten). Beim Aufruf einer Seite verarbeitet GitHub deine IP-Adresse und die üblichen technischen Zugriffsdaten in seinen Server-Logs; wir haben keinen Zugriff auf diese Logs und setzen keine Cookies. Deine Sprachwahl (DE/EN) wird nur im lokalen Speicher deines Browsers abgelegt, ohne Tracking, damit die Seite beim nächsten Mal in derselben Sprache öffnet. Schriften werden von diesen Seiten selbst ausgeliefert, nicht von fremden Servern.</p>
 </div>
 </article>
 

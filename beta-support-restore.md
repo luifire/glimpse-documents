@@ -59,6 +59,24 @@ In allen Dokumentseiten (`support`, `index`, `terms`, `privacy-policy`,
 10. Die Footer-Zeile "Fuer iOS und Android. Kein GPS, ..." heisst jetzt nur
     noch "Kein GPS, kein Location Tracking, ab 18.".
 
+Nachtrag Review 2026-09-13 (Branch `review/legal-consistency-2026-09-13`),
+beim Gegenpruefen der Liste oben uebersehen gefunden:
+
+11. `how-it-works/index.html`: der Button `<a class="btn" href="../get/index.html">
+    Glimpse holen / Get Glimpse</a>` im `div.cta` vor dem Footer stand noch drin,
+    obwohl Punkt 9 ihn als entfernt fuehrt (der Umbau hatte nur den Footer der
+    Seite angefasst). Er war der Zwei-Klick-Weg Support-URL -> Footer "So
+    funktioniert Glimpse" -> "Glimpse holen" -> `get/` ("iPhone, offener Test").
+    Jetzt entfernt; der Textlink "Fragen? Zum Support" bleibt. Rueckbau: die
+    Zeile wieder VOR den `a.textlink` einsetzen.
+12. `terms.html`, Abschnitt 11 "Verfuegbarkeit und Aenderungen an der App", DE
+    und EN: der Nebensatz "etwa ueber TestFlight oder ein geschlossenes
+    Testprogramm" / "for example via TestFlight or a closed testing programme"
+    ist gestrichen. Der Satz lautet jetzt "Befindet sich die App in einer Test-
+    oder Vorabversion, kann sie Fehler enthalten und sich haeufiger aendern."
+    Rueckbau optional: der Nebensatz ist rechtlich entbehrlich, die Regelung
+    gilt ohne ihn genauso.
+
 **Bewusst NICHT angefasst:** die Plattformnennungen in `privacy-policy.html`
 und `terms.html` (Geltungsbereich "Android und iOS", Abschnitt 11 "Angaben fuer
 App Store und Google Play", die `neverForLocation`-Erklaerung, die
