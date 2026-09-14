@@ -1,0 +1,15 @@
+{
+  "name": "Glimpse",
+  "short_name": "Glimpse",
+  "description": "Privacy, safety and support documents for the Glimpse app",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "theme_color": "#140A0C",
+  "background_color": "#140A0C",
+  "icons": [
+    { "src": "assets/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/favicon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
