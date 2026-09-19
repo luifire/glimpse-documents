@@ -94,7 +94,7 @@ schlechter, nicht sicherer.
 <li><strong>Install TestFlight</strong> from the App Store: <a href="https://apps.apple.com/de/app/testflight/id899247664">TestFlight</a>. It's made by Apple and only serves to deliver test versions.</li>
 <li><strong>Open the invitation link:</strong> <a href="https://testflight.apple.com/join/fv2p49fh">testflight.apple.com/join/fv2p49fh</a>. Important: open it in <strong>Safari</strong>. Tapped inside Instagram, WhatsApp or another app's built-in browser, the link often doesn't hand over to TestFlight &mdash; copy it into Safari instead.</li>
 <li><strong>Tap "Accept", then "Install".</strong> TestFlight downloads Glimpse.</li>
-<li><strong>Open Glimpse from your home screen</strong> like any other app. It appears as <strong>Glimpse - Dates 2 Go</strong>, and in TestFlight it carries an orange dot, which just marks it as a test version.</li>
+<li><strong>Open Glimpse from your home screen</strong> like any other app. It appears as <strong>Glimpse · Dates 2 Go</strong>, and in TestFlight it carries an orange dot, which just marks it as a test version.</li>
 </ol>
 <p>What's different from a normal App Store app:</p>
 <ul>
@@ -115,7 +115,7 @@ schlechter, nicht sicherer.
 <li><strong>Installiere TestFlight</strong> aus dem App Store: <a href="https://apps.apple.com/de/app/testflight/id899247664">TestFlight</a>. Die App kommt von Apple selbst und dient nur dazu, Testversionen auszuliefern.</li>
 <li><strong>Öffne den Einladungslink:</strong> <a href="https://testflight.apple.com/join/fv2p49fh">testflight.apple.com/join/fv2p49fh</a>. Wichtig: in <strong>Safari</strong> öffnen. Tippst du ihn im eingebauten Browser von Instagram, WhatsApp oder einer anderen App an, springt er oft nicht zu TestFlight. Kopiere ihn dann einfach nach Safari.</li>
 <li><strong>Tippe auf „Akzeptieren“ und dann auf „Installieren“.</strong> TestFlight lädt Glimpse herunter.</li>
-<li><strong>Öffne Glimpse von deinem Home-Bildschirm</strong> wie jede andere App. Sie erscheint als <strong>Glimpse - Dates 2 Go</strong>, und in TestFlight trägt sie einen orangen Punkt, der sie nur als Testversion markiert.</li>
+<li><strong>Öffne Glimpse von deinem Home-Bildschirm</strong> wie jede andere App. Sie erscheint als <strong>Glimpse · Dates 2 Go</strong>, und in TestFlight trägt sie einen orangen Punkt, der sie nur als Testversion markiert.</li>
 </ol>
 <p>Was anders ist als bei einer normalen App aus dem App Store:</p>
 <ul>
