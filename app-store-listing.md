@@ -33,9 +33,9 @@ Sobald sich zwei Telefone mit Glimpse begegnen, erkennen sie einander über **Bl
 
 • **Entdecken** – Glimpse bemerkt andere Nutzer in deiner unmittelbaren Umgebung über Bluetooth Low Energy. Kein Standort, keine Karte mit Punkten – nur Menschen, die wirklich da sind.
 
-• **Summon** – Ein leichter Anstoß, der sagt: „Ich habe dich bemerkt." Eine unkomplizierte Art, Interesse zu zeigen, ohne gleich alles aufs Spiel zu setzen.
+• **Flirt** – Der direkte Weg im Hier und Jetzt: Die andere Person sieht, dass du gern Hallo sagen würdest, und antwortet mit Ja oder Nein.
 
-• **Like** – Zeig jemandem, dass du wirklich interessiert bist. Ist das Interesse gegenseitig, werdet ihr beide benachrichtigt – ein **Match**.
+• **Crush** – Der anonyme Weg: Die andere Person erfährt nur, dass jemand einen Crush auf sie hat, nicht wer. Habt ihr beide einen Crush, werdet ihr beide benachrichtigt – ein **Match**.
 
 • **Have Met** – Bestätige, dass ihr euch tatsächlich persönlich begegnet seid. Glimpse ist dazu da, dass aus dem Bildschirm echtes Hallo wird.
 
@@ -45,7 +45,7 @@ Sobald sich zwei Telefone mit Glimpse begegnen, erkennen sie einander über **Bl
 
 • **Sichtbarkeit an/aus** – Mit einem Tippen bestimmst du, ob dich Menschen in deiner Nähe sehen können. Bist du unsichtbar, sieht dich niemand und dein Profil bleibt verborgen.
 
-• **Benachrichtigungen** – Erfahre sofort, wenn dich jemand summoned, liked oder wenn ihr ein Match habt – auch wenn die App geschlossen ist.
+• **Benachrichtigungen** – Erfahre sofort, wenn dir jemand einen Flirt oder einen Crush schickt oder wenn ihr ein Match habt – auch wenn die App geschlossen ist.
 
 • **Blockieren & Melden** – Du kannst jeden Nutzer jederzeit blockieren oder vertraulich melden. Gemeldete Personen verschwinden vollständig aus deiner Ansicht.
 
@@ -95,9 +95,9 @@ When two phones running Glimpse come close, they notice each other over **Blueto
 
 • **Discover** — Glimpse notices other users in your immediate surroundings via Bluetooth Low Energy. No location, no map full of dots — just people who are genuinely there.
 
-• **Summon** — A light nudge that says "I noticed you." A low-stakes way to show interest without putting everything on the line.
+• **Flirt** — The direct route in the here and now: the other person sees that you'd like to say hi, and answers yes or no.
 
-• **Like** — Show someone you're genuinely interested. When the interest is mutual, you both get notified — a **match**.
+• **Crush** — The anonymous route: the other person only learns that someone has a Crush on them, not who. When it's mutual, you both get notified — a **match**.
 
 • **Have Met** — Confirm that you actually met in person. Glimpse is here to turn the screen into a real hello.
 
@@ -107,7 +107,7 @@ When two phones running Glimpse come close, they notice each other over **Blueto
 
 • **Visibility on/off** — One tap decides whether people nearby can see you. When you're invisible, no one sees you and your profile stays hidden.
 
-• **Notifications** — Find out the moment someone summons you, likes you, or when you have a match — even when the app is closed.
+• **Notifications** — Find out the moment someone sends you a Flirt or a Crush, or when you have a match — even when the app is closed.
 
 • **Block & Report** — You can block or confidentially report any user at any time. Reported people disappear from your view entirely.
 
