@@ -66,9 +66,9 @@ font:800 13px/1 Geist,sans-serif;background:var(--fg);color:var(--ink)}
 .note{display:flex;gap:9px;margin:0 0 14px;font-size:13.5px;line-height:1.38;color:var(--muted)}
 .note b{font-weight:800;color:var(--fg)}
 .note::before{content:"!";flex:none;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font:800 11px/1 Geist,sans-serif;background:var(--accent);color:var(--ink);margin-top:1px}
-/* Nur sichtbar, wenn iOS ohne Safari erkannt wurde, dort schluckt der Browser den TestFlight-Link. */
+/* Nur sichtbar im eingebauten Browser einer anderen App, dort verpufft der TestFlight-Link. */
 .warn{display:none;flex-direction:column;gap:12px;margin:0 0 14px;padding:14px;border-radius:14px;border:1px solid rgba(255,109,158,.5);background:rgba(255,109,158,.12)}
-html[data-os=ios][data-browser=other] .warn{display:flex}
+html[data-os=ios][data-browser=webview] .warn{display:flex}
 .warn p{margin:0;font-size:14.5px;line-height:1.4;color:var(--fg)}
 .warn p b{font-weight:800}
 .warn .row{display:flex;flex-wrap:wrap;gap:8px}
@@ -112,7 +112,7 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 <span class="h mono"><span class="de">iPhone, offener Test im App Store</span><span class="en">iPhone, open test via the App Store</span></span>
 <p class="hint"><span class="de">Glimpse läuft auf dem iPhone gerade als <b>offener Test</b>. Du lädst dir dafür <b>TestFlight</b> aus dem App Store, das ist Apples offizielle App für Tests. Zwei Schritte, dann bist du drin.</span><span class="en">Glimpse is an <b>open test</b> on iPhone right now. You install <b>TestFlight</b> from the App Store, Apple's official app for tests. Two steps and you are in.</span></p>
 <div class="warn">
-<p><span class="de">Dieser Browser ist nicht <b>Safari</b>. Der Sprung zu TestFlight klappt hier meistens nicht, er endet stumm auf einer Apple Seite. Mach die Seite in Safari auf.</span><span class="en">This browser is not <b>Safari</b>. The jump to TestFlight usually fails here, it dead ends on an Apple page. Open this page in Safari.</span></p>
+<p><span class="de">Diese Seite läuft gerade im <b>eingebauten Browser einer anderen App</b>. Von hier aus startet TestFlight nicht, der zweite Schritt endet stumm auf einer Apple Seite. Öffne die Seite in Safari.</span><span class="en">This page is running in <b>another app's built in browser</b>. TestFlight will not start from here, the second step dead ends on an Apple page. Open the page in Safari.</span></p>
 <div class="row">
 <a class="btn to-safari" href="https://luifire.github.io/glimpse-documents/get/"><span class="de">In Safari öffnen</span><span class="en">Open in Safari</span></a>
 <button type="button" class="btn ghost copy"><span class="cp"><span class="de">Link kopieren</span><span class="en">Copy link</span></span><span class="ok"><span class="de">Kopiert</span><span class="en">Copied</span></span></button>
@@ -153,10 +153,12 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 (()=>{const h=document.documentElement,q=new URLSearchParams(location.search);
 const ua=navigator.userAgent,ios=/iPad|iPhone|iPod/.test(ua)||(/Mac/.test(ua)&&navigator.maxTouchPoints>1),and=/Android/.test(ua);
 h.dataset.os=q.get('os')||(ios?'ios':and?'android':'other');
-/* Safari löst Universal Links auf, Fremdbrowser (CriOS und Co.) und In-App-Webviews meist nicht.
-   Echtes Safari trägt Version/ und Safari/ im UA, eine eingebettete WKWebView keins von beidem. */
-const safari=/Safari\//.test(ua)&&/Version\//.test(ua)&&!/CriOS|FxiOS|EdgiOS|OPiOS|DuckDuckGo|Brave/.test(ua);
-h.dataset.browser=q.get('browser')||(safari?'safari':'other');
+/* Chrome und Firefox auf iOS lösen Universal Links auf, am Gerät geprüft. Was sie verschluckt, ist
+   die eingebettete WKWebView einer anderen App, sie reicht die Navigation nicht ans System weiter.
+   Kennzeichen: Version/ und Safari/ fehlen im UA. Die Ausreisser, die ein Safari-Token trotzdem
+   anhängen, stehen namentlich dahinter. */
+const webview=!(/Version\//.test(ua)&&/Safari\//.test(ua))||/FBAN|FBAV|FBIOS|Instagram|LinkedInApp|Snapchat|MicroMessenger|BytedanceWebview|musical_ly|Twitter|Pinterest|GSA\//.test(ua);
+h.dataset.browser=q.get('browser')||(ios&&webview?'webview':'ok');
 const sf=document.querySelector('.to-safari');if(sf)sf.href='x-safari-https://'+location.host+location.pathname;
 const cp=document.querySelector('.copy');
 if(cp)cp.addEventListener('click',async()=>{const u=location.origin+location.pathname;
