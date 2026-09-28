@@ -32,7 +32,7 @@ html,body{margin:0;overflow-x:hidden}
 body{background:var(--ink);color:var(--fg);font-family:Geist,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;min-height:100svh;position:relative}
 body::before{content:"";position:absolute;inset:-20vh -30% auto -30%;height:72vh;pointer-events:none;
 background:radial-gradient(56% 100% at 50% 0,rgba(255,109,158,.55),rgba(255,122,22,.26) 48%,transparent 72%)}
-main{position:relative;width:100%;max-width:31rem;min-height:100svh;margin:0 auto;padding:clamp(18px,5vw,32px) clamp(20px,6vw,32px) clamp(32px,8vw,48px);display:flex;flex-direction:column}
+main{position:relative;width:100%;max-width:31rem;min-height:100svh;margin:0 auto;padding:clamp(18px,5vw,32px) clamp(20px,6vw,32px) clamp(16px,4vw,24px);display:flex;flex-direction:column}
 .mono{font-family:"JetBrains Mono",monospace;font-weight:500;text-transform:uppercase;letter-spacing:.14em}
 a{color:var(--accent);text-decoration:none}a:hover{color:var(--flame-mid)}
 .bar{display:flex;align-items:center;gap:9px}
@@ -84,10 +84,10 @@ html[data-os=ios][data-browser=webview] .warn{display:flex}
 .also a:hover{color:var(--fg);text-decoration-color:var(--fg)}
 .claim{margin:auto 0 0;padding-top:clamp(38px,10vw,54px);font-size:19px;line-height:1.26;font-weight:700;letter-spacing:-.025em;text-wrap:balance}
 .claim b{font-weight:900;background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));-webkit-background-clip:text;background-clip:text;color:transparent}
-.how{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:clamp(22px,6vw,30px);padding:8px;font-size:14.5px;font-weight:700;letter-spacing:-.01em;color:var(--muted)}
+.how{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:clamp(12px,3.5vw,18px);padding:8px;font-size:14.5px;font-weight:700;letter-spacing:-.01em;color:var(--muted)}
 .how:hover{color:var(--fg)}
 .how .ar{font-weight:400;opacity:.55}
-footer{margin-top:clamp(38px,10vw,54px);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:8px;font-size:12.5px;line-height:1.4;color:var(--muted)}
+footer{margin-top:clamp(18px,5vw,26px);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:8px;font-size:12.5px;line-height:1.4;color:var(--muted)}
 footer .legal{display:flex;gap:8px}
 .en{display:none}
 html[data-lang=en] .de{display:none}
