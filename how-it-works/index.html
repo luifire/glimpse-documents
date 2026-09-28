@@ -182,16 +182,26 @@ footer a:hover{color:var(--text)}
 .map .node.one{grid-column:1 / -1}
 .map .circle{--d:52px}
 .map .lbl{margin-top:7px}
-/* Stummel unter den beiden Einstiegen; er endet genau auf der Querlinie der Gabel */
-.map .top::after{content:""; width:2px; height:.625rem; margin-top:.5rem; background:var(--wire-c,var(--line))}
-.wire{grid-column:1 / -1; width:100%; position:relative}
-.wire.fork{height:2rem}
-.wire.stem{height:1.75rem}
-/* Querlinie von Spaltenmitte zu Spaltenmitte (25 % / 75 %), dann mittig hinunter */
-.fork::before{content:""; position:absolute; left:25%; right:25%; top:0; height:2px; background:var(--wire-c,var(--line))}
-.wire::after{content:""; position:absolute; left:calc(50% - 1px); top:0; bottom:.375rem; width:2px; background:var(--wire-c,var(--line))}
-.wire i{position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:0; height:0;
-  border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid var(--wire-c,var(--line))}
+.wire{--w:2px; --top:.375rem; grid-column:1 / -1; width:100%; position:relative}
+/* Der Gabelkasten hat eine feste Hoehe, damit die Abgaenge nicht mit der Zeilenhoehe zusammensacken */
+.wire.fork{--fork-h:1.5rem; height:3.25rem}
+.wire.stem{height:2.25rem}
+/* Die Gabel ist ein Kasten mit drei Kanten: zwei Abgaenge aus den Spaltenmitten (25 % / 75 %),
+   unten rund zur Mitte zusammengefuehrt. Ohne den Kasten braeuchte es vier Einzelteile. */
+.fork::before{content:""; position:absolute; left:25%; right:25%; top:var(--top); height:var(--fork-h);
+  border:var(--w) solid var(--wire-c,var(--line)); border-top:0; border-radius:0 0 14px 14px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 45%);
+  mask-image:linear-gradient(to bottom,transparent,#000 45%)}
+/* Mittellinie: im Fork ab der Zusammenfuehrung, sonst von oben; sie blendet oben sanft ein */
+.wire::after{content:""; position:absolute; left:calc(50% - var(--w) / 2); top:var(--top); bottom:.5rem;
+  width:var(--w); border-radius:var(--w);
+  background:linear-gradient(to bottom, transparent, var(--wire-c,var(--line)) 45%)}
+.fork::after{top:calc(var(--top) + var(--fork-h)); background:var(--wire-c,var(--line))}
+/* Spitze: ein schlanker Haken statt eines gefuellten Dreiecks */
+.wire i{position:absolute; left:50%; bottom:.25rem; width:9px; height:9px;
+  border-right:var(--w) solid var(--wire-c,var(--line));
+  border-bottom:var(--w) solid var(--wire-c,var(--line));
+  border-bottom-right-radius:3px; transform:translate(-50%,0) rotate(45deg)}
 
 /* Der Walkthrough als Bilderfolge: die beiden Wege nebeneinander, ab dem Mini-Date gemeinsam.
    Gleiche Anordnung wie der Graph darüber, gleiche Verbinder (.wire). */
@@ -204,10 +214,9 @@ footer a:hover{color:var(--text)}
 .scene figcaption{margin-top:.625rem; font-size:12.5px; line-height:1.4; color:var(--dim); text-wrap:pretty}
 .scene b{display:block; margin-bottom:.125rem; color:var(--c); font-weight:700; font-size:13.5px}
 /* In der Bilderfolge hängt der Verbinder unter einem Textblock und braucht Luft nach oben */
-.story .wire{height:2.5rem}
+.story .wire{--top:.875rem; height:2.75rem}
+.story .wire.fork{height:3.75rem}
 .story .wire.col{grid-column:auto}
-.story .wire::after{top:.75rem}
-.story .fork::before{top:.75rem}
 
 /* Sprache: nur die gewählte Sprache ist sichtbar */
 html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
@@ -421,12 +430,12 @@ html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
       <span data-lang="en">Two ways to show interest &ndash; and one path from there on.</span>
     </figcaption>
     <div class="map-grid">
-      <div class="node top r-light">
+      <div class="node r-light">
         <span class="circle"><img src="assets/fire_template.png" alt=""></span>
         <span class="lbl">Flirt</span>
         <span class="hint"><span data-lang="de">direkt</span><span data-lang="en">direct</span></span>
       </div>
-      <div class="node top r-lightest">
+      <div class="node r-lightest">
         <span class="circle"><img src="assets/firework_template.png" alt=""></span>
         <span class="lbl">Crush</span>
         <span class="hint"><span data-lang="de">anonym</span><span data-lang="en">anonymous</span></span>
