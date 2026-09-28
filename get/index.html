@@ -155,9 +155,11 @@ const ua=navigator.userAgent,ios=/iPad|iPhone|iPod/.test(ua)||(/Mac/.test(ua)&&n
 h.dataset.os=q.get('os')||(ios?'ios':and?'android':'other');
 /* Chrome und Firefox auf iOS lösen Universal Links auf, am Gerät geprüft. Was sie verschluckt, ist
    die eingebettete WKWebView einer anderen App, sie reicht die Navigation nicht ans System weiter.
-   Kennzeichen: Version/ und Safari/ fehlen im UA. Die Ausreisser, die ein Safari-Token trotzdem
-   anhängen, stehen namentlich dahinter. */
-const webview=!(/Version\//.test(ua)&&/Safari\//.test(ua))||/FBAN|FBAV|FBIOS|Instagram|LinkedInApp|Snapchat|MicroMessenger|BytedanceWebview|musical_ly|Twitter|Pinterest|GSA\//.test(ua);
+   Eine echte Browser-App nennt sich im UA: Safari über Version/, die anderen über ihr eigenes
+   Kürzel statt Version/ (CriOS, FxiOS ...). Fehlt beides, ist es eine WKWebView. Dahinter die
+   Apps, die trotzdem wie ein Browser aussehen. */
+const app=/CriOS|FxiOS|EdgiOS|OPiOS|DuckDuckGo|Brave|YaBrowser|Vivaldi/.test(ua)||(/Version\//.test(ua)&&/Safari\//.test(ua));
+const webview=!app||/FBAN|FBAV|FBIOS|Instagram|LinkedInApp|Snapchat|MicroMessenger|BytedanceWebview|musical_ly|Twitter|Pinterest|GSA\//.test(ua);
 h.dataset.browser=q.get('browser')||(ios&&webview?'webview':'ok');
 const sf=document.querySelector('.to-safari');if(sf)sf.href='x-safari-https://'+location.host+location.pathname;
 const cp=document.querySelector('.copy');
