@@ -124,9 +124,10 @@ h2{font-weight:700; font-size:20px; line-height:1.25; letter-spacing:-.01em; mar
 .big .circle{--d:66px}
 /* Code sagt diameter * 1.4, aber Compose deckelt size() auf den Kreis: effektiv 100 % */
 .circle img{width:100%; height:100%; flex:none; object-fit:contain}
-.r-lightest img{filter:url(#t-lightest)}
-.r-light img{filter:url(#t-light)}
-.r-mid img{filter:url(#t-mid)}
+/* Nur die Vorlagen im Kreis werden umgefärbt, Fotos behalten ihre eigenen Farben */
+.r-lightest .circle img{filter:url(#t-lightest)}
+.r-light .circle img{filter:url(#t-light)}
+.r-mid .circle img{filter:url(#t-mid)}
 .lbl{margin-top:9px; color:var(--c); font-weight:700; font-size:12.5px; line-height:1.25}
 .hint{margin-top:2px; color:var(--c); opacity:.6; font-weight:500; font-size:11.5px; line-height:1.25}
 .pass{--c:rgba(255,255,255,.72); --fill:rgba(255,255,255,.07); --ring:rgba(255,255,255,.20); --glow:transparent}
@@ -179,23 +180,34 @@ footer a:hover{color:var(--text)}
 .map-grid{width:100%; max-width:21rem; display:grid; grid-template-columns:1fr 1fr; justify-items:center}
 .map .node{display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0}
 .map .node.one{grid-column:1 / -1}
-/* Der Knoten ist die Szene aus dem Walkthrough; das Template-Icon sitzt als Plakette darauf */
-.map .shot{position:relative; width:100px; height:100px; flex:none}
-.map .scene{width:100%; height:100%; display:block; border-radius:50%; object-fit:cover;
-  border:1.5px solid var(--ring); box-shadow:0 3px 14px var(--glow);
-  filter:none} /* die Szene bleibt, wie sie ist; der Magenta-Tausch gilt nur der Plakette */
-.map .shot .circle{--d:34px; position:absolute; right:-3px; bottom:-1px; background:var(--bg); padding:3px}
-.map .lbl{margin-top:9px}
+.map .circle{--d:52px}
+.map .lbl{margin-top:7px}
 /* Stummel unter den beiden Einstiegen; er endet genau auf der Querlinie der Gabel */
-.map .top::after{content:""; width:2px; height:.625rem; margin-top:.5rem; background:var(--line)}
+.map .top::after{content:""; width:2px; height:.625rem; margin-top:.5rem; background:var(--wire-c,var(--line))}
 .wire{grid-column:1 / -1; width:100%; position:relative}
 .wire.fork{height:2rem}
 .wire.stem{height:1.75rem}
 /* Querlinie von Spaltenmitte zu Spaltenmitte (25 % / 75 %), dann mittig hinunter */
-.fork::before{content:""; position:absolute; left:25%; right:25%; top:0; height:2px; background:var(--line)}
-.wire::after{content:""; position:absolute; left:calc(50% - 1px); top:0; bottom:.375rem; width:2px; background:var(--line)}
+.fork::before{content:""; position:absolute; left:25%; right:25%; top:0; height:2px; background:var(--wire-c,var(--line))}
+.wire::after{content:""; position:absolute; left:calc(50% - 1px); top:0; bottom:.375rem; width:2px; background:var(--wire-c,var(--line))}
 .wire i{position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:0; height:0;
-  border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid var(--line)}
+  border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid var(--wire-c,var(--line))}
+
+/* Der Walkthrough als Bilderfolge: die beiden Wege nebeneinander, ab dem Mini-Date gemeinsam.
+   Gleiche Anordnung wie der Graph darüber, gleiche Verbinder (.wire). */
+.story{--wire-c:var(--dim2); width:100%; max-width:26rem; display:grid; grid-template-columns:1fr 1fr; justify-items:center}
+.scene{margin:0; display:flex; flex-direction:column; align-items:center; text-align:center;
+  padding-inline:.5rem; max-width:12rem}
+.scene.one{grid-column:1 / -1}
+.scene img{width:100%; max-width:9rem; height:auto; display:block; border-radius:14px;
+  border:1px solid var(--ring); box-shadow:0 6px 18px var(--glow)}
+.scene figcaption{margin-top:.625rem; font-size:12.5px; line-height:1.4; color:var(--dim); text-wrap:pretty}
+.scene b{display:block; margin-bottom:.125rem; color:var(--c); font-weight:700; font-size:13.5px}
+/* In der Bilderfolge hängt der Verbinder unter einem Textblock und braucht Luft nach oben */
+.story .wire{height:2.5rem}
+.story .wire.col{grid-column:auto}
+.story .wire::after{top:.75rem}
+.story .fork::before{top:.75rem}
 
 /* Sprache: nur die gewählte Sprache ist sichtbar */
 html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
@@ -247,27 +259,76 @@ html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
     </figcaption>
     <div class="map-grid">
       <div class="node top r-light">
-        <span class="shot"><img class="scene" src="assets/wt_invite_send.webp" alt="" width="300" height="300" decoding="async"><span class="circle"><img src="assets/fire_template.png" alt=""></span></span>
+        <span class="circle"><img src="assets/fire_template.png" alt=""></span>
         <span class="lbl">Flirt</span>
         <span class="hint"><span data-lang="de">direkt</span><span data-lang="en">direct</span></span>
       </div>
       <div class="node top r-lightest">
-        <span class="shot"><img class="scene" src="assets/wt_like_send.webp" alt="" width="300" height="300" decoding="async"><span class="circle"><img src="assets/firework_template.png" alt=""></span></span>
+        <span class="circle"><img src="assets/firework_template.png" alt=""></span>
         <span class="lbl">Crush</span>
         <span class="hint"><span data-lang="de">anonym</span><span data-lang="en">anonymous</span></span>
       </div>
       <div class="wire fork" aria-hidden="true"><i></i></div>
       <div class="node one r-light">
-        <span class="shot"><img class="scene" src="assets/wt_like_mini_date.webp" alt="" width="300" height="300" decoding="async"><span class="circle"><img src="assets/have_met_template.png" alt=""></span></span>
+        <span class="circle"><img src="assets/have_met_template.png" alt=""></span>
         <span class="lbl">Mini-Date</span>
       </div>
       <div class="wire stem" aria-hidden="true"><i></i></div>
       <div class="node one r-mid">
-        <span class="shot"><img class="scene" src="assets/wt_invite_mini_date.webp" alt="" width="300" height="300" decoding="async"><span class="circle"><img src="assets/second_date_template.png" alt=""></span></span>
+        <span class="circle"><img src="assets/second_date_template.png" alt=""></span>
         <span class="lbl"><span data-lang="de">zweites Date</span><span data-lang="en">second date</span></span>
       </div>
     </div>
   </figure>
+
+  <section class="story" aria-label="Walkthrough">
+      <figure class="scene r-light">
+        <img src="assets/wt_invite_send.webp" alt="" width="340" height="605" decoding="async">
+        <figcaption>
+          <b><span data-lang="de">Kennst du das?</span><span data-lang="en">Sound familiar?</span></b>
+          <span data-lang="de">Du bist in einer Bar, einem Club oder in der Mensa und da ist jemand, der dir gef&auml;llt.</span><span data-lang="en">You are in a bar, a club or the canteen and there is someone you like.</span>
+        </figcaption>
+      </figure>
+      <figure class="scene r-lightest">
+        <img src="assets/wt_like_send.webp" alt="" width="340" height="605" decoding="async">
+        <figcaption>
+          <b><span data-lang="de">Und diese Situation?</span><span data-lang="en">What about this situation?</span></b>
+          <span data-lang="de">Du bist im Zug, in der Vorlesung oder auf einer Wiese und jemand f&auml;llt dir auf. Mit Crush bleibst du unsichtbar, bis der Crush zur&uuml;ckkommt.</span><span data-lang="en">You are on a train, in a lecture or out on a meadow and someone catches your eye. With Crush you stay invisible until the Crush comes back.</span>
+        </figcaption>
+      </figure>
+      <div class="wire col r-light" aria-hidden="true"><i></i></div>
+      <div class="wire col r-lightest" aria-hidden="true"><i></i></div>
+      <figure class="scene r-light">
+        <img src="assets/wt_invite_match.webp" alt="" width="340" height="605" decoding="async">
+        <figcaption>
+          <b><span data-lang="de">Frag einfach.</span><span data-lang="en">Just ask.</span></b>
+          <span data-lang="de">Mit Flirt fragst du einfach: Lust auf ein Mini-Date?</span><span data-lang="en">With Flirt you simply ask: fancy a Mini-Date?</span>
+        </figcaption>
+      </figure>
+      <figure class="scene r-lightest">
+        <img src="assets/wt_like_match.webp" alt="" width="340" height="605" decoding="async">
+        <figcaption>
+          <b><span data-lang="de">Am n&auml;chsten Tag&hellip;</span><span data-lang="en">The next day&hellip;</span></b>
+          <span data-lang="de">&hellip; kommt von ihr ein Crush. Jetzt habt ihr ein Match.</span><span data-lang="en">&hellip; she sends you a Crush. Now you have a match.</span>
+        </figcaption>
+      </figure>
+      <div class="wire fork" aria-hidden="true"><i></i></div>
+      <figure class="scene one r-light">
+        <img src="assets/wt_like_mini_date.webp" alt="" width="340" height="510" decoding="async">
+        <figcaption>
+          <b><span data-lang="de">Mini-Date</span><span data-lang="en">Mini-Date</span></b>
+          <span data-lang="de">Ihr trefft euch direkt auf ein Mini-Date. Kein endloses Chatten, keine Filter, keine KI-Antworten. Echtes Kennenlernen mit echten Menschen.</span><span data-lang="en">You meet up for a Mini-Date right away. No endless chatting, no filters, no AI replies. Just real people having a real conversation.</span>
+        </figcaption>
+      </figure>
+      <div class="wire stem" aria-hidden="true"><i></i></div>
+      <figure class="scene one r-mid">
+        <img src="assets/wt_invite_mini_date.webp" alt="" width="340" height="605" decoding="async">
+        <figcaption>
+          <b><span data-lang="de">Ob ihr euch wiederseht&hellip;</span><span data-lang="en">Whether you meet again&hellip;</span></b>
+          <span data-lang="de">&hellip; entscheidet ihr nach dem Date in der App. Ganz ohne Druck.</span><span data-lang="en">&hellip; the two of you decide after the date, in the app. Entirely without pressure.</span>
+        </figcaption>
+      </figure>
+  </section>
 
   <ol class="steps">
     <li>
