@@ -32,7 +32,7 @@ html,body{margin:0;overflow-x:hidden}
 body{background:var(--ink);color:var(--fg);font-family:Geist,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;min-height:100svh;position:relative}
 body::before{content:"";position:absolute;inset:-20vh -30% auto -30%;height:72vh;pointer-events:none;
 background:radial-gradient(56% 100% at 50% 0,rgba(255,109,158,.55),rgba(255,122,22,.26) 48%,transparent 72%)}
-main{position:relative;width:100%;max-width:31rem;margin:0 auto;padding:clamp(18px,5vw,32px) clamp(20px,6vw,32px) clamp(32px,8vw,48px);display:flex;flex-direction:column}
+main{position:relative;width:100%;max-width:31rem;min-height:100svh;margin:0 auto;padding:clamp(18px,5vw,32px) clamp(20px,6vw,32px) clamp(32px,8vw,48px);display:flex;flex-direction:column}
 .mono{font-family:"JetBrains Mono",monospace;font-weight:500;text-transform:uppercase;letter-spacing:.14em}
 a{color:var(--accent);text-decoration:none}a:hover{color:var(--flame-mid)}
 .bar{display:flex;align-items:center;gap:9px}
@@ -43,12 +43,12 @@ a{color:var(--accent);text-decoration:none}a:hover{color:var(--flame-mid)}
 .lang{margin-left:auto;display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px}
 .lang button{font:500 10px/1 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;padding:7px 10px;border-radius:999px;cursor:pointer}
 .lang button[aria-pressed=true]{background:var(--fg);color:var(--ink)}
-.hero{margin-top:clamp(20px,6vw,28px)}
+.hero{margin-top:clamp(20px,6vw,28px);margin-bottom:clamp(34px,9vw,48px)}
 h1{margin:0;font-size:clamp(38px,11vw,52px);line-height:.98;font-weight:900;letter-spacing:-.05em;text-wrap:balance}
 h1 em{font-style:normal;background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lede{margin:14px 0 0;font-size:16px;line-height:1.42;color:rgba(255,244,241,.86);text-wrap:pretty}
 .lede b{font-weight:700;color:var(--fg)}
-.card{margin-top:clamp(34px,9vw,48px);border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--card)}
+.card{margin-top:auto;border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--card)}
 .card>.h{font-size:11px;color:var(--muted);display:block;margin-bottom:14px}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:64px;padding:18px 24px;border-radius:999px;border:0;
 background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));color:var(--ink);font-size:19px;font-weight:900;letter-spacing:-.025em;text-align:center;
@@ -82,7 +82,7 @@ html[data-os=ios][data-browser=webview] .warn{display:flex}
 .also{display:flex;justify-content:center;margin-top:clamp(14px,4vw,18px)}
 .also a{text-align:center;min-height:44px;display:flex;align-items:center;justify-content:center;padding:10px 8px;font-size:14px;font-weight:700;letter-spacing:-.01em;color:var(--muted);text-decoration:underline;text-decoration-color:rgba(255,244,241,.35);text-underline-offset:3px}
 .also a:hover{color:var(--fg);text-decoration-color:var(--fg)}
-.claim{margin:clamp(38px,10vw,54px) 0 0;font-size:19px;line-height:1.26;font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+.claim{margin:auto 0 0;padding-top:clamp(38px,10vw,54px);font-size:19px;line-height:1.26;font-weight:700;letter-spacing:-.025em;text-wrap:balance}
 .claim b{font-weight:900;background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));-webkit-background-clip:text;background-clip:text;color:transparent}
 .how{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:clamp(22px,6vw,30px);padding:8px;font-size:14.5px;font-weight:700;letter-spacing:-.01em;color:var(--muted)}
 .how:hover{color:var(--fg)}
@@ -105,8 +105,8 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 </div>
 
 <div class="card p-ios">
-<span class="h mono"><span class="de">iPhone, offener Test im App Store</span><span class="en">iPhone, open test via the App Store</span></span>
-<p class="hint"><span class="de">Glimpse läuft auf dem iPhone gerade als <b>offener Test</b>. Du lädst dir dafür <b>TestFlight</b> aus dem App Store, das ist Apples offizielle App für Tests. Zwei Schritte, dann bist du drin.</span><span class="en">Glimpse is an <b>open test</b> on iPhone right now. You install <b>TestFlight</b> from the App Store, Apple's official app for tests. Two steps and you are in.</span></p>
+<span class="h mono"><span class="de">iPhone, Early Access</span><span class="en">iPhone, early access</span></span>
+<p class="hint"><span class="de">Deinen Zugang zu Glimpse bekommst du über <b>TestFlight</b>, Apples offiziellen Weg für Early Access.</span><span class="en">You get your access to Glimpse through <b>TestFlight</b>, Apple's official route for early access.</span></p>
 <div class="warn">
 <p><span class="de">Diese Seite läuft gerade im <b>eingebauten Browser einer anderen App</b>. Von hier aus startet TestFlight nicht, der zweite Schritt endet stumm auf einer Apple Seite. Öffne die Seite in Safari.</span><span class="en">This page is running in <b>another app's built in browser</b>. TestFlight will not start from here, the second step dead ends on an Apple page. Open the page in Safari.</span></p>
 <div class="row">
@@ -115,8 +115,8 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 </div>
 </div>
 <div class="steps">
-<div class="step"><a class="btn ghost" href="https://apps.apple.com/de/app/testflight/id899247664"><span class="de">TestFlight im App Store laden<small>Gratis, Apples App für offene Tests</small></span><span class="en">Get TestFlight from the App Store<small>Free, Apple's app for open tests</small></span></a></div>
-<div class="step"><a class="btn" href="https://testflight.apple.com/join/fv2p49fh"><span class="de">Glimpse in TestFlight öffnen</span><span class="en">Open Glimpse in TestFlight</span></a></div>
+<div class="step"><a class="btn ghost" href="https://apps.apple.com/de/app/testflight/id899247664"><span class="de">TestFlight im App Store laden<small>Gratis, kommt direkt von Apple</small></span><span class="en">Get TestFlight from the App Store<small>Free, straight from Apple</small></span></a></div>
+<div class="step"><a class="btn" href="https://testflight.apple.com/join/fv2p49fh"><span class="de">Glimpse freischalten</span><span class="en">Unlock Glimpse</span></a></div>
 </div>
 </div>
 
