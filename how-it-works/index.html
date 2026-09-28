@@ -173,6 +173,25 @@ footer .legal{display:flex; flex-wrap:wrap; align-items:center; gap:8px}
 footer a{color:var(--dim); text-decoration:none}
 footer a:hover{color:var(--text)}
 
+/* Der ganze Weg als kleiner Graph: zwei Einstiege, ein Treffen, eine Entscheidung */
+.map{margin:0; display:flex; flex-direction:column; align-items:center; gap:.75rem}
+.map figcaption{order:-1; color:var(--dim2); font-size:13px; text-align:center; text-wrap:balance}
+.map-grid{width:100%; max-width:21rem; display:grid; grid-template-columns:1fr 1fr; justify-items:center}
+.map .node{display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0}
+.map .node.one{grid-column:1 / -1}
+.map .circle{--d:52px}
+.map .lbl{margin-top:7px}
+/* Stummel unter den beiden Einstiegen; er endet genau auf der Querlinie der Gabel */
+.map .top::after{content:""; width:2px; height:.625rem; margin-top:.5rem; background:var(--line)}
+.wire{grid-column:1 / -1; width:100%; position:relative}
+.wire.fork{height:2rem}
+.wire.stem{height:1.75rem}
+/* Querlinie von Spaltenmitte zu Spaltenmitte (25 % / 75 %), dann mittig hinunter */
+.fork::before{content:""; position:absolute; left:25%; right:25%; top:0; height:2px; background:var(--line)}
+.wire::after{content:""; position:absolute; left:calc(50% - 1px); top:0; bottom:.375rem; width:2px; background:var(--line)}
+.wire i{position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:0; height:0;
+  border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid var(--line)}
+
 /* Sprache: nur die gewählte Sprache ist sichtbar */
 html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
 </style>
@@ -215,6 +234,35 @@ html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"]{display:none}
       <span data-lang="en">Dating with people you have actually crossed paths with. No swiping across town.</span>
     </p>
   </header>
+
+  <figure class="map">
+    <figcaption>
+      <span data-lang="de">Zwei Wege, Interesse zu zeigen. Von da an einer.</span>
+      <span data-lang="en">Two ways to show interest &ndash; and one path from there on.</span>
+    </figcaption>
+    <div class="map-grid">
+      <div class="node top r-light">
+        <span class="circle"><img src="assets/fire_template.png" alt=""></span>
+        <span class="lbl">Flirt</span>
+        <span class="hint"><span data-lang="de">direkt</span><span data-lang="en">direct</span></span>
+      </div>
+      <div class="node top r-lightest">
+        <span class="circle"><img src="assets/firework_template.png" alt=""></span>
+        <span class="lbl">Crush</span>
+        <span class="hint"><span data-lang="de">anonym</span><span data-lang="en">anonymous</span></span>
+      </div>
+      <div class="wire fork" aria-hidden="true"><i></i></div>
+      <div class="node one r-light">
+        <span class="circle"><img src="assets/have_met_template.png" alt=""></span>
+        <span class="lbl">Mini-Date</span>
+      </div>
+      <div class="wire stem" aria-hidden="true"><i></i></div>
+      <div class="node one r-mid">
+        <span class="circle"><img src="assets/second_date_template.png" alt=""></span>
+        <span class="lbl"><span data-lang="de">zweites Date</span><span data-lang="en">second date</span></span>
+      </div>
+    </div>
+  </figure>
 
   <ol class="steps">
     <li>
