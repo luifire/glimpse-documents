@@ -49,11 +49,6 @@ h1{margin:0;font-size:clamp(38px,11vw,52px);line-height:.98;font-weight:900;lett
 h1 em{font-style:normal;background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lede{margin:14px 0 0;font-size:16px;line-height:1.42;color:rgba(255,244,241,.86);text-wrap:pretty}
 .lede b{font-weight:700;color:var(--fg)}
-.ways{display:flex;flex-direction:column;gap:12px}
-.w{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border-radius:16px;border:1px solid var(--line);background:var(--card)}
-.w img{width:26px;height:26px;display:block;flex:none;margin-top:1px}
-.w .t{font-size:14px;line-height:1.35;color:var(--muted)}
-.w .t b{display:block;font-size:15px;font-weight:800;letter-spacing:-.02em;color:var(--fg);margin-bottom:2px}
 .card{border:1px solid var(--line);border-radius:18px;padding:18px;background:var(--card)}
 .card>.h{font-size:11px;color:var(--muted);display:block;margin-bottom:12px}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:60px;padding:16px 22px;border-radius:999px;border:0;
@@ -71,6 +66,16 @@ font:800 13px/1 Geist,sans-serif;background:var(--fg);color:var(--ink)}
 .note{display:flex;gap:9px;margin:0 0 14px;font-size:13.5px;line-height:1.38;color:var(--muted)}
 .note b{font-weight:800;color:var(--fg)}
 .note::before{content:"!";flex:none;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font:800 11px/1 Geist,sans-serif;background:var(--accent);color:var(--ink);margin-top:1px}
+/* Nur sichtbar, wenn iOS ohne Safari erkannt wurde, dort schluckt der Browser den TestFlight-Link. */
+.warn{display:none;flex-direction:column;gap:12px;margin:0 0 14px;padding:14px;border-radius:14px;border:1px solid rgba(255,109,158,.5);background:rgba(255,109,158,.12)}
+html[data-os=ios][data-browser=other] .warn{display:flex}
+.warn p{margin:0;font-size:14.5px;line-height:1.4;color:var(--fg)}
+.warn p b{font-weight:800}
+.warn .row{display:flex;flex-wrap:wrap;gap:8px}
+.warn .row>*{flex:1;min-width:148px;min-height:48px;padding:12px 16px;font-family:inherit;font-size:15px;cursor:pointer}
+.copy .ok{display:none}
+.copy.done .cp{display:none}
+.copy.done .ok{display:inline}
 .hint{margin:0 0 14px;font-size:15px;line-height:1.45;color:rgba(255,244,241,.88);text-wrap:pretty}
 .hint b{font-weight:800;color:var(--fg)}
 .qr{display:flex;align-items:center;gap:16px}
@@ -103,15 +108,16 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 <p class="lede"><span class="de">Glimpse macht für dich den ersten Schritt. <b>Den zweiten machst du.</b></span><span class="en">Glimpse makes the first move for you. <b>You make the second.</b></span></p>
 </div>
 
-<div class="ways">
-<div class="w"><img src="assets/fire_flame.png" alt=""><span class="t"><b>Flirt</b><span class="de">Du fragst direkt, ob du rüberkommen darfst. Oder du bittest die Person zu dir.</span><span class="en">You ask straight out if you can come over. Or you invite them over to you.</span></span></div>
-<div class="w"><img src="assets/firework_flame.png" alt=""><span class="t"><b>Crush</b><span class="de">Du fragst anonym. Passt es beidseitig, wisst ihr's beide.</span><span class="en">You ask anonymously. If you both say yes, you both find out.</span></span></div>
-</div>
-
 <div class="card p-ios">
 <span class="h mono"><span class="de">iPhone, offener Test im App Store</span><span class="en">iPhone, open test via the App Store</span></span>
 <p class="hint"><span class="de">Glimpse läuft auf dem iPhone gerade als <b>offener Test</b>. Du lädst dir dafür <b>TestFlight</b> aus dem App Store, das ist Apples offizielle App für Tests. Zwei Schritte, dann bist du drin.</span><span class="en">Glimpse is an <b>open test</b> on iPhone right now. You install <b>TestFlight</b> from the App Store, Apple's official app for tests. Two steps and you are in.</span></p>
-<p class="note"><span class="de">Öffne die Seite in <b>Safari</b>, sonst startet TestFlight nicht.</span><span class="en">Open this page in <b>Safari</b>, otherwise TestFlight will not start.</span></p>
+<div class="warn">
+<p><span class="de">Dieser Browser ist nicht <b>Safari</b>. Der Sprung zu TestFlight klappt hier meistens nicht, er endet stumm auf einer Apple Seite. Mach die Seite in Safari auf.</span><span class="en">This browser is not <b>Safari</b>. The jump to TestFlight usually fails here, it dead ends on an Apple page. Open this page in Safari.</span></p>
+<div class="row">
+<a class="btn to-safari" href="https://luifire.github.io/glimpse-documents/get/"><span class="de">In Safari öffnen</span><span class="en">Open in Safari</span></a>
+<button type="button" class="btn ghost copy"><span class="cp"><span class="de">Link kopieren</span><span class="en">Copy link</span></span><span class="ok"><span class="de">Kopiert</span><span class="en">Copied</span></span></button>
+</div>
+</div>
 <div class="steps">
 <div class="step"><a class="btn ghost" href="https://apps.apple.com/de/app/testflight/id899247664"><span class="de">TestFlight im App Store laden<small>Gratis, Apples App für offene Tests</small></span><span class="en">Get TestFlight from the App Store<small>Free, Apple's app for open tests</small></span></a></div>
 <div class="step"><a class="btn" href="https://testflight.apple.com/join/fv2p49fh"><span class="de">Glimpse in TestFlight öffnen</span><span class="en">Open Glimpse in TestFlight</span></a></div>
@@ -120,7 +126,6 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 
 <div class="card p-android">
 <span class="h mono"><span class="de">Android, Google Play</span><span class="en">Android, Google Play</span></span>
-<p class="note"><span class="de">Öffne die Seite in <b>Chrome</b>, sonst bricht der Weg zu Google Play ab.</span><span class="en">Open this page in <b>Chrome</b>, otherwise the route to Google Play breaks.</span></p>
 <a class="btn" href="https://play.google.com/store/apps/details?id=com.luifire.glimpse"><span class="de">Bei Google Play holen</span><span class="en">Get it on Google Play</span></a>
 </div>
 
@@ -148,6 +153,15 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 (()=>{const h=document.documentElement,q=new URLSearchParams(location.search);
 const ua=navigator.userAgent,ios=/iPad|iPhone|iPod/.test(ua)||(/Mac/.test(ua)&&navigator.maxTouchPoints>1),and=/Android/.test(ua);
 h.dataset.os=q.get('os')||(ios?'ios':and?'android':'other');
+/* Safari löst Universal Links auf, Fremdbrowser (CriOS und Co.) und In-App-Webviews meist nicht.
+   Echtes Safari trägt Version/ und Safari/ im UA, eine eingebettete WKWebView keins von beidem. */
+const safari=/Safari\//.test(ua)&&/Version\//.test(ua)&&!/CriOS|FxiOS|EdgiOS|OPiOS|DuckDuckGo|Brave/.test(ua);
+h.dataset.browser=q.get('browser')||(safari?'safari':'other');
+const sf=document.querySelector('.to-safari');if(sf)sf.href='x-safari-https://'+location.host+location.pathname;
+const cp=document.querySelector('.copy');
+if(cp)cp.addEventListener('click',async()=>{const u=location.origin+location.pathname;
+try{await navigator.clipboard.writeText(u)}catch(e){const t=document.createElement('textarea');t.value=u;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(e2){}t.remove()}
+cp.classList.add('done');setTimeout(()=>cp.classList.remove('done'),2400)});
 const setLang=l=>{h.dataset.lang=l;h.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===l));try{localStorage.setItem('glimpse-lang',l)}catch(e){}};
 let l=null;try{l=localStorage.getItem('glimpse-lang')}catch(e){}
 setLang(q.get('lang')||l||((navigator.language||'de').toLowerCase().startsWith('de')?'de':'en'));
