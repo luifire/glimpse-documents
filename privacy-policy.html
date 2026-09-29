@@ -44,7 +44,7 @@ document.documentElement.dataset.lang=p;document.documentElement.lang=p;})();
 <!-- ANBIETER-TODO: Name und c/o-Domiziladresse eintragen (auch in terms.html und imprint.html), PFLICHTANGABE, muss vor der Store-Einreichung wieder drinstehen -->
 <div class="l-en" lang="en">
 <h1>Privacy Policy</h1>
-<p><em>Last updated: 28 September 2026</em></p>
+<p><em>Last updated: 29 September 2026</em></p>
 <p>This policy applies to the Glimpse app on both Android and iOS. Where a detail is platform-specific, the platform is named explicitly.</p>
 <nav class="toc" aria-label="Contents">
 <p class="toc-t">Contents</p>
@@ -136,7 +136,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <p><strong>Legal basis:</strong> Compliance with a legal obligation and legitimate interests in protecting minors and age assurance (Art. 6(1)(c),(f) GDPR / Art. 13(1) DSG).</p>
 </blockquote>
 <h3>g) Chat Messages</h3>
-<p>After a match or an accepted Flirt you can exchange short messages (up to 100 characters) to find each other. The message text is delivered as a push notification: it passes through our server (Supabase), through Firebase Cloud Messaging (Google) and, if the other person uses an iPhone, through the Apple Push Notification Service. The visible notification only says that a message has arrived; the text itself is shown inside the app. The chat history is stored only on your devices. On the server a message is kept for up to 3 days after delivery, or up to 30 days if delivery permanently fails, and is then deleted automatically.</p>
+<p>After a match or an accepted Flirt you can exchange short messages (up to 100 characters) to find each other. The message text is delivered as a push notification: it passes through our server (Supabase), through Firebase Cloud Messaging (Google) and, if the other person uses an iPhone, through the Apple Push Notification Service. The visible notification only says that a message has arrived; the text itself is shown inside the app. The chat history is stored only on your devices. On the server a message is kept until the other person's app has received it, so that it is not lost when a notification does not get through, and for at most 30 days. The copy sent as the push notification is deleted 3 days after delivery, or after 30 days if delivery permanently fails. Both are deleted automatically.</p>
 <blockquote>
 <p><strong>Legal basis:</strong> Performance of contract (Art. 6(1)(b) GDPR / Art. 13(1) DSG).</p>
 </blockquote>
@@ -306,7 +306,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 </tr>
 <tr>
 <td>Push notifications and chat messages</td>
-<td>On the server up to 3 days after delivery, up to 30 days if delivery permanently fails. The chat history lives only on your devices.</td>
+<td>Push notifications: on the server up to 3 days after delivery, up to 30 days if delivery permanently fails. Chat messages: on the server until the recipient's app has received them, at most 30 days. The chat history lives only on your devices.</td>
 </tr>
 <tr>
 <td>Reports, suspension and photo review log</td>
@@ -336,7 +336,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 <li>Date of birth</li>
 <li>Profile photo</li>
 <li>Interaction history</li>
-<li>Chat messages (in transit only)</li>
+<li>Chat messages (held on the server only until the recipient's app has received them, at most 30 days)</li>
 <li>Push notification token (device identifier)</li>
 </ul>
 <p>Data is <strong>encrypted in transit</strong>, is <strong>not sold</strong>, and you can request its deletion (in-app or by email). BLE sighting data and the hashed device identifier used for the age declaration and for reinstall-proof suspensions are collected but are not shared externally in a form linked to your public identity. The app does <strong>not</strong> collect location data.</p>
@@ -349,7 +349,7 @@ Email: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</a
 </div>
 <div class="l-de" lang="de">
 <h1>Datenschutzerklärung</h1>
-<p><em>Zuletzt aktualisiert: 28. September 2026</em></p>
+<p><em>Zuletzt aktualisiert: 29. September 2026</em></p>
 <p>Diese Erklärung gilt für die App Glimpse auf Android und iOS. Wo ein Punkt nur eine Plattform betrifft, wird sie ausdrücklich genannt.</p>
 <nav class="toc" aria-label="Inhalt">
 <p class="toc-t">Inhalt</p>
@@ -441,7 +441,7 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <p><strong>Rechtsgrundlage:</strong> Erfüllung einer rechtlichen Verpflichtung sowie berechtigte Interessen am Schutz Minderjähriger und an der Alterssicherung (Art. 6 Abs. 1 lit. c, f DSGVO / Art. 13 Abs. 1 DSG).</p>
 </blockquote>
 <h3>g) Chat-Nachrichten</h3>
-<p>Nach einem Match oder einem angenommenen Flirt könnt ihr euch kurze Nachrichten (bis 100 Zeichen) schreiben, um euch zu finden. Der Nachrichtentext wird als Push-Benachrichtigung zugestellt: Er läuft über unseren Server (Supabase), über Firebase Cloud Messaging (Google) und, wenn die andere Person ein iPhone nutzt, über den Apple Push Notification Service. In der sichtbaren Benachrichtigung erscheint nur, dass eine Nachricht eingegangen ist; der Text selbst wird erst in der App angezeigt. Der Chatverlauf wird ausschliesslich auf euren Geräten gespeichert. Auf dem Server bleibt eine Nachricht bis zu 3 Tage nach der Zustellung, bei dauerhaft fehlgeschlagener Zustellung bis zu 30 Tage, und wird dann automatisch gelöscht.</p>
+<p>Nach einem Match oder einem angenommenen Flirt könnt ihr euch kurze Nachrichten (bis 100 Zeichen) schreiben, um euch zu finden. Der Nachrichtentext wird als Push-Benachrichtigung zugestellt: Er läuft über unseren Server (Supabase), über Firebase Cloud Messaging (Google) und, wenn die andere Person ein iPhone nutzt, über den Apple Push Notification Service. In der sichtbaren Benachrichtigung erscheint nur, dass eine Nachricht eingegangen ist; der Text selbst wird erst in der App angezeigt. Der Chatverlauf wird ausschliesslich auf euren Geräten gespeichert. Auf dem Server bleibt eine Nachricht, bis die App der anderen Person sie empfangen hat, damit sie nicht verloren geht, wenn eine Benachrichtigung nicht ankommt, und höchstens 30 Tage. Die als Push-Benachrichtigung verschickte Kopie wird 3 Tage nach der Zustellung gelöscht, bei dauerhaft fehlgeschlagener Zustellung nach 30 Tagen. Beides geschieht automatisch.</p>
 <blockquote>
 <p><strong>Rechtsgrundlage:</strong> Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO / Art. 13 Abs. 1 DSG).</p>
 </blockquote>
@@ -611,7 +611,7 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 </tr>
 <tr>
 <td>Push-Benachrichtigungen und Chat-Nachrichten</td>
-<td>Auf dem Server bis zu 3 Tage nach der Zustellung, bis zu 30 Tage bei dauerhaft fehlgeschlagener Zustellung. Der Chatverlauf liegt nur auf euren Geräten.</td>
+<td>Push-Benachrichtigungen: auf dem Server bis zu 3 Tage nach der Zustellung, bis zu 30 Tage bei dauerhaft fehlgeschlagener Zustellung. Chat-Nachrichten: auf dem Server, bis die App der empfangenden Person sie empfangen hat, höchstens 30 Tage. Der Chatverlauf liegt nur auf euren Geräten.</td>
 </tr>
 <tr>
 <td>Meldungen, Sperre und Sichtungsprotokoll</td>
@@ -641,7 +641,7 @@ E-Mail: <a href="mailto:feedback.glimpse@gmail.com">feedback.glimpse@gmail.com</
 <li>Geburtsdatum</li>
 <li>Profilbild</li>
 <li>Interaktionsverlauf</li>
-<li>Chat-Nachrichten (nur bei der Übermittlung)</li>
+<li>Chat-Nachrichten (auf dem Server nur, bis die App der empfangenden Person sie empfangen hat, höchstens 30 Tage)</li>
 <li>Push-Token (Gerätekennung)</li>
 </ul>
 <p>Die Daten sind <strong>bei der Übertragung verschlüsselt</strong>, werden <strong>nicht verkauft</strong>, und du kannst ihre Löschung verlangen, in der App oder per E-Mail. BLE-Erkennungsdaten und die für die Altersangabe und für neuinstallationsfeste Sperren verwendete gehashte Gerätekennung werden erhoben, aber nicht in einer mit deiner öffentlichen Identität verknüpften Form nach aussen gegeben. Die App erhebt <strong>keine</strong> Standortdaten.</p>
