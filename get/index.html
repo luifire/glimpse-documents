@@ -59,11 +59,6 @@ box-shadow:0 10px 28px rgba(255,109,158,.34)}
 .btn:active{transform:translateY(1px)}
 .btn.ghost{background:rgba(255,244,241,.05);color:var(--muted);border:1px solid rgba(255,244,241,.3);box-shadow:none;font-weight:700;min-height:52px;font-size:15.5px}
 .btn.ghost:hover{color:var(--ink);background:var(--cream);border-color:var(--cream);filter:none}
-.btn small{display:block;font-size:12.5px;font-weight:600;opacity:.68;letter-spacing:0;margin-top:3px}
-.steps{display:flex;flex-direction:column;gap:14px;counter-reset:s;margin-top:16px}
-.step{display:flex;align-items:center;gap:12px}
-.step::before{counter-increment:s;content:counter(s);flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
-font:800 13px/1 Geist,sans-serif;background:var(--fg);color:var(--ink)}
 /* Nur sichtbar im eingebauten Browser einer anderen App, dort verpufft der TestFlight-Link. */
 .warn{display:none;flex-direction:column;gap:12px;margin:0 0 18px;padding:16px;border-radius:14px;border:1px solid rgba(255,109,158,.5);background:rgba(255,109,158,.12)}
 html[data-os=ios][data-browser=webview] .warn{display:flex}
@@ -105,18 +100,15 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 
 <div class="card p-ios">
 <span class="h mono"><span class="de">iPhone, Early Access</span><span class="en">iPhone, early access</span></span>
-<p class="hint"><span class="de">Deinen Zugang zu Glimpse bekommst du über <b>TestFlight</b>, Apples offiziellen Weg für Early Access.</span><span class="en">You get your access to Glimpse through <b>TestFlight</b>, Apple's official route for early access.</span></p>
+<p class="hint"><span class="de">Deinen Zugang zu Glimpse bekommst du über <b>TestFlight</b>, Apples offiziellen Weg für Early Access. Die nächste Seite zeigt dir jeden Schritt.</span><span class="en">You get your access to Glimpse through <b>TestFlight</b>, Apple's official route for early access. The next page walks you through every step.</span></p>
 <div class="warn">
-<p><span class="de">Diese Seite läuft gerade im <b>eingebauten Browser einer anderen App</b>. Von hier aus startet TestFlight nicht, der zweite Schritt endet stumm auf einer Apple Seite. Öffne die Seite in Safari.</span><span class="en">This page is running in <b>another app's built in browser</b>. TestFlight will not start from here, the second step dead ends on an Apple page. Open the page in Safari.</span></p>
+<p><span class="de">Diese Seite läuft gerade im <b>eingebauten Browser einer anderen App</b>. Von hier aus startet TestFlight nicht, der Button endet stumm auf einer Apple Seite. Öffne die Seite in Safari.</span><span class="en">This page is running in <b>another app's built in browser</b>. TestFlight will not start from here, the button dead ends on an Apple page. Open the page in Safari.</span></p>
 <div class="row">
 <a class="btn to-safari" href="https://luifire.github.io/glimpse-documents/get/"><span class="de">In Safari öffnen</span><span class="en">Open in Safari</span></a>
 <button type="button" class="btn ghost copy"><span class="cp"><span class="de">Link kopieren</span><span class="en">Copy link</span></span><span class="ok"><span class="de">Kopiert</span><span class="en">Copied</span></span></button>
 </div>
 </div>
-<div class="steps">
-<div class="step"><a class="btn ghost" href="https://apps.apple.com/de/app/testflight/id899247664"><span class="de">TestFlight im App Store laden<small>Gratis, kommt direkt von Apple</small></span><span class="en">Get TestFlight from the App Store<small>Free, straight from Apple</small></span></a></div>
-<div class="step"><a class="btn" href="https://testflight.apple.com/join/fv2p49fh"><span class="de">Glimpse freischalten</span><span class="en">Unlock Glimpse</span></a></div>
-</div>
+<a class="btn" href="https://testflight.apple.com/join/fv2p49fh"><span class="de">Glimpse freischalten</span><span class="en">Unlock Glimpse</span></a>
 </div>
 
 <div class="card p-android">
