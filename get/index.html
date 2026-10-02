@@ -71,6 +71,15 @@ html[data-os=ios][data-browser=webview] .warn{display:flex}
 .copy.done .ok{display:inline}
 .hint{margin:0 0 14px;font-size:15px;line-height:1.45;color:rgba(255,244,241,.88);text-wrap:pretty}
 .hint b{font-weight:800;color:var(--fg)}
+.hint.lead{margin-bottom:18px;font-size:19px;line-height:1.3;font-weight:800;letter-spacing:-.015em;color:var(--fg)}
+/* Die zwei Buttons der Apple Seite, damit niemand direkt zu Schritt 2 scrollt. Im eingebauten Browser ausgeblendet, dort zählt erst Safari. */
+.step img{width:100%;height:auto;display:block;border-radius:14px;background:#fff}
+.step p{margin:10px 2px 0;font-size:14.5px;line-height:1.4;color:rgba(255,244,241,.88);text-wrap:pretty}
+.step p b{font-weight:800;color:var(--fg)}
+.btn.tf{flex-direction:column;gap:3px;margin:22px 0}
+.btn.tf small{font-size:13.5px;font-weight:700;letter-spacing:-.005em;opacity:.78}
+html[data-browser=webview] .step{display:none}
+html[data-browser=webview] .btn.tf{margin:0}
 .qr{display:flex;align-items:center;gap:16px}
 .qr .code{width:118px;height:118px;flex:none;background:var(--cream);border-radius:12px;padding:8px}
 .qr .code img{width:100%;height:100%;display:block}
@@ -100,7 +109,7 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 
 <div class="card p-ios">
 <span class="h mono"><span class="de">iPhone, Early Access</span><span class="en">iPhone, early access</span></span>
-<p class="hint"><span class="de">Deinen Zugang zu Glimpse bekommst du über <b>TestFlight</b>, Apples offiziellen Weg für Early Access. Die nächste Seite zeigt dir jeden Schritt.</span><span class="en">You get your access to Glimpse through <b>TestFlight</b>, Apple's official route for early access. The next page walks you through every step.</span></p>
+<p class="hint lead"><span class="de">Glimpse kommt über TestFlight, Apples offiziellen Weg für Early Access.</span><span class="en">Glimpse comes through TestFlight, Apple's official route for early access.</span></p>
 <div class="warn">
 <p><span class="de">Diese Seite läuft gerade im <b>eingebauten Browser einer anderen App</b>. Von hier aus startet TestFlight nicht, der Button endet stumm auf einer Apple Seite. Öffne die Seite in Safari.</span><span class="en">This page is running in <b>another app's built in browser</b>. TestFlight will not start from here, the button dead ends on an Apple page. Open the page in Safari.</span></p>
 <div class="row">
@@ -108,7 +117,9 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 <button type="button" class="btn ghost copy"><span class="cp"><span class="de">Link kopieren</span><span class="en">Copy link</span></span><span class="ok"><span class="de">Kopiert</span><span class="en">Copied</span></span></button>
 </div>
 </div>
-<a class="btn" href="https://testflight.apple.com/join/fv2p49fh">Get Glimpse</a>
+<div class="step"><img src="assets/testflight-step1.webp" width="720" height="1064" alt="Apple Seite, Step 1 Get TestFlight, Button View in App Store"><p><span class="de"><b>Zuerst</b> TestFlight laden. Nicht gleich zu Schritt 2 runterscrollen.</span><span class="en"><b>First</b> get TestFlight. Don't scroll straight down to step 2.</span></p></div>
+<a class="btn tf" href="https://testflight.apple.com/join/fv2p49fh">Get Glimpse<small><span class="de">Via Apples TestFlight</span><span class="en">Via Apple's TestFlight</span></small></a>
+<div class="step"><img src="assets/testflight-step2.webp" width="720" height="1143" alt="Apple Seite, Step 2 View Glimpse, Button View in TestFlight"><p><span class="de"><b>Danach</b> zeigt dir TestFlight Glimpse meist direkt an. Falls nicht: zurück zu Safari, runterscrollen, hier tippen.</span><span class="en"><b>Then</b> TestFlight usually shows you Glimpse right away. If not: back to Safari, scroll down, tap here.</span></p></div>
 </div>
 
 <div class="card p-android">
