@@ -65,27 +65,30 @@ html[data-os=ios][data-browser=webview] .warn{display:flex}
 .warn p{margin:0;font-size:14.5px;line-height:1.4;color:var(--fg)}
 .warn p b{font-weight:800}
 .warn .row{display:flex;flex-wrap:wrap;gap:8px}
-.warn .row>*{flex:1;min-width:148px;min-height:48px;padding:12px 16px;font-family:inherit;font-size:15px;cursor:pointer}
+.warn .row>*{flex:1;min-width:112px;min-height:48px;padding:12px 16px;font-family:inherit;font-size:15px;cursor:pointer}
 .copy .ok{display:none}
 .copy.done .cp{display:none}
 .copy.done .ok{display:inline}
 .hint{margin:0 0 14px;font-size:15px;line-height:1.45;color:rgba(255,244,241,.88);text-wrap:pretty}
 .hint b{font-weight:800;color:var(--fg)}
 .hint.lead{margin-bottom:18px;font-size:19px;line-height:1.3;font-weight:800;letter-spacing:-.015em;color:var(--fg)}
-/* Die zwei Buttons der Apple Seite, damit niemand direkt zu Schritt 2 scrollt. Im eingebauten Browser ausgeblendet, dort zählt erst Safari. */
-.step img{width:100%;height:auto;display:block;border-radius:14px;background:#fff}
-.step p{margin:10px 2px 0;font-size:14.5px;line-height:1.4;color:rgba(255,244,241,.88);text-wrap:pretty}
-.step p b{font-weight:800;color:var(--fg)}
-.btn.tf{flex-direction:column;gap:3px;margin:22px 0}
+/* Zwei nummerierte Buttons statt Apples Seite: 1 holt TestFlight aus dem App Store, 2 den Join Link. */
+.btn.tf{display:grid;grid-template-columns:38px 1fr;column-gap:14px;align-items:center;text-align:left;padding:14px 22px 14px 14px}
+.btn.tf .n{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:18px;letter-spacing:0}
+.btn.tf .t{display:flex;flex-direction:column;gap:2px}
 .btn.tf small{font-size:13.5px;font-weight:700;letter-spacing:-.005em;opacity:.78}
-.step.small{display:grid;grid-template-columns:44% 1fr;column-gap:14px;align-items:center}
-.step.small p{margin:0}
+.btn.tf+.btn.tf{margin-top:12px}
+.btn.tf.one{grid-template-columns:1fr;text-align:center;padding:14px 22px}
+.btn.tf.one .t{align-items:center}
+.note{margin:14px 2px 0;font-size:14.5px;line-height:1.4;color:rgba(255,244,241,.82);text-wrap:pretty}
+.note b{font-weight:800;color:var(--fg)}
+/* Nur im eingebauten Browser einer Android App. */
+.note.wv{display:none}
+html[data-os=android][data-browser=webview] .note.wv{display:block}
 /* iPhone: wer über Flyer oder Instagram kommt, kennt den Slogan schon. Platz für Schritt 1. */
 html[data-os=ios] .hero{margin-top:16px;margin-bottom:20px}
 html[data-os=ios] h1{font-size:clamp(28px,8vw,36px)}
 html[data-os=ios] .lede{display:none}
-html[data-browser=webview] .step{display:none}
-html[data-browser=webview] .btn.tf{margin:0}
 .qr{display:flex;align-items:center;gap:16px}
 .qr .code{width:118px;height:118px;flex:none;background:var(--cream);border-radius:12px;padding:8px}
 .qr .code img{width:100%;height:100%;display:block}
@@ -114,7 +117,7 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 </div>
 
 <div class="card p-ios">
-<p class="hint lead"><span class="de">Glimpse kommt über TestFlight, Apples offiziellen Weg für Early Access.</span><span class="en">Glimpse comes through TestFlight, Apple's official route for early access.</span></p>
+<p class="hint lead"><span class="de">Zwei Schritte, eine Minute.</span><span class="en">Two steps, one minute.</span></p>
 <div class="warn">
 <p><span class="de">Diese Seite läuft gerade im <b>eingebauten Browser einer anderen App</b>. Von hier aus startet TestFlight nicht, der Button endet stumm auf einer Apple Seite. Öffne die Seite in Safari.</span><span class="en">This page is running in <b>another app's built in browser</b>. TestFlight will not start from here, the button dead ends on an Apple page. Open the page in Safari.</span></p>
 <div class="row">
@@ -122,13 +125,15 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 <button type="button" class="btn ghost copy"><span class="cp"><span class="de">Link kopieren</span><span class="en">Copy link</span></span><span class="ok"><span class="de">Kopiert</span><span class="en">Copied</span></span></button>
 </div>
 </div>
-<div class="step"><img src="assets/testflight-step1.webp" width="720" height="1064" alt="Apple Seite, Step 1 Get TestFlight, Button View in App Store"><p><span class="de"><b>Zuerst</b> TestFlight laden, dann Schritt 2.</span><span class="en"><b>First</b> get TestFlight, then step 2.</span></p></div>
-<a class="btn tf" href="https://testflight.apple.com/join/fv2p49fh">Get Glimpse<small><span class="de">Via Apples TestFlight</span><span class="en">Via Apple's TestFlight</span></small></a>
-<div class="step small"><img src="assets/testflight-step2.webp" width="720" height="1143" alt="Apple Seite, Step 2 View Glimpse, Button View in TestFlight"><p><span class="de"><b>Danach</b> zeigt TestFlight dir Glimpse meist direkt. Sonst: zurück, runterscrollen, hier tippen.</span><span class="en"><b>Then</b> TestFlight usually shows you Glimpse right away. If not: go back, scroll down, tap here.</span></p></div>
+<a class="btn tf" href="https://apps.apple.com/app/testflight/id899247664"><span class="n">1</span><span class="t"><span class="de">TestFlight laden</span><span class="en">Get TestFlight</span><small><span class="de">Gratis im App Store</span><span class="en">Free on the App Store</span></small></span></a>
+<a class="btn tf" href="https://testflight.apple.com/join/fv2p49fh"><span class="n">2</span><span class="t"><span class="de">Glimpse holen</span><span class="en">Get Glimpse</span><small><span class="de">Öffnet TestFlight, kein Code nötig</span><span class="en">Opens TestFlight, no code needed</span></small></span></a>
+<p class="note"><span class="de">Nach Schritt 1 <b>zurück hierher</b> und 2 tippen. In TestFlight dann auf Installieren.</span><span class="en">After step 1 <b>come back here</b> and tap 2. Then tap Install in TestFlight.</span></p>
 </div>
 
 <div class="card p-android">
-<a class="btn" href="https://play.google.com/store/apps/details?id=com.luifire.glimpse">Get Glimpse</a>
+<a class="btn tf one" href="https://play.google.com/store/apps/details?id=com.luifire.glimpse"><span class="t">Get Glimpse<small><span class="de">Gratis bei Google Play</span><span class="en">Free on Google Play</span></small></span></a>
+<p class="note"><span class="de">Beim Start fragt Glimpse nach <b>Bluetooth</b> und <b>Geräten in der Nähe</b>. Beides erlauben, sonst sieht dich niemand.</span><span class="en">On first launch Glimpse asks for <b>Bluetooth</b> and <b>nearby devices</b>. Allow both, otherwise nobody can see you.</span></p>
+<p class="note wv"><span class="de">Öffnet sich Google Play nicht? Oben rechts auf <b>&#8942;</b> tippen und <b>Im Browser öffnen</b> wählen.</span><span class="en">Google Play does not open? Tap <b>&#8942;</b> top right and choose <b>Open in browser</b>.</span></p>
 </div>
 
 <div class="card p-desk">
@@ -161,7 +166,9 @@ h.dataset.os=q.get('os')||(ios?'ios':and?'android':'other');
    Apps, die trotzdem wie ein Browser aussehen. */
 const app=/CriOS|FxiOS|EdgiOS|OPiOS|DuckDuckGo|Brave|YaBrowser|Vivaldi/.test(ua)||(/Version\//.test(ua)&&/Safari\//.test(ua));
 const webview=!app||/FBAN|FBAV|FBIOS|Instagram|LinkedInApp|Snapchat|MicroMessenger|BytedanceWebview|musical_ly|Twitter|Pinterest|GSA\//.test(ua);
-h.dataset.browser=q.get('browser')||(ios&&webview?'webview':'ok');
+/* Android: der System WebView nennt sich "; wv)", dazu die Apps, die sich im UA verraten. */
+const andwv=/; wv\)/.test(ua)||/Instagram|FBAN|FBAV|musical_ly|BytedanceWebview|TikTok|Snapchat/.test(ua);
+h.dataset.browser=q.get('browser')||((ios&&webview)||(and&&andwv)?'webview':'ok');
 const sf=document.querySelector('.to-safari');if(sf)sf.href='x-safari-https://'+location.host+location.pathname;
 const cp=document.querySelector('.copy');
 if(cp)cp.addEventListener('click',async()=>{const u=location.origin+location.pathname;
