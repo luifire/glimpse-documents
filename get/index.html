@@ -59,7 +59,8 @@ box-shadow:0 10px 28px rgba(255,109,158,.34)}
 .btn:active{transform:translateY(1px)}
 .btn.ghost{background:rgba(255,244,241,.05);color:var(--muted);border:1px solid rgba(255,244,241,.3);box-shadow:none;font-weight:700;min-height:52px;font-size:15.5px}
 .btn.ghost:hover{color:var(--ink);background:var(--cream);border-color:var(--cream);filter:none}
-/* Nur sichtbar im eingebauten Browser einer anderen App, dort verpufft der TestFlight-Link. */
+/* Nur sichtbar im eingebauten Browser einer anderen App, dort verpufft der TestFlight-Link. Instagram
+   blockiert auch x-safari-https, am Gerät geprüft. Bleibt nur das Menü der App und der kopierte Link. */
 .warn{display:none;flex-direction:column;gap:12px;margin:0 0 18px;padding:16px;border-radius:14px;border:1px solid rgba(255,109,158,.5);background:rgba(255,109,158,.12)}
 html[data-os=ios][data-browser=webview] .warn{display:flex}
 .warn p{margin:0;font-size:14.5px;line-height:1.4;color:var(--fg)}
@@ -120,10 +121,9 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 <div class="card p-ios">
 <p class="hint lead"><span class="de">Zwei Schritte, eine Minute, gratis.</span><span class="en">Two steps, one minute, free.</span></p>
 <div class="warn">
-<p><span class="de">Diese Seite läuft gerade im <b>eingebauten Browser einer anderen App</b>. Von hier aus startet TestFlight nicht, der Button endet stumm auf einer Apple Seite. Öffne die Seite in Safari.</span><span class="en">This page is running in <b>another app's built in browser</b>. TestFlight will not start from here, the button dead ends on an Apple page. Open the page in Safari.</span></p>
+<p><span class="de">Du bist im Browser von Instagram oder einer anderen App. Von hier startet TestFlight nicht. Tippe auf <b>&#8943;</b> und wähle <b>Im Browser öffnen</b>, dann geht es in Safari weiter.</span><span class="en">You are in the browser of Instagram or another app. TestFlight will not start from here. Tap <b>&#8943;</b> and choose <b>Open in browser</b>, then carry on in Safari.</span></p>
 <div class="row">
-<a class="btn to-safari" href="https://luifire.github.io/glimpse-documents/get/"><span class="de">In Safari öffnen</span><span class="en">Open in Safari</span></a>
-<button type="button" class="btn ghost copy"><span class="cp"><span class="de">Link kopieren</span><span class="en">Copy link</span></span><span class="ok"><span class="de">Kopiert</span><span class="en">Copied</span></span></button>
+<button type="button" class="btn ghost copy"><span class="cp"><span class="de">Oder Link kopieren und in Safari öffnen</span><span class="en">Or copy the link and open it in Safari</span></span><span class="ok"><span class="de">Kopiert</span><span class="en">Copied</span></span></button>
 </div>
 </div>
 <a class="btn tf" href="https://apps.apple.com/app/testflight/id899247664"><span class="n">1</span><span class="t"><span class="de">TestFlight laden</span><span class="en">Get TestFlight</span><small><span class="de">Apples offizielle Beta App</span><span class="en">Apple's official beta app</span></small></span></a>
@@ -170,7 +170,6 @@ const webview=!app||/FBAN|FBAV|FBIOS|Instagram|LinkedInApp|Snapchat|MicroMesseng
 /* Android: der System WebView nennt sich "; wv)", dazu die Apps, die sich im UA verraten. */
 const andwv=/; wv\)/.test(ua)||/Instagram|FBAN|FBAV|musical_ly|BytedanceWebview|TikTok|Snapchat/.test(ua);
 h.dataset.browser=q.get('browser')||((ios&&webview)||(and&&andwv)?'webview':'ok');
-const sf=document.querySelector('.to-safari');if(sf)sf.href='x-safari-https://'+location.host+location.pathname;
 const cp=document.querySelector('.copy');
 if(cp)cp.addEventListener('click',async()=>{const u=location.origin+location.pathname;
 try{await navigator.clipboard.writeText(u)}catch(e){const t=document.createElement('textarea');t.value=u;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(e2){}t.remove()}
