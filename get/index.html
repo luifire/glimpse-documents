@@ -73,14 +73,14 @@ background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
 .hint{margin:0 0 14px;font-size:15px;line-height:1.45;color:rgba(255,244,241,.88);text-wrap:pretty}
 .hint b{font-weight:800;color:var(--fg)}
 .hint.lead{margin-bottom:18px;font-size:19px;line-height:1.3;font-weight:800;letter-spacing:-.015em;color:var(--fg)}
-/* Zwei nummerierte Buttons statt Apples Seite: 1 holt TestFlight aus dem App Store, 2 den Join Link. */
+/* Drei Schritte: 1 holt TestFlight aus dem App Store, 2 ist der Weg zurück in den Browser, 3 der Join Link. */
 .btn.tf{display:grid;grid-template-columns:34px 1fr 28px;column-gap:10px;align-items:center;text-align:left;padding:14px 12px}
 .btn.tf .n{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:18px;letter-spacing:0}
 .btn.tf .t{display:flex;flex-direction:column;gap:2px}
 .btn.tf small{font-size:13.5px;font-weight:700;letter-spacing:-.005em;opacity:.78}
 .btn.tf+.btn.tf{margin-top:12px}
-/* iPhone in zwei Zuständen. Ohne data-step leuchtet nur Button 1, Button 2 wartet gestrichelt.
-   Mit data-step="2" (TestFlight geholt, jünger als 24 h) klappt 1 zu einer Zeile, 2 wird der Hauptbutton. */
+/* iPhone in zwei Zuständen. Ohne data-step leuchtet nur Button 1, Button 3 wartet gestrichelt.
+   Mit data-step="2" (TestFlight geholt) klappen 1 und 2 zu erledigten Zeilen, 3 wird der Hauptbutton. */
 html:not([data-step="2"]) .p-ios .s2,html[data-step="2"] .p-ios .s1{display:none}
 .btn.tf.two{background:transparent;border:2px dashed rgba(255,244,241,.36);color:var(--fg);box-shadow:none}
 .btn.tf.two::after{content:none}
@@ -97,37 +97,24 @@ html[data-step="2"] .btn.tf.two .go{background:rgba(20,10,12,.16)}
 html[data-step="2"] .btn.tf.two small{font-weight:700;opacity:.78}
 html[data-step="2"] .btn.tf.two:hover{color:var(--ink);filter:brightness(1.06)}
 html[data-step="2"] .btn.tf.two:active{box-shadow:inset 0 2px 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(20,10,12,.24),0 4px 12px rgba(255,109,158,.3),0 0 0 6px rgba(255,109,158,.18)}
-/* Zurück aus dem App Store: Skizze der Statusleiste, oben links "◀ Safari" mit pinkem Ring. Nur HTML/CSS.
-   Wer TestFlight im App Store öffnet, sieht dort "◀ App Store" statt des Browsers, darum "nicht öffnen". */
-.back{margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:16px;background:rgba(255,244,241,.04)}
-/* Ausschnitt der App-Store-Seite, wie man sie nach dem Laden sieht: oben links der Weg zurück
-   (pink umrandet, "hier tippen"), darunter "Öffnen" durchgestrichen. Kein Original-Icon, nur ein blaues Feld. */
-.sk{display:flex;flex-direction:column;gap:12px;margin-bottom:12px;padding:10px 12px 14px;border-radius:12px;background:#fff;color:#111;box-shadow:0 6px 16px rgba(0,0,0,.28);font-family:-apple-system,system-ui,sans-serif;letter-spacing:0}
-.sk .top,.sk .row,.sk .opr{display:flex;align-items:center}
-.sk .top{gap:10px}
-.sk .sb{padding:4px 8px;border-radius:999px;font-weight:600;font-size:13px;line-height:1;color:#007AFF;white-space:nowrap;box-shadow:0 0 0 2px var(--flame-light);animation:ring 2.4s ease-in-out infinite}
-.sk .tag{font:800 12.5px/1.15 Geist,system-ui,sans-serif;letter-spacing:-.005em;color:#D63A72;white-space:nowrap}
-.sk .row{gap:12px}
-.sk .ic{flex:none;width:54px;height:54px;border-radius:13px;background:linear-gradient(160deg,#6CCBFF,#0A6CFF)}
-.sk .nm{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
-.sk .nm b{font-size:16px;font-weight:700;line-height:1;color:#111;white-space:normal}
-.sk .opr{gap:16px}
-.sk .op{position:relative;padding:6px 15px;border-radius:999px;background:#0A84FF;opacity:.85;color:#fff;font-size:13px;font-weight:700;line-height:1}
-.sk .op .x{position:absolute;top:-9px;right:-10px;width:22px;height:22px;border-radius:50%;background:var(--flame-light);box-shadow:0 0 0 2px #fff}
-.sk .op .x::before,.sk .op .x::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2.5px;border-radius:2px;background:#fff}
-.sk .op .x::before{transform:translate(-50%,-50%) rotate(45deg)}
-.sk .op .x::after{transform:translate(-50%,-50%) rotate(-45deg)}
-@keyframes ring{0%,100%{box-shadow:0 0 0 2px var(--flame-light)}50%{box-shadow:0 0 0 2px var(--flame-light),0 0 0 6px rgba(255,109,158,.3)}}
-.back p{margin:0;font-size:14.5px;line-height:1.4;color:rgba(255,244,241,.88);text-wrap:pretty}
-.back b{font-weight:800;color:var(--fg);white-space:nowrap}
-/* Schritt 1 erledigt: eine gedämpfte Zeile, rechts der Weg zurück, falls es doch nicht geklappt hat. */
-.done{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+/* Schritt 2 ist kein Button: zurück in den Browser kann die Seite niemanden schicken, das macht
+   iOS oben links mit "◀ Safari". Darum nur Nummer und Text, ohne Knopfform. */
+.step{display:grid;grid-template-columns:34px 1fr;column-gap:10px;align-items:center;margin:12px 0;padding:4px 12px}
+.step .n{width:34px;height:34px;border-radius:50%;background:rgba(255,244,241,.12);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900}
+.step .t{display:flex;flex-direction:column;gap:2px;font-size:19px;font-weight:900;letter-spacing:-.025em}
+.step small{font-size:13.5px;font-weight:600;letter-spacing:-.005em;color:var(--muted)}
+.step b{font-weight:800;color:var(--fg);white-space:nowrap}
+/* Schritte 1 und 2 erledigt: gedämpfte Zeilen, bei 1 rechts der Weg zurück, falls es doch nicht geklappt hat. */
+.dones{margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.done{display:flex;align-items:center;gap:10px;min-height:44px;padding-bottom:4px}
 .done .ck{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(255,244,241,.1);color:var(--flame-light);display:flex;align-items:center;justify-content:center}
 .done .ck svg{width:18px;height:18px;display:block}
 .done .dt{font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--muted)}
 .done .redo{margin-left:auto;min-height:44px;display:flex;align-items:center;padding:0 2px 0 6px;white-space:nowrap;font-size:14px;font-weight:700;color:var(--muted);text-decoration:underline;text-decoration-color:rgba(255,244,241,.35);text-underline-offset:3px}
 .done .redo:hover{color:var(--fg)}
-@media (prefers-reduced-motion:reduce){.sk .sb{animation:none}}
+/* Browsername: bekannt aus dem UA oder neutral "Browser" (data-bn=x), DE braucht dann "zum". */
+.bn-x,html[data-bn=x] .bn-k{display:none}
+html[data-bn=x] .bn-x{display:inline}
 .btn.tf.one{grid-template-columns:28px 1fr 28px;text-align:center;padding:14px 12px}
 .btn.tf.one::before{content:""}
 .btn.tf.one .t{align-items:center}
@@ -188,14 +175,16 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 </div>
 
 <div class="card p-ios">
-<p class="hint lead s1"><span class="de">Zwei Schritte, eine Minute, gratis.</span><span class="en">Two steps, one minute, free.</span></p>
-<a class="btn tf s1" id="tf-get" href="https://apps.apple.com/app/testflight/id899247664"><span class="n">1</span><span class="t"><span class="de">TestFlight laden</span><span class="en">Get TestFlight</span><small><span class="de">Apples App für Early Access</span><span class="en">Apple’s app for early access</span></small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
-<div class="back s1"><div class="sk" aria-hidden="true"><div class="top"><span class="sb">&#9664;&#xFE0E; <span class="bn">Safari</span></span><span class="tag"><span class="de">&larr; hier tippen</span><span class="en">&larr; tap here</span></span></div><div class="row"><span class="ic"></span><span class="nm"><b>TestFlight</b><span class="opr"><span class="op"><span class="de">Öffnen</span><span class="en">Open</span><span class="x"></span></span><span class="tag"><span class="de">nicht öffnen</span><span class="en">don’t open</span></span></span></span></div></div>
-<p><span class="de">Nach dem Laden <b>nicht öffnen</b>. Oben links auf <b>&#9664;&#xFE0E; <span class="bn">Safari</span></b> tippen, dann geht es hier weiter.</span><span class="en">Once installed, <b>don’t open it</b>. Tap <b>&#9664;&#xFE0E; <span class="bn">Safari</span></b> in the top left, then continue here.</span></p></div>
-<div class="done s2"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="dt"><span class="de">TestFlight geladen</span><span class="en">TestFlight installed</span></span><a class="redo" id="tf-redo" href="https://apps.apple.com/app/testflight/id899247664"><span class="de">noch nicht?</span><span class="en">not yet?</span></a></div>
+<p class="hint lead s1"><span class="de">Drei Schritte, eine Minute, gratis.</span><span class="en">Three steps, one minute, free.</span></p>
+<a class="btn tf s1" id="tf-get" href="https://apps.apple.com/app/testflight/id899247664"><span class="n">1</span><span class="t"><span class="de">TestFlight installieren</span><span class="en">Install TestFlight</span><small><span class="de">Apples App für Early Access</span><span class="en">Apple’s app for early access</span></small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
+<div class="step s1"><span class="n">2</span><span class="t"><span class="de">Zurück <span class="bn-k">zu <span class="bn">Safari</span></span><span class="bn-x">zum Browser</span></span><span class="en">Back <span class="bn-k">to <span class="bn">Safari</span></span><span class="bn-x">to your browser</span></span><small><span class="de">Nach dem Laden oben links auf <b>&#9664;&#xFE0E; <span class="bn-k"><span class="bn">Safari</span></span><span class="bn-x">Browser</span></b> tippen</span><span class="en">Once installed, tap <b>&#9664;&#xFE0E; <span class="bn-k"><span class="bn">Safari</span></span><span class="bn-x">Browser</span></b> in the top left</span></small></span></div>
+<div class="dones s2">
+<div class="done"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="dt"><span class="de">TestFlight installiert</span><span class="en">TestFlight installed</span></span><a class="redo" id="tf-redo" href="https://apps.apple.com/app/testflight/id899247664"><span class="de">noch nicht?</span><span class="en">not yet?</span></a></div>
+<div class="done"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="dt"><span class="de">Zurück <span class="bn-k">zu <span class="bn">Safari</span></span><span class="bn-x">zum Browser</span></span><span class="en">Back <span class="bn-k">to <span class="bn">Safari</span></span><span class="bn-x">to your browser</span></span></span></div>
+</div>
 <p class="hint lead s2"><span class="de">Jetzt Glimpse holen.</span><span class="en">Now get Glimpse.</span></p>
-<a class="btn tf two" href="https://testflight.apple.com/join/fv2p49fh"><span class="n">2</span><span class="t">Get Glimpse<small><span class="s1"><span class="de">kommt nach Schritt 1</span><span class="en">after step 1</span></span><span class="s2"><span class="de">öffnet TestFlight</span><span class="en">opens TestFlight</span></span></small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
-<p class="note s2"><span class="de">TestFlight zeigt beim ersten Öffnen eine leere Liste. Das ist normal, einfach hier auf 2 tippen.</span><span class="en">TestFlight shows an empty list the first time. That’s normal, just tap 2 here.</span></p>
+<a class="btn tf two" href="https://testflight.apple.com/join/fv2p49fh"><span class="n">3</span><span class="t"><span class="de">Glimpse installieren</span><span class="en">Install Glimpse</span><small><span class="s1"><span class="de">kommt nach Schritt 2</span><span class="en">after step 2</span></span><span class="s2"><span class="de">öffnet TestFlight</span><span class="en">opens TestFlight</span></span></small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
+<p class="note s2"><span class="de">TestFlight zeigt beim ersten Öffnen eine leere Liste. Das ist normal, einfach hier auf 3 tippen.</span><span class="en">TestFlight shows an empty list the first time. That’s normal, just tap 3 here.</span></p>
 </div>
 
 <div class="card p-android">
@@ -237,9 +226,9 @@ const webview=!app||/FBAN|FBAV|FBIOS|Instagram|LinkedInApp|Snapchat|MicroMesseng
 /* Android: der System WebView nennt sich "; wv)", dazu die Apps, die sich im UA verraten. */
 const andwv=/; wv\)/.test(ua)||/Instagram|FBAN|FBAV|musical_ly|BytedanceWebview|TikTok|Snapchat/.test(ua);
 h.dataset.browser=q.get('browser')||((ios&&webview)||(and&&andwv)?'webview':'ok');
-/* iOS schreibt oben links den Namen der App, aus der man kam. Den Browser aus dem UA lesen, sonst Safari. */
-const bn=/CriOS/.test(ua)?'Chrome':/FxiOS/.test(ua)?'Firefox':/EdgiOS/.test(ua)?'Edge':/OPiOS|OPT\//.test(ua)?'Opera':/DuckDuckGo/.test(ua)?'DuckDuckGo':/YaBrowser/.test(ua)?'Yandex':'Safari';
-document.querySelectorAll('.bn').forEach(e=>{e.textContent=bn});
+/* iOS schreibt oben links den Namen der App, aus der man kam. Den Browser aus dem UA lesen, unbekannt heißt neutral »Browser«. */
+const bn=/CriOS/.test(ua)?'Chrome':/FxiOS/.test(ua)?'Firefox':/EdgiOS/.test(ua)?'Edge':/OPiOS|OPT\//.test(ua)?'Opera':/DuckDuckGo/.test(ua)?'DuckDuckGo':/YaBrowser/.test(ua)?'Yandex':/Version\//.test(ua)&&/Safari\//.test(ua)?'Safari':'';
+if(bn)document.querySelectorAll('.bn').forEach(e=>{e.textContent=bn});else h.dataset.bn='x';
 const setLang=l=>{h.dataset.lang=l;h.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===l));try{localStorage.setItem('glimpse-lang',l)}catch(e){}};
 let l=null;try{l=localStorage.getItem('glimpse-lang')}catch(e){}
 setLang(q.get('lang')||l||((navigator.language||'de').toLowerCase().startsWith('de')?'de':'en'));
