@@ -79,23 +79,10 @@ background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
 .btn.tf .t{display:flex;flex-direction:column;gap:2px}
 .btn.tf small{font-size:13.5px;font-weight:700;letter-spacing:-.005em;opacity:.78}
 .btn.tf+.btn.tf{margin-top:12px}
-/* iPhone in zwei Zuständen. Ohne data-step leuchtet nur Button 1, Button 3 wartet gestrichelt.
-   Mit data-step="2" (TestFlight geholt) klappen 1 und 2 zu erledigten Zeilen, 3 wird der Hauptbutton. */
+/* iPhone in zwei Zuständen. Ohne data-step stehen 1, 2 und 3 untereinander, 1 und 3 als gleiche Buttons.
+   Mit data-step="2" (TestFlight geholt) klappen 1 und 2 zu erledigten Zeilen, 3 bekommt einen Ring. */
 html:not([data-step="2"]) .p-ios .s2,html[data-step="2"] .p-ios .s1{display:none}
-.btn.tf.two{background:transparent;border:2px dashed rgba(255,244,241,.36);color:var(--fg);box-shadow:none}
-.btn.tf.two::after{content:none}
-.btn.tf.two .n{background:rgba(255,244,241,.12)}
-.btn.tf.two .go{background:rgba(255,244,241,.1)}
-.btn.tf.two small{font-weight:600;opacity:.72}
-.btn.tf.two:hover{color:var(--fg);filter:none;border-color:rgba(255,244,241,.6)}
-.btn.tf.two:active{box-shadow:none}
-html[data-step="2"] .btn.tf.two{background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));border:0;color:var(--ink);
-box-shadow:inset 0 2px 0 rgba(255,255,255,.4),inset 0 -4px 0 rgba(20,10,12,.24),0 10px 28px rgba(255,109,158,.34),0 0 0 6px rgba(255,109,158,.18)}
-html[data-step="2"] .btn.tf.two::after{content:""}
-html[data-step="2"] .btn.tf.two .n{background:var(--ink)}
-html[data-step="2"] .btn.tf.two .go{background:rgba(20,10,12,.16)}
-html[data-step="2"] .btn.tf.two small{font-weight:700;opacity:.78}
-html[data-step="2"] .btn.tf.two:hover{color:var(--ink);filter:brightness(1.06)}
+html[data-step="2"] .btn.tf.two{box-shadow:inset 0 2px 0 rgba(255,255,255,.4),inset 0 -4px 0 rgba(20,10,12,.24),0 10px 28px rgba(255,109,158,.34),0 0 0 6px rgba(255,109,158,.18)}
 html[data-step="2"] .btn.tf.two:active{box-shadow:inset 0 2px 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(20,10,12,.24),0 4px 12px rgba(255,109,158,.3),0 0 0 6px rgba(255,109,158,.18)}
 /* Schritt 2 ist kein Button: zurück in den Browser kann die Seite niemanden schicken, das macht
    iOS oben links mit "◀ Safari". Er trägt trotzdem den Verlauf der Buttons, damit man ihn sofort
