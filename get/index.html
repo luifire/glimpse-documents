@@ -233,18 +233,18 @@ let l=null;try{l=localStorage.getItem('glimpse-lang')}catch(e){}
 setLang(q.get('lang')||l||((navigator.language||'de').toLowerCase().startsWith('de')?'de':'en'));
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.set)));
 /* Schritt merken: wer TestFlight holt, landet im App Store und kommt über "◀ Safari" zurück. Safari
-   zeigt die Seite dann oft aus dem bfcache oder hat sie nie verlassen, ein load kommt nicht. Darum
-   wird bei pageshow und beim Sichtbarwerden neu geprüft. ?step=1|2 überschreibt das zum Testen. */
-const KEY='glimpse-tf-step',DAY=864e5;
-const step=()=>{const s=q.get('step');if(s==='1'||s==='2')return s;
-let v=null;try{v=JSON.parse(localStorage.getItem(KEY))}catch(e){}
-const age=v&&v.step===2?Date.now()-v.at:-1;return age>=0&&age<DAY?'2':'1'};
+   hat die Seite dann nie verlassen oder zeigt sie aus dem bfcache, der Zustand im Speicher der Seite
+   ist also noch da. Bewusst nichts im Browser gespeichert (kein localStorage, kein Cookie): lädt die
+   Seite neu, steht wieder Schritt 1 da, Button 2 funktioniert trotzdem. Geprüft wird bei pageshow und
+   beim Sichtbarwerden. ?step=1|2 überschreibt das zum Testen. */
+let got=false;
+const step=()=>{const s=q.get('step');return s==='1'||s==='2'?s:got?'2':'1'};
 const apply=()=>{if(step()==='2')h.dataset.step='2';else delete h.dataset.step};
 apply();
 addEventListener('pageshow',apply);
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')apply()});
-document.getElementById('tf-get').addEventListener('click',()=>{try{localStorage.setItem(KEY,JSON.stringify({step:2,at:Date.now()}))}catch(e){}});
-document.getElementById('tf-redo').addEventListener('click',()=>{try{localStorage.removeItem(KEY)}catch(e){}delete h.dataset.step});
+document.getElementById('tf-get').addEventListener('click',()=>{got=true});
+document.getElementById('tf-redo').addEventListener('click',()=>{got=false;delete h.dataset.step});
 /* Link kopieren für den In-App-Browser. Die Clipboard API fehlt dort oft oder wird abgelehnt,
    dann über ein verstecktes Feld und execCommand. Test-Parameter kommen nicht mit. */
 const copy=document.querySelector('.wvb .copy');
