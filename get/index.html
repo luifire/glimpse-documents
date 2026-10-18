@@ -98,15 +98,13 @@ html[data-step="2"] .btn.tf.two small{font-weight:700;opacity:.78}
 html[data-step="2"] .btn.tf.two:hover{color:var(--ink);filter:brightness(1.06)}
 html[data-step="2"] .btn.tf.two:active{box-shadow:inset 0 2px 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(20,10,12,.24),0 4px 12px rgba(255,109,158,.3),0 0 0 6px rgba(255,109,158,.18)}
 /* Schritt 2 ist kein Button: zurück in den Browser kann die Seite niemanden schicken, das macht
-   iOS oben links mit "◀ Safari". Trotzdem muss man ihn sofort lesen, darum ein pinker Rahmen mit
-   pulsierendem Ring, aber eckiger als die Pillen, damit niemand darauf tippt. */
-.step{display:grid;grid-template-columns:34px 1fr;column-gap:10px;align-items:center;margin:12px 0;padding:12px;border:2px solid var(--flame-light);border-radius:16px;background:rgba(255,109,158,.12);animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,109,158,0)}50%{box-shadow:0 0 0 6px rgba(255,109,158,.18)}}
-@media (prefers-reduced-motion:reduce){.step{animation:none}}
-.step .n{width:34px;height:34px;border-radius:50%;background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900}
-.step .t{display:flex;flex-direction:column;gap:2px;font-size:19px;font-weight:900;letter-spacing:-.025em}
-.step small{font-size:13.5px;font-weight:600;letter-spacing:-.005em;color:rgba(255,244,241,.86)}
-.step b{font-weight:800;color:var(--fg);white-space:nowrap}
+   iOS oben links mit "◀ Safari". Er trägt trotzdem den Verlauf der Buttons, damit man ihn sofort
+   liest, aber flach: kein Lichtstreif, keine Kante zum Draufdrücken, rechts das Zurück-Dreieck. */
+.btn.step{cursor:default;box-shadow:none;margin:12px 0}
+.btn.step::after{content:none}
+.btn.step:hover,.btn.step:active{filter:none;transform:none;box-shadow:none}
+.btn.step .go{font-size:13px;line-height:1;padding-right:2px}
+.btn.step b{font-weight:900;white-space:nowrap}
 /* Schritte 1 und 2 erledigt: gedämpfte Zeilen, bei 1 rechts der Weg zurück, falls es doch nicht geklappt hat. */
 .dones{margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
 .done{display:flex;align-items:center;gap:10px;min-height:44px;padding-bottom:4px}
@@ -180,7 +178,7 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 <div class="card p-ios">
 <p class="hint lead s1"><span class="de">3 Schritte, 1 Minute, 0 Kosten.</span><span class="en">3 steps, 1 minute, 0 cost.</span></p>
 <a class="btn tf s1" id="tf-get" href="https://apps.apple.com/app/testflight/id899247664"><span class="n">1</span><span class="t"><span class="de">TestFlight installieren</span><span class="en">Install TestFlight</span><small><span class="de">Apples App für Early Access</span><span class="en">Apple’s app for early access</span></small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
-<div class="step s1"><span class="n">2</span><span class="t"><span class="de">Geh zurück <span class="bn-k">zu <span class="bn">Safari</span></span><span class="bn-x">zum Browser</span>!</span><span class="en">Go back <span class="bn-k">to <span class="bn">Safari</span></span><span class="bn-x">to your browser</span>!</span><small><span class="de">Nach dem Laden oben links auf <b>&#9664;&#xFE0E; <span class="bn-k"><span class="bn">Safari</span></span><span class="bn-x">Browser</span></b> tippen</span><span class="en">Once installed, tap <b>&#9664;&#xFE0E; <span class="bn-k"><span class="bn">Safari</span></span><span class="bn-x">Browser</span></b> in the top left</span></small></span></div>
+<div class="btn tf step s1"><span class="n">2</span><span class="t"><span class="de">Geh zurück <span class="bn-k">zu <span class="bn">Safari</span></span><span class="bn-x">zum Browser</span>!</span><span class="en">Go back <span class="bn-k">to <span class="bn">Safari</span></span><span class="bn-x">to your browser</span>!</span><small><span class="de">Nach dem Laden oben links auf <b>&#9664;&#xFE0E; <span class="bn-k"><span class="bn">Safari</span></span><span class="bn-x">Browser</span></b> tippen</span><span class="en">Once installed, tap <b>&#9664;&#xFE0E; <span class="bn-k"><span class="bn">Safari</span></span><span class="bn-x">Browser</span></b> in the top left</span></small></span><span class="go" aria-hidden="true">&#9664;&#xFE0E;</span></div>
 <div class="dones s2">
 <div class="done"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="dt"><span class="de">TestFlight installiert</span><span class="en">TestFlight installed</span></span><a class="redo" id="tf-redo" href="https://apps.apple.com/app/testflight/id899247664"><span class="de">noch nicht?</span><span class="en">not yet?</span></a></div>
 <div class="done"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="dt"><span class="de">Zurück <span class="bn-k">zu <span class="bn">Safari</span></span><span class="bn-x">zum Browser</span></span><span class="en">Back <span class="bn-k">to <span class="bn">Safari</span></span><span class="bn-x">to your browser</span></span></span></div>
