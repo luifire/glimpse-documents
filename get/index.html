@@ -99,11 +99,24 @@ html[data-step="2"] .btn.tf.two:hover{color:var(--ink);filter:brightness(1.06)}
 html[data-step="2"] .btn.tf.two:active{box-shadow:inset 0 2px 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(20,10,12,.24),0 4px 12px rgba(255,109,158,.3),0 0 0 6px rgba(255,109,158,.18)}
 /* Zurück aus dem App Store: Skizze der Statusleiste, oben links "◀ Safari" mit pinkem Ring. Nur HTML/CSS.
    Wer TestFlight im App Store öffnet, sieht dort "◀ App Store" statt des Browsers, darum "nicht öffnen". */
-.back{display:flex;align-items:center;gap:14px;margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:16px;background:rgba(255,244,241,.04)}
-.sk{flex:none;width:96px;height:66px;padding:8px;border-radius:11px;background:var(--cream);display:flex;flex-direction:column;gap:7px;box-shadow:0 6px 16px rgba(0,0,0,.28)}
-.sk .sb{align-self:flex-start;padding:3px 6px;border-radius:999px;font:600 11px/1 -apple-system,system-ui,sans-serif;letter-spacing:0;color:#007AFF;white-space:nowrap;box-shadow:0 0 0 2px var(--flame-light);animation:ring 2.4s ease-in-out infinite}
-.sk .ln{display:block;height:6px;border-radius:3px;background:rgba(20,10,12,.12)}
-.sk .ln+.ln{width:62%}
+.back{margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:16px;background:rgba(255,244,241,.04)}
+/* Ausschnitt der App-Store-Seite, wie man sie nach dem Laden sieht: oben links der Weg zurück
+   (pink umrandet, "hier tippen"), darunter "Öffnen" durchgestrichen. Kein Original-Icon, nur ein blaues Feld. */
+.sk{display:flex;flex-direction:column;gap:12px;margin-bottom:12px;padding:10px 12px 14px;border-radius:12px;background:#fff;color:#111;box-shadow:0 6px 16px rgba(0,0,0,.28);font-family:-apple-system,system-ui,sans-serif;letter-spacing:0}
+.sk .top,.sk .row,.sk .opr{display:flex;align-items:center}
+.sk .top{gap:10px}
+.sk .sb{padding:4px 8px;border-radius:999px;font-weight:600;font-size:13px;line-height:1;color:#007AFF;white-space:nowrap;box-shadow:0 0 0 2px var(--flame-light);animation:ring 2.4s ease-in-out infinite}
+.sk .tag{font:800 12.5px/1.15 Geist,system-ui,sans-serif;letter-spacing:-.005em;color:#D63A72;white-space:nowrap}
+.sk .row{gap:12px}
+.sk .ic{flex:none;width:54px;height:54px;border-radius:13px;background:linear-gradient(160deg,#6CCBFF,#0A6CFF)}
+.sk .nm{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.sk .nm b{font-size:16px;font-weight:700;line-height:1;color:#111;white-space:normal}
+.sk .opr{gap:16px}
+.sk .op{position:relative;padding:6px 15px;border-radius:999px;background:#0A84FF;opacity:.85;color:#fff;font-size:13px;font-weight:700;line-height:1}
+.sk .op .x{position:absolute;top:-9px;right:-10px;width:22px;height:22px;border-radius:50%;background:var(--flame-light);box-shadow:0 0 0 2px #fff}
+.sk .op .x::before,.sk .op .x::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2.5px;border-radius:2px;background:#fff}
+.sk .op .x::before{transform:translate(-50%,-50%) rotate(45deg)}
+.sk .op .x::after{transform:translate(-50%,-50%) rotate(-45deg)}
 @keyframes ring{0%,100%{box-shadow:0 0 0 2px var(--flame-light)}50%{box-shadow:0 0 0 2px var(--flame-light),0 0 0 6px rgba(255,109,158,.3)}}
 .back p{margin:0;font-size:14.5px;line-height:1.4;color:rgba(255,244,241,.88);text-wrap:pretty}
 .back b{font-weight:800;color:var(--fg);white-space:nowrap}
@@ -178,7 +191,7 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 <div class="card p-ios">
 <p class="hint lead s1"><span class="de">Zwei Schritte, eine Minute, gratis.</span><span class="en">Two steps, one minute, free.</span></p>
 <a class="btn tf s1" id="tf-get" href="https://apps.apple.com/app/testflight/id899247664"><span class="n">1</span><span class="t"><span class="de">TestFlight laden</span><span class="en">Get TestFlight</span><small><span class="de">Apples App für Early Access</span><span class="en">Apple’s app for early access</span></small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
-<div class="back s1"><span class="sk" aria-hidden="true"><span class="sb">&#9664;&#xFE0E; <span class="bn">Safari</span></span><span class="ln"></span><span class="ln"></span></span>
+<div class="back s1"><div class="sk" aria-hidden="true"><div class="top"><span class="sb">&#9664;&#xFE0E; <span class="bn">Safari</span></span><span class="tag"><span class="de">&larr; hier tippen</span><span class="en">&larr; tap here</span></span></div><div class="row"><span class="ic"></span><span class="nm"><b>TestFlight</b><span class="opr"><span class="op"><span class="de">Öffnen</span><span class="en">Open</span><span class="x"></span></span><span class="tag"><span class="de">nicht öffnen</span><span class="en">don’t open</span></span></span></span></div></div>
 <p><span class="de">Nach dem Laden <b>nicht öffnen</b>. Oben links auf <b>&#9664;&#xFE0E; <span class="bn">Safari</span></b> tippen, dann geht es hier weiter.</span><span class="en">Once installed, <b>don’t open it</b>. Tap <b>&#9664;&#xFE0E; <span class="bn">Safari</span></b> in the top left, then continue here.</span><small><span class="de">Schon in TestFlight? Einfach zurück zu <span class="bn">Safari</span> wechseln.</span><span class="en">Already in TestFlight? Just switch back to <span class="bn">Safari</span>.</span></small></p></div>
 <div class="done s2"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="dt"><span class="de">TestFlight geladen</span><span class="en">TestFlight installed</span></span><a class="redo" id="tf-redo" href="https://apps.apple.com/app/testflight/id899247664"><span class="de">noch nicht?</span><span class="en">not yet?</span></a></div>
 <p class="hint lead s2"><span class="de">Jetzt Glimpse holen.</span><span class="en">Now get Glimpse.</span></p>
