@@ -64,7 +64,6 @@ transition:transform .12s ease,box-shadow .12s ease,filter .12s ease;-webkit-tap
 .btn:focus-visible{outline:3px solid var(--cream);outline-offset:3px}
 .btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;pointer-events:none;
 background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:shine 4.2s ease-in-out 1.2s infinite}
-.btn+.between+.btn::after{animation-delay:1.6s}
 @keyframes shine{0%{left:-60%}28%,100%{left:130%}}
 .btn .go{width:28px;height:28px;border-radius:50%;background:rgba(20,10,12,.16);display:flex;align-items:center;justify-content:center;justify-self:end}
 .btn .go svg{width:16px;height:16px;display:block}
@@ -80,7 +79,41 @@ background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
 .btn.tf .t{display:flex;flex-direction:column;gap:2px}
 .btn.tf small{font-size:13.5px;font-weight:700;letter-spacing:-.005em;opacity:.78}
 .btn.tf+.btn.tf{margin-top:12px}
-.between{margin:10px 0;text-align:center;font-size:14px;font-weight:700;letter-spacing:-.01em;color:var(--fg)}
+/* iPhone in zwei Zuständen. Ohne data-step leuchtet nur Button 1, Button 2 wartet gestrichelt.
+   Mit data-step="2" (TestFlight geholt, jünger als 24 h) klappt 1 zu einer Zeile, 2 wird der Hauptbutton. */
+html:not([data-step="2"]) .p-ios .s2,html[data-step="2"] .p-ios .s1{display:none}
+.btn.tf.two{background:transparent;border:2px dashed rgba(255,244,241,.36);color:var(--fg);box-shadow:none}
+.btn.tf.two::after{content:none}
+.btn.tf.two .n{background:rgba(255,244,241,.12)}
+.btn.tf.two .go{background:rgba(255,244,241,.1)}
+.btn.tf.two small{font-weight:600;opacity:.72}
+.btn.tf.two:hover{color:var(--fg);filter:none;border-color:rgba(255,244,241,.6)}
+.btn.tf.two:active{box-shadow:none}
+html[data-step="2"] .btn.tf.two{background:linear-gradient(96deg,var(--flame-light),var(--flame-mid));border:0;color:var(--ink);
+box-shadow:inset 0 2px 0 rgba(255,255,255,.4),inset 0 -4px 0 rgba(20,10,12,.24),0 10px 28px rgba(255,109,158,.34),0 0 0 6px rgba(255,109,158,.18)}
+html[data-step="2"] .btn.tf.two::after{content:""}
+html[data-step="2"] .btn.tf.two .n{background:var(--ink)}
+html[data-step="2"] .btn.tf.two .go{background:rgba(20,10,12,.16)}
+html[data-step="2"] .btn.tf.two small{font-weight:700;opacity:.78}
+html[data-step="2"] .btn.tf.two:hover{color:var(--ink);filter:brightness(1.06)}
+html[data-step="2"] .btn.tf.two:active{box-shadow:inset 0 2px 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(20,10,12,.24),0 4px 12px rgba(255,109,158,.3),0 0 0 6px rgba(255,109,158,.18)}
+/* Zurück aus dem App Store: Skizze der Statusleiste, oben links "◀ Safari" mit pinkem Ring. Nur HTML/CSS. */
+.back{display:flex;align-items:center;gap:14px;margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:16px;background:rgba(255,244,241,.04)}
+.sk{flex:none;width:96px;height:66px;padding:8px;border-radius:11px;background:var(--cream);display:flex;flex-direction:column;gap:7px;box-shadow:0 6px 16px rgba(0,0,0,.28)}
+.sk .sb{align-self:flex-start;padding:3px 6px;border-radius:999px;font:600 11px/1 -apple-system,system-ui,sans-serif;letter-spacing:0;color:#007AFF;white-space:nowrap;box-shadow:0 0 0 2px var(--flame-light);animation:ring 2.4s ease-in-out infinite}
+.sk .ln{display:block;height:6px;border-radius:3px;background:rgba(20,10,12,.12)}
+.sk .ln+.ln{width:62%}
+@keyframes ring{0%,100%{box-shadow:0 0 0 2px var(--flame-light)}50%{box-shadow:0 0 0 2px var(--flame-light),0 0 0 6px rgba(255,109,158,.3)}}
+.back p{margin:0;font-size:14.5px;line-height:1.4;color:rgba(255,244,241,.88);text-wrap:pretty}
+.back b{font-weight:800;color:var(--fg);white-space:nowrap}
+/* Schritt 1 erledigt: eine gedämpfte Zeile, rechts der Weg zurück, falls es doch nicht geklappt hat. */
+.done{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.done .ck{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(255,244,241,.1);color:var(--flame-light);display:flex;align-items:center;justify-content:center}
+.done .ck svg{width:18px;height:18px;display:block}
+.done .dt{font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--muted)}
+.done .redo{margin-left:auto;min-height:44px;display:flex;align-items:center;padding:0 2px 0 6px;white-space:nowrap;font-size:14px;font-weight:700;color:var(--muted);text-decoration:underline;text-decoration-color:rgba(255,244,241,.35);text-underline-offset:3px}
+.done .redo:hover{color:var(--fg)}
+@media (prefers-reduced-motion:reduce){.sk .sb{animation:none}}
 .btn.tf.one{grid-template-columns:28px 1fr 28px;text-align:center;padding:14px 12px}
 .btn.tf.one::before{content:""}
 .btn.tf.one .t{align-items:center}
@@ -90,6 +123,19 @@ background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
    ans System weiter, am Gerät geprüft. Die Zeile ist der Ausweg für Apps, die das nicht tun. */
 .note.wv{display:none}
 html[data-browser=webview] .note.wv{display:block}
+/* iPhone im In-App-Browser: dort scheitert die Installation, darum vor allem anderen der Weg nach Safari. */
+.wvb{display:none;margin-top:18px;padding:16px;border-radius:16px;background:var(--cream);color:var(--ink)}
+html[data-os=ios][data-browser=webview] .wvb{display:block}
+.wvb .wt{margin:0;font-size:18px;line-height:1.2;font-weight:900;letter-spacing:-.02em}
+.wvb p{margin:6px 0 0;font-size:14.5px;line-height:1.4;text-wrap:pretty}
+.wvb b{font-weight:800}
+.wvb .copy{margin-top:12px;min-height:44px;padding:0 18px;border:0;border-radius:999px;background:var(--ink);color:var(--cream);font:700 15px/1 Geist,system-ui,sans-serif;letter-spacing:-.01em;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.wvb .copy:focus-visible{outline:3px solid var(--flame-light);outline-offset:3px}
+.wvb .copy .c1,.wvb .copy.ok .c0{display:none}
+.wvb .copy.ok .c1{display:inline}
+/* Headline "Fast geschafft." nur auf dem iPhone in Schritt 2. */
+.h-s2,html[data-os=ios][data-step="2"] .h-def{display:none}
+html[data-os=ios][data-step="2"] .h-s2{display:inline}
 /* iPhone: wer über Flyer oder Instagram kommt, kennt den Slogan schon. Platz für Schritt 1. */
 html[data-os=ios] .hero{margin-top:16px;margin-bottom:20px}
 html[data-os=ios] h1{font-size:clamp(28px,8vw,36px)}
@@ -116,17 +162,26 @@ html[data-os=ios] .also .a-ios,html[data-os=android] .also .a-android,html[data-
 <div class="bar"><a class="home" href="../index.html"><img src="assets/glimpse-logo.png" alt="Glimpse"><span class="wm">Glimpse</span><span class="sep">&bull;</span><span class="tg">Dates 2 Go</span></a>
 <div class="lang"><button type="button" data-set="de" aria-pressed="true">DE</button><button type="button" data-set="en" aria-pressed="false">EN</button></div></div>
 
+<div class="wvb">
+<p class="wt"><span class="de">Erst in Safari öffnen</span><span class="en">Open in Safari first</span></p>
+<p><span class="de">Hier klappt die Installation nicht. Tippe oben rechts auf <b>&bull;&bull;&bull;</b> und dann auf <b>Im Browser öffnen</b>.</span><span class="en">Installing doesn’t work in here. Tap <b>&bull;&bull;&bull;</b> in the top right, then <b>Open in browser</b>.</span></p>
+<button type="button" class="copy" aria-live="polite"><span class="c0"><span class="de">Link kopieren</span><span class="en">Copy link</span></span><span class="c1"><span class="de">Kopiert</span><span class="en">Copied</span></span></button>
+</div>
+
 <div class="hero">
-<h1><span class="de">Flirte in echt, <em>nicht auf der Couch.</em></span><span class="en">Flirt for real, <em>not on the couch.</em></span></h1>
+<h1><span class="h-def"><span class="de">Flirte in echt, <em>nicht auf der Couch.</em></span><span class="en">Flirt for real, <em>not on the couch.</em></span></span><span class="h-s2"><span class="de">Fast <em>geschafft.</em></span><span class="en">Almost <em>there.</em></span></span></h1>
 <p class="lede"><span class="de">Glimpse macht für dich den ersten Schritt. <b>Den zweiten machst du.</b></span><span class="en">Glimpse makes the first move for you. <b>You make the second.</b></span></p>
 </div>
 
 <div class="card p-ios">
-<p class="hint lead"><span class="de">Zwei Schritte, eine Minute, gratis.</span><span class="en">Two steps, one minute, free.</span></p>
-<a class="btn tf" href="https://apps.apple.com/app/testflight/id899247664"><span class="n">1</span><span class="t"><span class="de">TestFlight laden</span><span class="en">Get TestFlight</span><small><span class="de">Apples App für Early Access</span><span class="en">Apple's app for early access</span></small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
-<p class="between"><span class="de">Dann zurück hierher</span><span class="en">Then come back here</span></p>
-<a class="btn tf" href="https://testflight.apple.com/join/fv2p49fh"><span class="n">2</span><span class="t">Get Glimpse<small>Download via TestFlight</small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
-<p class="note wv"><span class="de">Öffnet sich nichts? Tippe auf <b>&#8943;</b> und wähle <b>Im Browser öffnen</b>.</span><span class="en">Nothing opens? Tap <b>&#8943;</b> and choose <b>Open in browser</b>.</span></p>
+<p class="hint lead s1"><span class="de">Zwei Schritte, eine Minute, gratis.</span><span class="en">Two steps, one minute, free.</span></p>
+<a class="btn tf s1" id="tf-get" href="https://apps.apple.com/app/testflight/id899247664"><span class="n">1</span><span class="t"><span class="de">TestFlight laden</span><span class="en">Get TestFlight</span><small><span class="de">Apples App für Early Access</span><span class="en">Apple’s app for early access</span></small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
+<div class="back s1"><span class="sk" aria-hidden="true"><span class="sb">&#9664;&#xFE0E; Safari</span><span class="ln"></span><span class="ln"></span></span>
+<p><span class="de">Fertig geladen? Oben links auf <b>&#9664;&#xFE0E; Safari</b> tippen. Dann geht es hier weiter.</span><span class="en">Done? Tap <b>&#9664;&#xFE0E; Safari</b> in the top left. Then continue here.</span></p></div>
+<div class="done s2"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="dt"><span class="de">TestFlight geladen</span><span class="en">TestFlight installed</span></span><a class="redo" id="tf-redo" href="https://apps.apple.com/app/testflight/id899247664"><span class="de">noch nicht?</span><span class="en">not yet?</span></a></div>
+<p class="hint lead s2"><span class="de">Jetzt Glimpse holen.</span><span class="en">Now get Glimpse.</span></p>
+<a class="btn tf two" href="https://testflight.apple.com/join/fv2p49fh"><span class="n">2</span><span class="t">Get Glimpse<small><span class="s1"><span class="de">kommt nach Schritt 1</span><span class="en">after step 1</span></span><span class="s2"><span class="de">öffnet TestFlight</span><span class="en">opens TestFlight</span></span></small></span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></span></a>
+<p class="note s2"><span class="de">TestFlight zeigt beim ersten Öffnen eine leere Liste. Das ist normal, einfach hier auf 2 tippen.</span><span class="en">TestFlight shows an empty list the first time. That’s normal, just tap 2 here.</span></p>
 </div>
 
 <div class="card p-android">
@@ -171,6 +226,31 @@ h.dataset.browser=q.get('browser')||((ios&&webview)||(and&&andwv)?'webview':'ok'
 const setLang=l=>{h.dataset.lang=l;h.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===l));try{localStorage.setItem('glimpse-lang',l)}catch(e){}};
 let l=null;try{l=localStorage.getItem('glimpse-lang')}catch(e){}
 setLang(q.get('lang')||l||((navigator.language||'de').toLowerCase().startsWith('de')?'de':'en'));
-document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.set)));})();
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.set)));
+/* Schritt merken: wer TestFlight holt, landet im App Store und kommt über "◀ Safari" zurück. Safari
+   zeigt die Seite dann oft aus dem bfcache oder hat sie nie verlassen, ein load kommt nicht. Darum
+   wird bei pageshow und beim Sichtbarwerden neu geprüft. ?step=1|2 überschreibt das zum Testen. */
+const KEY='glimpse-tf-step',DAY=864e5;
+const step=()=>{const s=q.get('step');if(s==='1'||s==='2')return s;
+let v=null;try{v=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+const age=v&&v.step===2?Date.now()-v.at:-1;return age>=0&&age<DAY?'2':'1'};
+const apply=()=>{if(step()==='2')h.dataset.step='2';else delete h.dataset.step};
+apply();
+addEventListener('pageshow',apply);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')apply()});
+document.getElementById('tf-get').addEventListener('click',()=>{try{localStorage.setItem(KEY,JSON.stringify({step:2,at:Date.now()}))}catch(e){}});
+document.getElementById('tf-redo').addEventListener('click',()=>{try{localStorage.removeItem(KEY)}catch(e){}delete h.dataset.step});
+/* Link kopieren für den In-App-Browser. Die Clipboard API fehlt dort oft oder wird abgelehnt,
+   dann über ein verstecktes Feld und execCommand. Test-Parameter kommen nicht mit. */
+const copy=document.querySelector('.wvb .copy');
+const link=()=>{const u=new URL(location.href);['os','browser','step'].forEach(k=>u.searchParams.delete(k));u.hash='';return u.href};
+const legacy=t=>{const i=document.createElement('input');i.value=t;i.setAttribute('aria-hidden','true');i.tabIndex=-1;
+i.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;font-size:16px;border:0;padding:0';
+document.body.appendChild(i);i.focus();i.select();i.setSelectionRange(0,t.length);
+let ok=false;try{ok=document.execCommand('copy')}catch(e){}i.remove();copy.focus();return ok};
+let timer=0;const copied=()=>{copy.classList.add('ok');clearTimeout(timer);timer=setTimeout(()=>copy.classList.remove('ok'),2000)};
+copy.addEventListener('click',()=>{const t=link();
+const fall=()=>{if(legacy(t))copied()};
+if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(copied,fall);else fall()});})();
 </script>
 </body></html>
