@@ -80,6 +80,8 @@ background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
 .btn.tf .t{display:flex;flex-direction:column;gap:2px}
 .btn.tf small{font-size:13.5px;font-weight:700;letter-spacing:-.005em;opacity:.78}
 .btn.tf+.btn.tf{margin-top:12px}
+/* Vor 3 steht die (versteckte) Erledigt-Liste, darum greift das + dort nicht. */
+.btn.tf.two{margin-top:12px}
 /* iPhone in zwei Zuständen. Ohne data-step leuchten 1 und 2, Button 3 wartet gestrichelt.
    Mit data-step="2" (TestFlight geholt) klappen 1 und 2 zu erledigten Zeilen, 3 sieht dann aus wie 1. */
 html:not([data-step="2"]) .p-ios .s2,html[data-step="2"] .p-ios .s1{display:none}
